@@ -1,0 +1,13 @@
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+  background-repeat: repeat;
+}
+
+.box {
+  background-color: grey;
+}
