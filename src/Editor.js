@@ -22,6 +22,27 @@ export default class Editor extends Component {
     borderRadius: "10px",
     boxShadow: "1px 3px 1px #afafaf",
   };
+
+  updateSliderHeightValue = (value) => {
+    this.setState({ height: value });
+  };
+
+  updateSliderWidthValue = (value) => {
+    this.setState({ width: value });
+  };
+
+  updateSliderDepthValue = (value) => {
+    this.setState({ depth: value });
+  };
+
+  updateSliderXValue = (value) => {
+    this.setState({ X: value });
+  };
+
+  updateSliderYValue = (value) => {
+    this.setState({ Y: value });
+  };
+
   render() {
     return (
       <div
@@ -44,23 +65,43 @@ export default class Editor extends Component {
 
           <div style={this.commonStyle}>
             Height:
-            <SliderComponent />
+            <SliderComponent
+              onValueChange={this.updateSliderHeightValue}
+              name={"height"}
+              value={this.state.height}
+            />
           </div>
           <div style={this.commonStyle}>
-            Weight:
-            <SliderComponent />
+            Width:
+            <SliderComponent
+              onValueChange={this.updateSliderWidthValue}
+              name={"width"}
+              value={this.state.width}
+            />
           </div>
           <div style={this.commonStyle}>
             Depth:
-            <SliderComponent />
+            <SliderComponent
+              onValueChange={this.updateSliderDepthValue}
+              name={"depth"}
+              value={this.state.depth}
+            />
           </div>
           <div style={this.commonStyle}>
             X:
-            <SliderComponent />
+            <SliderComponent
+              onValueChange={this.updateSliderXValue}
+              name={"x"}
+              value={this.state.X}
+            />
           </div>
           <div style={this.commonStyle}>
             Y:
-            <SliderComponent />
+            <SliderComponent
+              onValueChange={this.updateSliderYValue}
+              name={"y"}
+              value={this.state.Y}
+            />
           </div>
         </div>
       </div>

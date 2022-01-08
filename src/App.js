@@ -24,6 +24,7 @@ export default class app extends Component {
       y: 0,
     };
   }
+
   render() {
     return (
       <div>
@@ -43,7 +44,7 @@ export default class app extends Component {
                 height: "400px",
               }}
             >
-              <Rnd bounds="window" style={{ zIndex: 0 }}>
+              <Rnd onDragStop={} bounds="window" style={{ zIndex: 0 }}>
                 <img
                   src={require("./layers/ball/red eye ball_sr.png")}
                   alt="x"

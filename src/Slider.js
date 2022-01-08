@@ -9,13 +9,15 @@ export default class SliderComponent extends React.Component {
     };
   }
 
-  changeVolume = (event, newValue) => {
+  changeValue = (event, newValue) => {
+    this.props.onValueChange(newValue);
     this.setState({ currentSlide: newValue });
+    //console.log(`${this.props.name} is: `, this.props.value);
   };
 
   render() {
     return (
-      <Slider value={this.state.currentSlide} onChange={this.changeVolume} />
+      <Slider value={this.state.currentSlide} onChange={this.changeValue} />
     );
   }
 }
