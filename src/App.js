@@ -29,9 +29,17 @@ export default class app extends Component {
     return (
       <div>
         <div
-          style={{ width: "25%", float: "left", backgroundColor: "grey" }}
-        ></div>
-        <div style={{ width: "50%", float: "left" }}>
+          style={{
+            width: "10%",
+            float: "left",
+            backgroundColor: "#cdcdcd",
+            height: "100vh",
+            padding: "5px",
+          }}
+        >
+          Hello World
+        </div>
+        <div style={{ width: "70%", float: "left", height: "100vh" }}>
           <GridLines
             className="grid-area"
             cellWidth={60}
@@ -44,7 +52,7 @@ export default class app extends Component {
                 height: "400px",
               }}
             >
-              <Rnd onDragStop={} bounds="window" style={{ zIndex: 0 }}>
+              <Rnd bounds="window" style={{ zIndex: 0 }}>
                 <img
                   src={require("./layers/ball/red eye ball_sr.png")}
                   alt="x"
@@ -63,7 +71,7 @@ export default class app extends Component {
             </div>
           </GridLines>
         </div>
-        <div style={{ width: "25%", float: "right" }}>
+        <div style={{ width: "20%", float: "right" }}>
           <Editor />
         </div>
       </div>
