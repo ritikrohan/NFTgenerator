@@ -1,14 +1,15 @@
 import React from "react";
-import SliderComponent from "./Slider";
+import { SliderComponent } from "./Slider";
+import { ObjectContext, ObjectSelection } from "./App";
 
 export const Editor = () => {
-  const state = {
-    height: 10,
-    width: 10,
-    depth: 0,
-    x: 0,
-    y: 0,
-  };
+  // eslint-disable-next-line no-undef
+  const { objects, dispatch1 } = React.useContext(ObjectContext);
+  const { selection, dispatch2 } = React.useContext(ObjectSelection);
+
+  console.log("objects here are : ", objects);
+
+  console.log("Current selection : ", selection);
 
   const commonStyle = {
     margin: "20px",
@@ -19,23 +20,23 @@ export const Editor = () => {
   };
 
   const updateSliderHeightValue = (value) => {
-    // this.setState({ height: value });
+    // this.setobjects({ height: value });
   };
 
   const updateSliderWidthValue = (value) => {
-    // this.setState({ width: value });
+    // this.setobjects({ width: value });
   };
 
   const updateSliderDepthValue = (value) => {
-    // this.setState({ depth: value });
+    // this.setobjects({ depth: value });
   };
 
   const updateSliderXValue = (value) => {
-    // this.setState({ X: value });
+    // this.setobjects({ X: value });
   };
 
   const updateSliderYValue = (value) => {
-    // this.setState({ Y: value });
+    // this.setobjects({ Y: value });
   };
 
   return (
@@ -62,7 +63,7 @@ export const Editor = () => {
           <SliderComponent
             onValueChange={updateSliderHeightValue}
             name={"height"}
-            value={state.height}
+            value={objects.height}
           />
         </div>
         <div style={commonStyle}>
@@ -70,7 +71,7 @@ export const Editor = () => {
           <SliderComponent
             onValueChange={updateSliderWidthValue}
             name={"width"}
-            value={state.width}
+            value={objects.width}
           />
         </div>
         <div style={commonStyle}>
@@ -78,7 +79,7 @@ export const Editor = () => {
           <SliderComponent
             onValueChange={updateSliderDepthValue}
             name={"depth"}
-            value={state.depth}
+            value={objects.depth}
           />
         </div>
         <div style={commonStyle}>
@@ -86,7 +87,7 @@ export const Editor = () => {
           <SliderComponent
             onValueChange={updateSliderXValue}
             name={"x"}
-            value={state.X}
+            value={objects.X}
           />
         </div>
         <div style={commonStyle}>
@@ -94,7 +95,7 @@ export const Editor = () => {
           <SliderComponent
             onValueChange={updateSliderYValue}
             name={"y"}
-            value={state.Y}
+            value={objects.Y}
           />
         </div>
       </div>

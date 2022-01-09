@@ -1,4 +1,4 @@
-const objectReducer = (state, action) => {
+export const objectReducer = (state, action) => {
   switch (action.type) {
     case "update":
       const newState = [...state];
@@ -10,4 +10,14 @@ const objectReducer = (state, action) => {
   }
 };
 
-export default objectReducer;
+export const selectionReducer = (state, action) => {
+  switch (action.type) {
+    case "update":
+      const newState = state;
+      const { name } = action;
+      newState.name = name;
+      return newState;
+    default:
+      return state;
+  }
+};

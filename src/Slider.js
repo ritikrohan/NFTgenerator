@@ -1,22 +1,17 @@
 import React from "react";
 import Slider from "@material-ui/core/Slider";
+import { useState } from "react";
+import { ObjectContext, ObjectSelection } from "./App";
 
-export default class SliderComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      currentSlide: 50,
-    };
-  }
+export const SliderComponent = (props) => {
+  const [currentSlide, setCurrentSlide] = useState(50);
+  const { objects, dispatch1 } = React.useContext(ObjectContext);
+  const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
-  changeValue = (event, newValue) => {
-    this.props.onValueChange(newValue);
-    this.setState({ currentSlide: newValue });
+  const changeValue = (event, newValue) => {
+    props.onValueChange(newValue);
+    setCurrentSlide(newValue);
   };
 
-  render() {
-    return (
-      <Slider value={this.state.currentSlide} onChange={this.changeValue} />
-    );
-  }
-}
+  return <Slider value={currentSlide} onChange={changeValue} />;
+};
