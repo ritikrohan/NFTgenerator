@@ -12,7 +12,6 @@ export default class SliderComponent extends React.Component {
   changeValue = (event, newValue) => {
     this.props.onValueChange(newValue);
     this.setState({ currentSlide: newValue });
-    //console.log(`${this.props.name} is: `, this.props.value);
   };
 
   render() {
