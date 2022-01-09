@@ -1,7 +1,8 @@
 import React from "react";
 import GridLines from "react-gridlines";
-import { Rnd } from "react-rnd";
+
 import { Editor } from "./Editor";
+import { Items } from "./Items";
 import { objectReducer, selectionReducer } from "./ObjectReducer";
 
 export const ObjectContext = React.createContext();
@@ -11,16 +12,16 @@ export const App = () => {
   const objects = [
     {
       name: "a",
-      height: 10,
-      width: 10,
+      height: 100,
+      width: 100,
       depth: 0,
       x: 0,
       y: 0,
     },
     {
       name: "b",
-      height: 10,
-      width: 10,
+      height: 100,
+      width: 100,
       depth: 0,
       x: 0,
       y: 0,
@@ -37,13 +38,6 @@ export const App = () => {
 
   // const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
-  const setCurrentElement = (val) => {
-    dispatch2({
-      type: "update",
-      name: val,
-    });
-  };
-
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
       <ObjectSelection.Provider
@@ -53,9 +47,10 @@ export const App = () => {
           style={{
             width: "10%",
             float: "left",
-            backgroundColor: "#cdcdcd",
+            backgroundColor: "#787878",
             height: "100vh",
             padding: "5px",
+            borderRadius: "10px",
           }}
         >
           Hello World
@@ -68,40 +63,11 @@ export const App = () => {
             padding: "5px",
           }}
         >
-          <GridLines
-            className="grid-area"
-            cellWidth={60}
-            strokeWidth={2}
-            cellWidth2={12}
-          >
-            <div
-              style={{
-                width: "800px",
-                height: "400px",
-              }}
-              onClick={() => setCurrentElement("a")}
-            >
-              <Rnd bounds="window" style={{ zIndex: 0 }}>
-                <img
-                  src={require("./layers/ball/red eye ball_sr.png")}
-                  alt="x"
-                />
-              </Rnd>
-            </div>
-            <div
-              style={{
-                width: "800px",
-                height: "400px",
-              }}
-              onclick={() => setCurrentElement("b")}
-            >
-              <Rnd bounds="window" style={{ zIndex: 1 }}>
-                <img src={require("./layers/iris/large.png")} alt="x" />
-              </Rnd>
-            </div>
-          </GridLines>
+          <div id="content">
+            <Items />
+          </div>
         </div>
-        <div style={{ width: "20%", float: "right" }}>
+        <div style={{ width: "20%", float: "right", borderRadius: "10px" }}>
           <Editor />
         </div>
       </ObjectSelection.Provider>

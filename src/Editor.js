@@ -77,6 +77,7 @@ export const Editor = () => {
         <div style={commonStyle}>
           Depth:
           <SliderComponent
+            marks={true}
             onValueChange={updateSliderDepthValue}
             name={"depth"}
             value={objects.depth}
