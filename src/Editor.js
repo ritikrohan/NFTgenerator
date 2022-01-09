@@ -7,10 +7,6 @@ export const Editor = () => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
-  console.log("objects here are : ", objects);
-
-  console.log("Current selection : ", selection);
-
   const commonStyle = {
     margin: "20px",
     backgroundColor: "#c1c9d1",
@@ -19,25 +15,7 @@ export const Editor = () => {
     boxShadow: "1px 3px 1px #afafaf",
   };
 
-  const updateSliderHeightValue = (value) => {
-    // this.setobjects({ height: value });
-  };
-
-  const updateSliderWidthValue = (value) => {
-    // this.setobjects({ width: value });
-  };
-
-  const updateSliderDepthValue = (value) => {
-    // this.setobjects({ depth: value });
-  };
-
-  const updateSliderXValue = (value) => {
-    // this.setobjects({ X: value });
-  };
-
-  const updateSliderYValue = (value) => {
-    // this.setobjects({ Y: value });
-  };
+  const currentValues = objects.find((obj) => obj.name === selection.name);
 
   return (
     <div
@@ -60,44 +38,27 @@ export const Editor = () => {
 
         <div style={commonStyle}>
           Height:
-          <SliderComponent
-            onValueChange={updateSliderHeightValue}
-            name={"height"}
-            value={objects.height}
-          />
+          <SliderComponent name={"height"} value={currentValues.height} />
         </div>
         <div style={commonStyle}>
           Width:
-          <SliderComponent
-            onValueChange={updateSliderWidthValue}
-            name={"width"}
-            value={objects.width}
-          />
+          <SliderComponent name={"width"} value={currentValues.width} />
         </div>
         <div style={commonStyle}>
           Depth:
           <SliderComponent
             marks={true}
-            onValueChange={updateSliderDepthValue}
             name={"depth"}
-            value={objects.depth}
+            value={currentValues.depth}
           />
         </div>
         <div style={commonStyle}>
           X:
-          <SliderComponent
-            onValueChange={updateSliderXValue}
-            name={"x"}
-            value={objects.X}
-          />
+          <SliderComponent name={"x"} value={currentValues.X} />
         </div>
         <div style={commonStyle}>
           Y:
-          <SliderComponent
-            onValueChange={updateSliderYValue}
-            name={"y"}
-            value={objects.Y}
-          />
+          <SliderComponent name={"y"} value={currentValues.Y} />
         </div>
       </div>
     </div>

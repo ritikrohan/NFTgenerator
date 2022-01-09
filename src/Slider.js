@@ -4,16 +4,20 @@ import { useState } from "react";
 import { ObjectContext, ObjectSelection } from "./App";
 
 export const SliderComponent = (props) => {
-  const [currentSlide, setCurrentSlide] = useState(50);
+  const [currentSlide, setCurrentSlide] = useState(props.value);
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
   const valueToChange = props.name;
 
   const changeValue = (event, newValue) => {
-    const desiredObj = objects.find((obj) => selection.name === obj.name);
-    desiredObj[valueToChange] = currentSlide;
     setCurrentSlide(newValue);
+    dispatch1({
+      type: "update",
+      nameToFind: selection.name,
+      valueToChange: valueToChange,
+      currentSlide: currentSlide,
+    });
   };
 
   console.log(
@@ -36,7 +40,7 @@ export const SliderComponent = (props) => {
       onChange={changeValue}
       step={1}
       marks
-      min={1}
+      min={0}
       max={10}
     />
   );

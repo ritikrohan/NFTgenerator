@@ -2,8 +2,11 @@ export const objectReducer = (state, action) => {
   switch (action.type) {
     case "update":
       const newState = [...state];
-      const { name, parameter } = action;
-      newState.find((planet) => name === planet.name).height = action.parameter;
+      //const { name, parameter } = action;
+      newState.find((obj) => action.nameToFind === obj.name)[
+        action.valueToChange
+      ] = action.currentSlide;
+      //newState.find((planet) => name === planet.name).height = action.parameter;
       return newState;
     default:
       return state;

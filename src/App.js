@@ -36,8 +36,6 @@ export const App = () => {
     selection
   );
 
-  // const { selection, dispatch2 } = React.useContext(ObjectSelection);
-
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
       <ObjectSelection.Provider
