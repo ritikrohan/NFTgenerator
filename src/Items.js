@@ -27,7 +27,7 @@ export const Items = () => {
           />
         </Rnd>
       </div>
-      <div onclick={() => setCurrentElement("b")}>
+      <div onClick={() => setCurrentElement("b")}>
         <Rnd bounds="window" style={{ zIndex: objects[0].depth }}>
           <img
             style={{
