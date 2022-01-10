@@ -36,6 +36,13 @@ export const App = () => {
     selection
   );
 
+  const setCurrentElement = (val) => {
+    dispatch2({
+      type: "update",
+      name: val,
+    });
+  };
+
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
       <ObjectSelection.Provider
@@ -62,7 +69,7 @@ export const App = () => {
           }}
         >
           <div id="content">
-            <Items />
+            <Items onClick={setCurrentElement} />
           </div>
         </div>
         <div style={{ width: "20%", float: "right", borderRadius: "10px" }}>

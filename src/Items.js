@@ -2,22 +2,15 @@ import React from "react";
 import { Rnd } from "react-rnd";
 import { ObjectSelection, ObjectContext } from "./App";
 
-export const Items = () => {
+export const Items = (props) => {
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
   const { objects, dispatch1 } = React.useContext(ObjectContext);
-
-  const setCurrentElement = (val) => {
-    dispatch2({
-      type: "update",
-      name: val,
-    });
-  };
 
   const multiplier = 10;
 
   return (
     <div>
-      <div onClick={() => setCurrentElement("a")}>
+      <div onClick={() => props.onClick("a")}>
         <Rnd bounds="window" style={{ zIndex: objects[0].depth }}>
           <img
             src={require("./layers/ball/red eye ball_sr.png")}
@@ -29,7 +22,7 @@ export const Items = () => {
           />
         </Rnd>
       </div>
-      <div onClick={() => setCurrentElement("b")}>
+      <div onClick={() => props.onClick("b")}>
         <Rnd bounds="window" style={{ zIndex: objects[1].depth }}>
           <img
             style={{
