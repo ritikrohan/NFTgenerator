@@ -2,7 +2,7 @@ import React from "react";
 import { SliderComponent } from "./Slider";
 import { ObjectContext, ObjectSelection } from "./App";
 
-export const Editor = () => {
+export const Editor = (props) => {
   // eslint-disable-next-line no-undef
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
@@ -16,12 +16,14 @@ export const Editor = () => {
   };
 
   const currentValues = React.useRef(
-    objects.find((obj) => obj.name === selection.name)
+    props.currentValues.find((obj) => obj.name === selection.name)
   );
 
   React.useEffect(() => {
-    currentValues.current = objects.find((obj) => obj.name === selection.name);
-  }, [objects, selection.name]);
+    currentValues.current = props.currentValues.find(
+      (obj) => obj.name === selection.name
+    );
+  }, [props.currentValues, selection.name]);
 
   return (
     <div

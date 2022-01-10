@@ -1,9 +1,7 @@
 import React from "react";
-import GridLines from "react-gridlines";
 
-import { Editor } from "./Editor";
-import { Items } from "./Items";
 import { objectReducer, selectionReducer } from "./ObjectReducer";
+import { Page } from "./Page";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -36,45 +34,12 @@ export const App = () => {
     selection
   );
 
-  const setCurrentElement = (val) => {
-    dispatch2({
-      type: "update",
-      name: val,
-    });
-  };
-
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
       <ObjectSelection.Provider
         value={{ selection: SelectionState, dispatch2 }}
       >
-        <div
-          style={{
-            width: "10%",
-            float: "left",
-            backgroundColor: "#787878",
-            height: "100vh",
-            padding: "5px",
-            borderRadius: "10px",
-          }}
-        >
-          Hello World
-        </div>
-        <div
-          style={{
-            width: "70%",
-            float: "left",
-            height: "100vh",
-            padding: "5px",
-          }}
-        >
-          <div id="content">
-            <Items onClick={setCurrentElement} />
-          </div>
-        </div>
-        <div style={{ width: "20%", float: "right", borderRadius: "10px" }}>
-          <Editor />
-        </div>
+        <Page />
       </ObjectSelection.Provider>
     </ObjectContext.Provider>
   );
