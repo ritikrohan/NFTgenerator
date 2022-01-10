@@ -10,16 +10,16 @@ export const App = () => {
   const objects = [
     {
       name: "a",
-      height: 100,
-      width: 100,
+      height: 10,
+      width: 10,
       depth: 0,
       x: 0,
       y: 0,
     },
     {
       name: "b",
-      height: 100,
-      width: 100,
+      height: 10,
+      width: 10,
       depth: 0,
       x: 0,
       y: 0,
