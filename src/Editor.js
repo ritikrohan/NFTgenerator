@@ -15,7 +15,13 @@ export const Editor = () => {
     boxShadow: "1px 3px 1px #afafaf",
   };
 
-  const currentValues = objects.find((obj) => obj.name === selection.name);
+  const currentValues = React.useRef(
+    objects.find((obj) => obj.name === selection.name)
+  );
+
+  React.useEffect(() => {
+    currentValues.current = objects.find((obj) => obj.name === selection.name);
+  }, [objects, selection.name]);
 
   return (
     <div
@@ -38,27 +44,30 @@ export const Editor = () => {
 
         <div style={commonStyle}>
           Height:
-          <SliderComponent name={"height"} value={currentValues.height} />
+          <SliderComponent
+            name={"height"}
+            value={currentValues.current.height}
+          />
         </div>
         <div style={commonStyle}>
           Width:
-          <SliderComponent name={"width"} value={currentValues.width} />
+          <SliderComponent name={"width"} value={currentValues.current.width} />
         </div>
         <div style={commonStyle}>
           Depth:
           <SliderComponent
             marks={true}
             name={"depth"}
-            value={currentValues.depth}
+            value={currentValues.current.depth}
           />
         </div>
         <div style={commonStyle}>
           X:
-          <SliderComponent name={"x"} value={currentValues.X} />
+          <SliderComponent name={"x"} value={currentValues.current.X} />
         </div>
         <div style={commonStyle}>
           Y:
-          <SliderComponent name={"y"} value={currentValues.Y} />
+          <SliderComponent name={"y"} value={currentValues.current.Y} />
         </div>
       </div>
     </div>

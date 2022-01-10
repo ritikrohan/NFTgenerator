@@ -6,20 +6,11 @@ export const Items = () => {
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
   const { objects, dispatch1 } = React.useContext(ObjectContext);
 
-  let currentValues;
-
-  const updateSliderValues = (event) => {
-    currentValues = objects.find((obj) => obj.name === selection.name);
-    console.log("Curremt Values are 123213121 : ", currentValues);
-  };
-
   const setCurrentElement = (val) => {
     dispatch2({
       type: "update",
       name: val,
     });
-
-    window.addEventListener("dragend", updateSliderValues);
   };
 
   const multiplier = 10;
