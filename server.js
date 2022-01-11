@@ -6,9 +6,9 @@ app.use(cors());
 const port = 5000;
 
 const dirTree = require("directory-tree");
-const tree = dirTree("src\\layers");
+const tree = dirTree("src/layers");
 
-app.get("/", (req, res) => {
+app.get("/getFolderTree", (req, res) => {
   res.send(JSON.stringify(tree));
 });
 

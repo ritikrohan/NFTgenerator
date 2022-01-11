@@ -63,14 +63,14 @@ export const Editor = (props) => {
             value={currentValues.current.depth}
           />
         </div>
-        <div style={commonStyle}>
+        {/* <div style={commonStyle}>
           X:
           <SliderComponent name={"x"} value={currentValues.current.X} />
         </div>
         <div style={commonStyle}>
           Y:
           <SliderComponent name={"y"} value={currentValues.current.Y} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
