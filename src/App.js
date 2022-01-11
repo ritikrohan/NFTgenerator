@@ -28,7 +28,7 @@ export const App = () => {
 
   const baseURL = "http://localhost:5000/getFolderTree";
 
-  const [post, setPost] = React.useState(null);
+  const [fileData, setFileData] = React.useState(null);
 
   const getTree = async () => {
     const response = await fetch(baseURL, {
@@ -40,6 +40,7 @@ export const App = () => {
       referrerPolicy: "no-referrer",
     });
     const data = await response.json();
+    setFileData(data);
     console.log("The recieved data is : ", data);
   };
 

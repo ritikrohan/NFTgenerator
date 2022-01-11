@@ -28,42 +28,31 @@ export const Editor = (props) => {
   return (
     <div
       style={{
-        backgroundColor: "#efefef",
-        height: "100vh",
-        margin: "5px",
-        padding: "5px",
+        backgroundColor: "#dee2e7",
+        padding: "10px",
+        borderRadius: "10px",
+        boxShadow: "1px 3px 1px #acacaf",
       }}
     >
-      <div
-        style={{
-          backgroundColor: "#dee2e7",
-          padding: "10px",
-          borderRadius: "10px",
-          boxShadow: "1px 3px 1px #acacaf",
-        }}
-      >
-        <div style={{ alignContent: "center" }}>Editor</div>
+      <div style={{ justifyContent: "center", display: "flex" }}>Editor</div>
 
-        <div style={commonStyle}>
-          Height:
-          <SliderComponent
-            name={"height"}
-            value={currentValues.current.height}
-          />
-        </div>
-        <div style={commonStyle}>
-          Width:
-          <SliderComponent name={"width"} value={currentValues.current.width} />
-        </div>
-        <div style={commonStyle}>
-          Depth:
-          <SliderComponent
-            marks={true}
-            name={"depth"}
-            value={currentValues.current.depth}
-          />
-        </div>
-        {/* <div style={commonStyle}>
+      <div style={commonStyle}>
+        Height:
+        <SliderComponent name={"height"} value={currentValues.current.height} />
+      </div>
+      <div style={commonStyle}>
+        Width:
+        <SliderComponent name={"width"} value={currentValues.current.width} />
+      </div>
+      <div style={commonStyle}>
+        Depth:
+        <SliderComponent
+          marks={true}
+          name={"depth"}
+          value={currentValues.current.depth}
+        />
+      </div>
+      {/* <div style={commonStyle}>
           X:
           <SliderComponent name={"x"} value={currentValues.current.X} />
         </div>
@@ -71,7 +60,6 @@ export const Editor = (props) => {
           Y:
           <SliderComponent name={"y"} value={currentValues.current.Y} />
         </div> */}
-      </div>
     </div>
   );
 };

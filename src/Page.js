@@ -3,6 +3,8 @@ import React from "react";
 import { Editor } from "./Editor";
 import { Items } from "./Items";
 import { ObjectContext, ObjectSelection } from "./App";
+import { EditorInput } from "./EditorInput";
+import CustomizedTreeView from "./FolderStructure";
 
 export const Page = () => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
@@ -29,7 +31,7 @@ export const Page = () => {
           borderRadius: "10px",
         }}
       >
-        Hello World
+        <CustomizedTreeView />
       </div>
       <div
         style={{
@@ -44,7 +46,21 @@ export const Page = () => {
         </div>
       </div>
       <div style={{ width: "20%", float: "right", borderRadius: "10px" }}>
-        <Editor currentValues={objects} />
+        <div
+          style={{
+            backgroundColor: "#efefef",
+            height: "100vh",
+            margin: "5px",
+            padding: "5px",
+          }}
+        >
+          <div>
+            <Editor currentValues={objects} />
+          </div>
+          <div>
+            <EditorInput />
+          </div>
+        </div>
       </div>
     </div>
   );
