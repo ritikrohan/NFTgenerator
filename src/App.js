@@ -3,6 +3,7 @@ import axios from "axios";
 import { objectReducer, selectionReducer } from "./ObjectReducer";
 import { Page } from "./Page";
 import CssBaseline from "@material-ui/core/CssBaseline";
+import { NavComponent } from "./Navbar";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -62,7 +63,12 @@ export const App = () => {
         value={{ selection: SelectionState, dispatch2 }}
       >
         <CssBaseline>
-          <Page folderStructure={fileData} />
+          <div style={{ maxHeight: "20px", zIndex: 1 }}>
+            <NavComponent />
+          </div>
+          <div style={{ margin: "2px" }}>
+            <Page folderStructure={fileData} />
+          </div>
         </CssBaseline>
       </ObjectSelection.Provider>
     </ObjectContext.Provider>

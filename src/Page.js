@@ -21,7 +21,7 @@ export const Page = (props) => {
   console.log("The recieved data is : ", props.folderStructure);
 
   return (
-    <div>
+    <div style={{ paddingTop: "20px" }}>
       <div
         style={{
           width: "15%",
