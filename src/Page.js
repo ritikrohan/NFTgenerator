@@ -26,7 +26,7 @@ export const Page = (props) => {
         style={{
           width: "15%",
           float: "left",
-          backgroundColor: "#787878",
+          backgroundColor: "#0a1929",
           height: "100vh",
           padding: "5px",
           borderRadius: "10px",

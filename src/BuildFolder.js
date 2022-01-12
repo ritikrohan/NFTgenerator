@@ -6,13 +6,28 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { useTheme } from "@material-ui/core/styles";
 import { TreeView } from "@material-ui/lab";
 import TreeItem from "@material-ui/lab/TreeItem";
+import { Typography } from "@material-ui/core";
 
 const commonStyle = {
-  margin: "20px",
-  backgroundColor: "#c1c9d1",
-  padding: "5px",
-  borderRadius: "10px",
-  boxShadow: "1px 3px 1px #afafaf",
+  margin: "0px",
+  alignItems: "center",
+  lineHeight: 1.5,
+  letterSpacing: "0px",
+  fontFamily:
+    "IBM Plex Sans -apple-system BlinkMacSystemFont Segoe UI Roboto Helvetica Neue Arial sans-serif Apple Color Emoji Segoe UI Emoji Segoe UI Symbol",
+  fontWeight: 500,
+  display: "x",
+  borderRadius: "5px",
+  outline: "0px",
+  width: "100%",
+  paddingTop: "5px",
+  paddingBottom: "5px",
+  justifyContent: "flex-start",
+  transition:
+    "color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms",
+  fontSize: "0.875rem",
+  color: "#b2bac2",
+  paddingLeft: "31px",
 };
 
 export const Folders = (props) => {
@@ -22,16 +37,18 @@ export const Folders = (props) => {
     <div className="comments">
       <TreeItem
         label={
-          <ListItem button component="a" href="#">
+          <ListItem root component="a" href="#">
             <ListItemText primary={children && children.name} />
           </ListItem>
         }
-        children={children}
       />
       {children &&
         children.map((folder) => (
           <div>
-            <TreeItem label={folder.name} />
+            <ListItem button component="a" href="#">
+              <Typography style={commonStyle}>{folder.name}</Typography>
+            </ListItem>
+
             {folder.children && <Folders children={folder.children} />}
           </div>
         ))}

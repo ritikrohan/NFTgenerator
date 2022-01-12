@@ -22,18 +22,6 @@ export default function TreesTemp(props) {
   const classes = useStyles(theme);
   const treeData = props.folderData;
 
-  // const buildTree = (data) => {
-  //   if (!data) {
-  //     return null;
-  //   }
-  //   if (!data.children) {
-  //     return <TreeItem label={data.name} />;
-  //   }
-  //   data.children.map((node) => {
-  //     return <TreeItem label={data.name}>{buildTree(node)}</TreeItem>;
-  //   });
-  // };
-
   return (
     <div className={classes.root}>
       <List>
