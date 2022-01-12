@@ -5,6 +5,12 @@ html,
   margin: 0;
   box-sizing: border-box;
   background-repeat: repeat;
+  scrollbar-color: #0079d3 #2e3645 !important;
+  scrollbar-width: thin !important;
+}
+
+* {
+  scrollbar-width: thin !important;
 }
 
 body {
