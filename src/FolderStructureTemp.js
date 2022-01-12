@@ -6,8 +6,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import { useTheme } from "@material-ui/core/styles";
 import { TreeView } from "@material-ui/lab";
 import TreeItem from "@material-ui/lab/TreeItem";
-
-const drawerWidth = 240;
+import { Folders } from "./BuildFolder";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -36,7 +35,7 @@ export default function TreesTemp(props) {
   return (
     <div className={classes.root}>
       <List>
-        <div>{buildTree(treeData)}</div>
+        <Folders children={treeData && treeData.children} />
       </List>
     </div>
   );
