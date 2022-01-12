@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { objectReducer, selectionReducer } from "./ObjectReducer";
 import { Page } from "./Page";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -41,7 +42,6 @@ export const App = () => {
     });
     const data = await response.json();
     setFileData(data);
-    console.log("The recieved data is : ", data);
   };
 
   React.useEffect(() => {
@@ -61,7 +61,9 @@ export const App = () => {
       <ObjectSelection.Provider
         value={{ selection: SelectionState, dispatch2 }}
       >
-        <Page />
+        <CssBaseline>
+          <Page folderStructure={fileData} />
+        </CssBaseline>
       </ObjectSelection.Provider>
     </ObjectContext.Provider>
   );

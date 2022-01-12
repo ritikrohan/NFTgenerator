@@ -10,11 +10,6 @@ export const SliderComponent = (props) => {
 
   const valueToChange = props.name;
 
-  // const updateSliderValues = (event) => {
-  //   const currentValues = objects.find((obj) => obj.name === selection.name);
-  //   console.log("Curremt Values are 123213121 : ", currentValues);
-  // };
-
   const changeValue = (event, newValue) => {
     setCurrentSlide(newValue);
     dispatch1({
@@ -23,14 +18,7 @@ export const SliderComponent = (props) => {
       valueToChange: valueToChange,
       currentSlide: currentSlide,
     });
-
-    // window.addEventListener("dragend", updateSliderValues);
   };
-
-  console.log(
-    `The value of the current component ${selection.name} is `,
-    objects
-  );
 
   return !props.marks ? (
     <Slider

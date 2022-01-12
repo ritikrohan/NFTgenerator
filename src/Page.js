@@ -4,9 +4,10 @@ import { Editor } from "./Editor";
 import { Items } from "./Items";
 import { ObjectContext, ObjectSelection } from "./App";
 import { EditorInput } from "./EditorInput";
-import CustomizedTreeView from "./FolderStructure";
+import Trees from "./FolderStructure";
+import TreesTemp from "./FolderStructureTemp";
 
-export const Page = () => {
+export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
@@ -15,9 +16,9 @@ export const Page = () => {
       type: "update",
       name: val,
     });
-
-    console.log("Current selection is", selection.name);
   };
+
+  console.log("The recieved data is : ", props.folderStructure);
 
   return (
     <div>
@@ -31,11 +32,11 @@ export const Page = () => {
           borderRadius: "10px",
         }}
       >
-        <CustomizedTreeView />
+        <TreesTemp folderData={props.folderStructure} />
       </div>
       <div
         style={{
-          width: "70%",
+          width: "75%",
           float: "left",
           height: "100vh",
           padding: "5px",
@@ -45,7 +46,7 @@ export const Page = () => {
           <Items onClick={setCurrentElement} />
         </div>
       </div>
-      <div style={{ width: "20%", float: "right", borderRadius: "10px" }}>
+      <div style={{ width: "15%", float: "right", borderRadius: "10px" }}>
         <div
           style={{
             backgroundColor: "#efefef",

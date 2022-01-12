@@ -35,7 +35,7 @@ export const EditorInput = (props) => {
         <Input />
       </div>
       <div style={{ justifyContent: "center", display: "flex" }}>
-        <Button variant="contained" color="success">
+        <Button variant="contained" color="primary">
           Submit
         </Button>
       </div>
