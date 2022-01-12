@@ -34,7 +34,17 @@ export const Editor = (props) => {
         boxShadow: "1px 3px 1px #acacaf",
       }}
     >
-      <div style={{ justifyContent: "center", display: "flex" }}>Editor</div>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          fontWeight: "bold",
+          fontSize: "20px",
+          fontFamily: "sans-serif",
+        }}
+      >
+        Editor
+      </div>
 
       <div style={commonStyle}>
         Height:

@@ -53,8 +53,10 @@ export const Page = (props) => {
           style={{
             backgroundColor: "#efefef",
             height: "100vh",
-            margin: "5px",
+            margin: "5px 0px 5px 5px ",
             padding: "5px",
+            boxShadow:
+              "-5px 2px 4px -1px rgb(0 0 0 / 20%), -5px 4px 5px 0px rgb(0 0 0 / 14%), -5px 1px 10px 0px rgb(0 0 0 / 12%)",
           }}
         >
           <div>
