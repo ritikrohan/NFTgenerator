@@ -24,19 +24,21 @@ export const Page = (props) => {
     <div>
       <div
         style={{
-          width: "10%",
+          width: "15%",
           float: "left",
           backgroundColor: "#787878",
           height: "100vh",
           padding: "5px",
           borderRadius: "10px",
+          overflowX: "hidden",
+          overflowY: "auto",
         }}
       >
         <TreesTemp folderData={props.folderStructure} />
       </div>
       <div
         style={{
-          width: "75%",
+          width: "70%",
           float: "left",
           height: "100vh",
           padding: "5px",
