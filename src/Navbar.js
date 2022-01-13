@@ -21,8 +21,8 @@ export const NavComponent = () => {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="sticky">
+    <div className={classes.root} style={{ color: "#212529" }}>
+      <AppBar position="sticky" color="primary">
         <Toolbar variant="dense">
           <IconButton
             edge="start"
@@ -33,7 +33,7 @@ export const NavComponent = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit">
-            Geeks for Geeks
+            NFT Autom-8or
           </Typography>
         </Toolbar>
       </AppBar>

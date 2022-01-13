@@ -13,6 +13,8 @@ export const Editor = (props) => {
     padding: "5px",
     borderRadius: "10px",
     boxShadow: "1px 3px 1px #afafaf",
+    fontWeight: "bolder",
+    fontFamily: "monospace",
   };
 
   const currentValues = React.useRef(
@@ -40,7 +42,7 @@ export const Editor = (props) => {
           display: "flex",
           fontWeight: "bold",
           fontSize: "20px",
-          fontFamily: "sans-serif",
+          fontFamily: "monospace",
         }}
       >
         Editor
@@ -62,14 +64,6 @@ export const Editor = (props) => {
           value={currentValues.current.depth}
         />
       </div>
-      {/* <div style={commonStyle}>
-          X:
-          <SliderComponent name={"x"} value={currentValues.current.X} />
-        </div>
-        <div style={commonStyle}>
-          Y:
-          <SliderComponent name={"y"} value={currentValues.current.Y} />
-        </div> */}
     </div>
   );
 };
