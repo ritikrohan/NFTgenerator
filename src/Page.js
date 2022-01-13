@@ -32,6 +32,7 @@ export const Page = (props) => {
           borderRadius: "10px",
           overflowX: "hidden",
           overflowY: "auto",
+          zIndex: -1,
         }}
       >
         <TreesTemp folderData={props.folderStructure} />

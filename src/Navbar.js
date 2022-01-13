@@ -22,7 +22,7 @@ export const NavComponent = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar variant="dense">
           <IconButton
             edge="start"

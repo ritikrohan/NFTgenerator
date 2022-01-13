@@ -2,6 +2,7 @@ import React from "react";
 import Slider from "@material-ui/core/Slider";
 import { useState } from "react";
 import { ObjectContext, ObjectSelection } from "./App";
+import "./Slider.css";
 
 export const SliderComponent = (props) => {
   const [currentSlide, setCurrentSlide] = useState(props.value);
