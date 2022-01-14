@@ -8,7 +8,8 @@ export const objectReducer = (state, action) => {
       return newState;
 
     case "add":
-      return { ...action.payload };
+      const newState1 = action.payload;
+      return newState1;
     default:
       return state;
   }
