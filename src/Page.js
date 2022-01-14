@@ -14,26 +14,18 @@ export const Page = (props) => {
   React.useEffect(() => {
     dispatch1({ type: "add", payload: props.folderStructure });
     dispatch2({ type: "add", payload: props.selection });
-  }, [dispatch1, dispatch2]);
-
-  console.log(objects, selection);
+  }, []);
 
   const setCurrentElement = (val) => {
     dispatch2({
       type: "update",
       name: val,
     });
+    dispatch1({ type: "add", payload: props.hashedElements });
     console.log(selection);
   };
 
-  // const currentValues = objects;
-
-  // React.useEffect(() => {
-  //   currentValues.current = props.currentValues.find(
-  //     (obj) => obj.name === selection.name
-  //   );
-  // }, [objects]);
-
+  console.log("Page: ", objects);
   return (
     <div style={{ paddingTop: "20px" }}>
       <div

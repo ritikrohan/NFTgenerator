@@ -24,3 +24,43 @@ export const getRandomString = (length) => {
   }
   return result;
 };
+
+export const formatFile = (fileData) => {
+  const subfoldersLength =
+    fileData && fileData.children && fileData.children.length;
+
+  const hashCodeElement = [];
+  const pathList = [];
+
+  for (let i = 0; i < subfoldersLength; i++) {
+    fileData &&
+      fileData.children &&
+      pathList.push(fileData.children[i].children[0].path.slice(3));
+  }
+
+  console.log("pathlist", pathList);
+
+  for (let i = 0; i < subfoldersLength; i++) {
+    hashCodeElement.push({ name: getRandomString(4), path: pathList[i] });
+  }
+
+  console.log("the array is : ", hashCodeElement);
+
+  const objects = [];
+
+  subfoldersLength &&
+    hashCodeElement &&
+    hashCodeElement.map((obj) => {
+      objects.push({
+        name: obj.name,
+        path: obj.path,
+        height: 10,
+        width: 10,
+        depth: 0,
+        x: 0,
+        y: 0,
+      });
+    });
+
+  return { objects, hashCodeElement };
+};

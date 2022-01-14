@@ -3,7 +3,6 @@ import { SliderComponent } from "./Slider";
 import { ObjectContext, ObjectSelection } from "./App";
 
 export const Editor = (props) => {
-  // eslint-disable-next-line no-undef
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
