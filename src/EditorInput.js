@@ -71,10 +71,7 @@ export const EditorInput = (props) => {
           }}
         />
       </div>
-      <div
-        disableUnderline={false}
-        style={{ justifyContent: "center", display: "flex" }}
-      >
+      <div style={{ justifyContent: "center", display: "flex" }}>
         <Button
           variant="contained"
           color="primary"

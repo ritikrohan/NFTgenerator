@@ -15,9 +15,10 @@ export const Folders = (props) => {
   return (
     <div className="comments">
       <TreeItem
+        nodeId="1"
         label={
           <ListItem root component="a" href="#">
-            <ListItemText primary={children && children.name} />
+            <ListItemText primary={" "} />
           </ListItem>
         }
       />
@@ -32,6 +33,7 @@ export const Folders = (props) => {
           </div>
         ))}
       <TreeItem
+        nodeId="2"
         label={
           <ListItem root component="a" href="#">
             <ListItemText primary={" "} />

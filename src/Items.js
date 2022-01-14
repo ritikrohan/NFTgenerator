@@ -8,32 +8,23 @@ export const Items = (props) => {
 
   const multiplier = 10;
 
+  console.log(selection);
+
   return (
-    <div>
-      <div onClick={() => props.onClick("a")}>
-        <Rnd bounds="window" style={{ zIndex: objects[0].depth }}>
+    props.hashedFolder &&
+    props.hashedFolder.map((file) => (
+      <div onClick={() => props.onClick(`${file.name}`)}>
+        <Rnd bounds="window" style={{ zIndex: file.depth }}>
           <img
-            src={require("./layers/ball/red eye ball_sr.png")}
+            src={require(`.${file.path}`)}
             alt="x"
             style={{
-              width: objects[0].width * multiplier,
-              height: objects[0].height * multiplier,
+              width: file.width * multiplier,
+              height: file.height * multiplier,
             }}
           />
         </Rnd>
       </div>
-      <div onClick={() => props.onClick("b")}>
-        <Rnd bounds="window" style={{ zIndex: objects[1].depth }}>
-          <img
-            style={{
-              width: objects[1].width * multiplier,
-              height: objects[1].height * multiplier,
-            }}
-            src={require("./layers/iris/large.png")}
-            alt="x"
-          />
-        </Rnd>
-      </div>
-    </div>
+    ))
   );
 };

@@ -31,7 +31,7 @@ export default function TreesTemp(props) {
           defaultExpandIcon={<MenuIcon />}
           sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
         >
-          <Folders children={treeData} />
+          <Folders children={treeData && treeData.children} />
         </TreeView>
       </List>
     </div>

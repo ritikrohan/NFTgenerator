@@ -50,18 +50,24 @@ export const Editor = (props) => {
 
       <div style={commonStyle}>
         Height:
-        <SliderComponent name={"height"} value={currentValues.current.height} />
+        <SliderComponent
+          name={"height"}
+          value={currentValues.current && currentValues.current.height}
+        />
       </div>
       <div style={commonStyle}>
         Width:
-        <SliderComponent name={"width"} value={currentValues.current.width} />
+        <SliderComponent
+          name={"width"}
+          value={currentValues.current && currentValues.current.width}
+        />
       </div>
       <div style={commonStyle}>
         Depth:
         <SliderComponent
           marks={true}
           name={"depth"}
-          value={currentValues.current.depth}
+          value={currentValues.current && currentValues.current.depth}
         />
       </div>
     </div>

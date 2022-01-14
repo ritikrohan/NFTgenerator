@@ -6,6 +6,9 @@ export const objectReducer = (state, action) => {
         action.valueToChange
       ] = action.currentSlide;
       return newState;
+
+    case "add":
+      return { ...action.payload };
     default:
       return state;
   }
@@ -18,6 +21,8 @@ export const selectionReducer = (state, action) => {
       const { name } = action;
       newState.name = name;
       return newState;
+    case "add":
+      return { ...action.payload };
     default:
       return state;
   }

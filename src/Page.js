@@ -11,12 +11,28 @@ export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
+  React.useEffect(() => {
+    dispatch1({ type: "add", payload: props.folderStructure });
+    dispatch2({ type: "add", payload: props.selection });
+  }, [dispatch1, dispatch2]);
+
+  console.log(objects, selection);
+
   const setCurrentElement = (val) => {
     dispatch2({
       type: "update",
       name: val,
     });
+    console.log(selection);
   };
+
+  // const currentValues = objects;
+
+  // React.useEffect(() => {
+  //   currentValues.current = props.currentValues.find(
+  //     (obj) => obj.name === selection.name
+  //   );
+  // }, [objects]);
 
   return (
     <div style={{ paddingTop: "20px" }}>
@@ -44,7 +60,11 @@ export const Page = (props) => {
         }}
       >
         <div id="content">
-          <Items onClick={setCurrentElement} />
+          <Items
+            onClick={setCurrentElement}
+            files={props.folderStructure}
+            hashedFolder={props.hashedElements}
+          />
         </div>
       </div>
       <div style={{ width: "15%", float: "right", borderRadius: "10px" }}>
@@ -59,7 +79,7 @@ export const Page = (props) => {
           }}
         >
           <div>
-            <Editor currentValues={objects} />
+            <Editor currentValues={props.hashedElements} />
           </div>
           <div>
             <EditorInput />
