@@ -8,13 +8,16 @@ export const Items = (props) => {
 
   const multiplier = 10;
 
-  console.log(selection);
+  let elements = props.hashedFolder;
+  if (objects && objects.length) {
+    elements = objects;
+  }
 
   return (
-    props.hashedFolder &&
-    props.hashedFolder.map((file) => (
+    elements &&
+    elements.map((file, index) => (
       <div onClick={() => props.onClick(`${file.name}`)}>
-        <Rnd bounds="window" style={{ zIndex: file.depth }}>
+        <Rnd key={index} bounds="window" style={{ zIndex: file.depth }}>
           <img
             src={require(`.${file.path}`)}
             alt="x"

@@ -21,10 +21,9 @@ export const Editor = (props) => {
   );
 
   React.useEffect(() => {
-    currentValues.current = props.currentValues.find(
-      (obj) => obj.name === selection.name
-    );
-  }, [props.currentValues, selection.name]);
+    currentValues.current =
+      objects && objects.find((obj) => obj.name === selection.name);
+  }, [objects, selection.name]);
 
   return (
     <div
@@ -51,14 +50,14 @@ export const Editor = (props) => {
         Height:
         <SliderComponent
           name={"height"}
-          value={currentValues.current && currentValues.current.height}
+          value={props.currentValues.length ? props.currentValues[0].height : 0}
         />
       </div>
       <div style={commonStyle}>
         Width:
         <SliderComponent
           name={"width"}
-          value={currentValues.current && currentValues.current.width}
+          value={props.currentValues.length ? props.currentValues[0].width : 0}
         />
       </div>
       <div style={commonStyle}>
@@ -66,7 +65,7 @@ export const Editor = (props) => {
         <SliderComponent
           marks={true}
           name={"depth"}
-          value={currentValues.current && currentValues.current.depth}
+          value={props.currentValues.length ? props.currentValues[0].depth : 0}
         />
       </div>
     </div>

@@ -11,21 +11,28 @@ export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
-  React.useEffect(() => {
-    dispatch1({ type: "add", payload: props.folderStructure });
-    dispatch2({ type: "add", payload: props.selection });
-  }, []);
-
   const setCurrentElement = (val) => {
     dispatch2({
       type: "update",
       name: val,
     });
-    dispatch1({ type: "add", payload: props.hashedElements });
-    console.log(selection);
   };
 
-  console.log("Page: ", objects);
+  const editValues = (input1, input2) => {
+    dispatch1({
+      type: "update",
+      nameToFind: selection.name,
+      valueToChange: input1.name,
+      currentSlide: input1.value,
+    });
+    dispatch1({
+      type: "update",
+      nameToFind: selection.name,
+      valueToChange: input2.name,
+      currentSlide: input2.value,
+    });
+  };
+
   return (
     <div style={{ paddingTop: "20px" }}>
       <div
@@ -38,7 +45,7 @@ export const Page = (props) => {
           borderRadius: "10px",
           overflowX: "hidden",
           overflowY: "auto",
-          zIndex: -1,
+          zIndex: 20,
         }}
       >
         <TreesTemp folderData={props.folderStructure} />
@@ -59,7 +66,14 @@ export const Page = (props) => {
           />
         </div>
       </div>
-      <div style={{ width: "15%", float: "right", borderRadius: "10px" }}>
+      <div
+        style={{
+          width: "15%",
+          float: "right",
+          borderRadius: "10px",
+          zIndex: 20,
+        }}
+      >
         <div
           style={{
             backgroundColor: "#efefef",
@@ -74,7 +88,7 @@ export const Page = (props) => {
             <Editor currentValues={props.hashedElements} />
           </div>
           <div>
-            <EditorInput />
+            <EditorInput setValues={editValues} />
           </div>
         </div>
       </div>

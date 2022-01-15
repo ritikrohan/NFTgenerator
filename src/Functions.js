@@ -38,13 +38,9 @@ export const formatFile = (fileData) => {
       pathList.push(fileData.children[i].children[0].path.slice(3));
   }
 
-  console.log("pathlist", pathList);
-
   for (let i = 0; i < subfoldersLength; i++) {
     hashCodeElement.push({ name: getRandomString(4), path: pathList[i] });
   }
-
-  console.log("the array is : ", hashCodeElement);
 
   const objects = [];
 

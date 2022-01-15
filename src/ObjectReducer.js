@@ -22,8 +22,6 @@ export const selectionReducer = (state, action) => {
       const { name } = action;
       newState.name = name;
       return newState;
-    case "add":
-      return { ...action.payload };
     default:
       return state;
   }

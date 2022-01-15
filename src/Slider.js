@@ -11,6 +11,11 @@ export const SliderComponent = (props) => {
 
   const valueToChange = props.name;
 
+  React.useEffect(() => {
+    setCurrentSlide(props.value);
+    console.log("Value set to : ", props.value);
+  }, [props.value]);
+
   const changeValue = (event, newValue) => {
     setCurrentSlide(newValue);
     dispatch1({

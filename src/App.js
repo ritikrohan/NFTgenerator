@@ -3,6 +3,7 @@ import { objectReducer, selectionReducer } from "./ObjectReducer";
 import { Page } from "./Page";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { NavComponent } from "./Navbar";
+import { v4 as uuidv4 } from "uuid";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -11,6 +12,7 @@ export const App = () => {
   const baseURL = "http://localhost:5000/getFolderTree";
 
   const [fileData, setFileData] = React.useState(null);
+  const [loading, setLoading] = React.useState(true);
 
   let selection = null;
   let objects = [];
@@ -26,7 +28,6 @@ export const App = () => {
     });
     const data = await response.json();
     setFileData(data);
-    console.log(fileData);
   };
 
   React.useEffect(() => {
@@ -35,18 +36,6 @@ export const App = () => {
 
   const subfoldersLength =
     fileData && fileData.children && fileData.children.length;
-
-  const getRandomString = (length) => {
-    var randomChars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    var result = "";
-    for (var i = 0; i < length; i++) {
-      result += randomChars.charAt(
-        Math.floor(Math.random() * randomChars.length)
-      );
-    }
-    return result;
-  };
 
   const hashCodeElement = [];
   const pathList = [];
@@ -57,13 +46,9 @@ export const App = () => {
       pathList.push(fileData.children[i].children[0].path.slice(3));
   }
 
-  console.log("pathlist", pathList);
-
   for (let i = 0; i < subfoldersLength; i++) {
-    hashCodeElement.push({ name: getRandomString(4), path: pathList[i] });
+    hashCodeElement.push({ name: uuidv4(), path: pathList[i] });
   }
-
-  console.log("the array is : ", hashCodeElement);
 
   const getObjects = (files) => {
     const objects = [];
@@ -86,7 +71,13 @@ export const App = () => {
 
   objects = getObjects(hashCodeElement);
 
-  console.log("the objects are: ", objects);
+  React.useEffect(() => {
+    dispatch1({ type: "add", payload: objects });
+    dispatch2({
+      type: "update",
+      name: hashCodeElement.length ? hashCodeElement[0].name : null,
+    });
+  }, [fileData]);
 
   selection = { name: hashCodeElement[0] };
 
@@ -96,13 +87,15 @@ export const App = () => {
     selection
   );
 
+  console.log("the value of filedata is : ", objects);
+
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
       <ObjectSelection.Provider
         value={{ selection: SelectionState, dispatch2 }}
       >
         <CssBaseline>
-          <div style={{ maxHeight: "20px", zIndex: 1 }}>
+          <div style={{ maxHeight: "20px", zIndex: 21 }}>
             <NavComponent />
           </div>
           <div style={{ margin: "2px" }}>

@@ -23,9 +23,9 @@ export const Folders = (props) => {
         }
       />
       {children &&
-        children.map((folder) => (
+        children.map((folder, index) => (
           <div>
-            <ListItem button component="a" href="#">
+            <ListItem key={index} button component="a" href="#">
               <Typography className="element">{folder.name}</Typography>
             </ListItem>
 
