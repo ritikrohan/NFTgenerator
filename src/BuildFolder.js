@@ -13,33 +13,50 @@ export const Folders = (props) => {
   const children = props.children;
 
   return (
-    <div className="comments">
-      <TreeItem
-        nodeId="1"
-        label={
-          <ListItem root component="a" href="#">
-            <ListItemText primary={" "} />
-          </ListItem>
-        }
-      />
+    <div>
       {children &&
         children.map((folder, index) => (
           <div>
             <ListItem key={index} button component="a" href="#">
-              <Typography className="element">{folder.name}</Typography>
+              <Typography
+                style={{ backgroundColor: "#102841" }}
+                className="element"
+                // eslint-disable-next-line react/jsx-no-duplicate-props
+                style={{
+                  fontWeight: "bold",
+                  fontFamily: "monospace",
+                }}
+              >
+                {folder.name.slice(0, 1).toUpperCase() + folder.name.slice(1)}
+              </Typography>
             </ListItem>
 
-            {folder.children && <Folders children={folder.children} />}
+            {folder.children.map((subfolder) => (
+              <div>
+                <ListItem key={index} button component="a" href="#">
+                  <Typography
+                    className="elementSubfolder"
+                    style={{
+                      fontFamily: "monospace",
+                    }}
+                  >
+                    {subfolder.name}
+                  </Typography>
+                </ListItem>
+              </div>
+            ))}
+            <TreeItem
+              nodeId="1"
+              label={
+                <ListItem root component="a" href="#">
+                  <Typography styles={{ backgroundColor: "#034b92" }}>
+                    {" "}
+                  </Typography>
+                </ListItem>
+              }
+            />
           </div>
         ))}
-      <TreeItem
-        nodeId="2"
-        label={
-          <ListItem root component="a" href="#">
-            <ListItemText primary={" "} />
-          </ListItem>
-        }
-      />
     </div>
   );
 };

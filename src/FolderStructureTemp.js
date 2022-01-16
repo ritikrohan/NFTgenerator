@@ -24,6 +24,18 @@ export default function TreesTemp(props) {
 
   return (
     <div className={classes.root}>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          fontWeight: "bold",
+          fontSize: "20px",
+          fontFamily: "monospace",
+          color: "#fff",
+        }}
+      >
+        Folder Structure
+      </div>
       <List>
         <TreeView
           aria-label="file system navigator"

@@ -6,10 +6,14 @@ import { ObjectContext, ObjectSelection } from "./App";
 import { EditorInput } from "./EditorInput";
 import Trees from "./FolderStructure";
 import TreesTemp from "./FolderStructureTemp";
+import { Button, Input } from "@material-ui/core";
+import "./Page.css";
+import { ModalComponent } from "./Modal";
 
 export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
+  const [open, setOpen] = React.useState(false);
 
   const setCurrentElement = (val) => {
     dispatch2({
@@ -18,19 +22,41 @@ export const Page = (props) => {
     });
   };
 
-  const editValues = (input1, input2) => {
-    dispatch1({
-      type: "update",
-      nameToFind: selection.name,
-      valueToChange: input1.name,
-      currentSlide: input1.value,
-    });
-    dispatch1({
-      type: "update",
-      nameToFind: selection.name,
-      valueToChange: input2.name,
-      currentSlide: input2.value,
-    });
+  const editValues = (input1, input2, input3) => {
+    if (input1.value) {
+      dispatch1({
+        type: "update",
+        nameToFind: selection.name,
+        valueToChange: input1.name,
+        currentSlide: input1.value,
+      });
+    }
+
+    if (input2.value) {
+      dispatch1({
+        type: "update",
+        nameToFind: selection.name,
+        valueToChange: input2.name,
+        currentSlide: input2.value,
+      });
+    }
+
+    if (input3.value) {
+      dispatch1({
+        type: "update",
+        nameToFind: selection.name,
+        valueToChange: input3.name,
+        currentSlide: input3.value,
+      });
+    }
+  };
+
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -46,6 +72,7 @@ export const Page = (props) => {
           overflowX: "hidden",
           overflowY: "auto",
           zIndex: 20,
+          transition: "width .35s",
         }}
       >
         <TreesTemp folderData={props.folderStructure} />
@@ -89,6 +116,26 @@ export const Page = (props) => {
           </div>
           <div>
             <EditorInput setValues={editValues} />
+          </div>
+          <div
+            style={{
+              marginTop: "15px",
+              padding: "5px",
+            }}
+          >
+            <div style={{ justifyContent: "center", display: "flex" }}>
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                onClick={handleOpen}
+              >
+                Generate
+              </Button>
+            </div>
+            <div>
+              <ModalComponent isOpen={open} handleClose={handleClose} />
+            </div>
           </div>
         </div>
       </div>

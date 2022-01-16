@@ -7,7 +7,7 @@ export const Editor = (props) => {
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
   const commonStyle = {
-    margin: "20px",
+    margin: "10px",
     backgroundColor: "#c1c9d1",
     padding: "5px",
     borderRadius: "10px",
@@ -57,7 +57,7 @@ export const Editor = (props) => {
         Width:
         <SliderComponent
           name={"width"}
-          value={props.currentValues.length ? props.currentValues[0].width : 0}
+          value={props.currentValues.width ? props.currentValues[0].width : 0}
         />
       </div>
       <div style={commonStyle}>
@@ -65,9 +65,17 @@ export const Editor = (props) => {
         <SliderComponent
           marks={true}
           name={"depth"}
-          value={props.currentValues.length ? props.currentValues[0].depth : 0}
+          value={props.currentValues.depth ? props.currentValues[0].depth : 0}
         />
       </div>
+      {/* <div style={commonStyle}>
+        Rarity:
+        <SliderComponent
+          marks={true}
+          name={"rarity"}
+          value={props.currentValues.rarity ? props.currentValues[0].rarity : 0}
+        />
+      </div> */}
     </div>
   );
 };

@@ -10,7 +10,7 @@ export const EditorInput = (props) => {
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
 
   const commonStyle = {
-    margin: "20px",
+    margin: "10px",
     backgroundColor: "#c1c9d1",
     padding: "5px",
     borderRadius: "10px",
@@ -19,13 +19,14 @@ export const EditorInput = (props) => {
 
   const [input1, setInput1] = React.useState({ name: "height", value: null });
   const [input2, setInput2] = React.useState({ name: "width", value: null });
+  const [input3, setInput3] = React.useState({ name: "depth", value: null });
 
   return (
     <div
       style={{
         marginTop: "10px",
         backgroundColor: "#dee2e7",
-        padding: "10px",
+        padding: "7px",
         borderRadius: "10px",
         boxShadow: "1px 3px 1px #acacaf",
       }}
@@ -49,7 +50,10 @@ export const EditorInput = (props) => {
           <TextField
             variant="outlined"
             onChange={(event) => {
-              setInput1({ name: "height", value: event.target.value });
+              setInput1({
+                name: "height",
+                value: JSON.parse(event.target.value),
+              });
             }}
           />
         </div>
@@ -63,7 +67,20 @@ export const EditorInput = (props) => {
         <TextField
           variant="outlined"
           onChange={(event) => {
-            setInput2({ name: "width", value: event.target.value });
+            setInput2({ name: "width", value: JSON.parse(event.target.value) });
+          }}
+        />
+      </div>
+      <div style={commonStyle}>
+        <div style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+          {" "}
+          Depth:
+        </div>
+
+        <TextField
+          variant="outlined"
+          onChange={(event) => {
+            setInput3({ name: "depth", value: JSON.parse(event.target.value) });
           }}
         />
       </div>
@@ -71,7 +88,7 @@ export const EditorInput = (props) => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => props.setValues(input1, input2)}
+          onClick={() => props.setValues(input1, input2, input3)}
         >
           Submit
         </Button>

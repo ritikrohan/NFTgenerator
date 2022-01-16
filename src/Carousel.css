@@ -1,0 +1,11 @@
+.carouselElement {
+    margin: 20px;
+    font-family: monospace;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.carouselElement:hover {
+    background-color: rgba(216, 216, 216, 0.562);
+    font-weight: bold;
+}

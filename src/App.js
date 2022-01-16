@@ -3,7 +3,6 @@ import { objectReducer, selectionReducer } from "./ObjectReducer";
 import { Page } from "./Page";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { NavComponent } from "./Navbar";
-import { v4 as uuidv4 } from "uuid";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -47,7 +46,10 @@ export const App = () => {
   }
 
   for (let i = 0; i < subfoldersLength; i++) {
-    hashCodeElement.push({ name: uuidv4(), path: pathList[i] });
+    hashCodeElement.push({
+      name: fileData.children.length ? fileData.children[i].name : null,
+      path: pathList[i],
+    });
   }
 
   const getObjects = (files) => {
@@ -59,9 +61,10 @@ export const App = () => {
         objects.push({
           name: obj.name,
           path: obj.path,
-          height: 10,
-          width: 10,
+          height: 100,
+          width: 100,
           depth: 0,
+          rarity: "Common",
           x: 0,
           y: 0,
         });
@@ -86,8 +89,6 @@ export const App = () => {
     selectionReducer,
     selection
   );
-
-  console.log("the value of filedata is : ", objects);
 
   return (
     <ObjectContext.Provider value={{ objects: ObjectState, dispatch1 }}>
