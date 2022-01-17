@@ -1,68 +1,35 @@
 import React, { Component } from "react";
-import ReactDOM from "react-dom";
-import * as THREE from "three";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader.js";
+import "./style.css";
+import "./style.scss";
 
-export class ThreeData extends Component {
-  componentDidMount() {
-    const scene = new THREE.Scene();
+export const ThreeData = () => {
+  return (
+    <div>
+      <div className="page">
+        <div className="stars" />
+        <div className="twinkling" />
+        <div id="stars" />
+        <div id="stars2" />
+        <div id="stars3" />
 
-    const camera = new THREE.PerspectiveCamera(
-      75,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+        <div className="title" style={{ zIndex: 10 }}>
+          <h1>
+            WELCOME
+            <br />
+            To
+            <br />
+            NFT AUTOMATOR
+          </h1>
+        </div>
 
-    const renderer = new THREE.WebGLRenderer();
-    this.mount.appendChild(renderer.domElement);
+        <div className="wrap" style={{ zIndex: 9 }}>
+          {Array.apply(null, { length: 300 }).map((e, i) => (
+            <div className="c" />
+          ))}
+        </div>
 
-    renderer.setPixelRatio(window.devicePixelRatio);
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    camera.position.setZ(30);
-    camera.position.setX(-3);
-
-    renderer.render(scene, camera);
-
-    // Torus
-
-    const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-    const material = new THREE.MeshStandardMaterial({ color: 0xff6347 });
-    const torus = new THREE.Mesh(geometry, material);
-
-    // Lights
-
-    const pointLight = new THREE.PointLight(0xffffff);
-    pointLight.position.set(5, 5, 5);
-
-    const ambientLight = new THREE.AmbientLight(0xffffff);
-    scene.add(pointLight, ambientLight);
-
-    var animate = function () {
-      requestAnimationFrame(animate);
-
-      // controls.update();
-
-      renderer.render(scene, camera);
-      const loader = new GLTFLoader();
-
-      loader.load(
-        "./scene.gltf",
-        function (gltf) {
-          scene.add(gltf.scene);
-        },
-        undefined,
-        function (error) {
-          console.error(error);
-        }
-      );
-    };
-
-    animate();
-  }
-  render() {
-    return <div ref={(ref) => (this.mount = ref)} />;
-  }
-}
-const rootElement = document.getElementById("root");
-ReactDOM.render(<ThreeData />, rootElement);
+        <button style={{ zIndex: 10 }}>Continue</button>
+      </div>
+    </div>
+  );
+};
