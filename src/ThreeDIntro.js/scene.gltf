@@ -1,0 +1,329 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 16273,
+      "max": [0.60760498046875, 0.7304800152778625, 1],
+      "min": [-0.60760498046875, -0.7304800152778625, -1],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 195276,
+      "componentType": 5126,
+      "count": 16273,
+      "max": [0.9999971389770508, 0.999878466129303, 0.9999667406082153],
+      "min": [-0.999946653842926, -0.9999499917030334, -0.9998183846473694],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "componentType": 5126,
+      "count": 16273,
+      "max": [0.9999909996986389, 0.9999210238456726, 0.9994940161705017, 1],
+      "min": [
+        -0.9998739957809448, -0.9999880194664001, -0.9998660087585449, -1
+      ],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 16273,
+      "max": [0.9974700212478638, 0.9892600178718567],
+      "min": [0.0019499700283631682, 0.0019499700283631682],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 89670,
+      "max": [16272],
+      "min": [0],
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 390552,
+      "componentType": 5126,
+      "count": 752,
+      "max": [0.2348940074443817, -0.15869200229644775, 0.8621339797973633],
+      "min": [-0.19198299944400787, -0.49074798822402954, 0.5252829790115356],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 399576,
+      "componentType": 5126,
+      "count": 752,
+      "max": [0.999426543712616, 0.9987166523933411, 0.973003089427948],
+      "min": [-0.9985430240631104, -0.996737539768219, -0.9918603301048279],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 3,
+      "byteOffset": 260368,
+      "componentType": 5126,
+      "count": 752,
+      "max": [0.9964929819107056, 0.9912030100822449, 0.9923689961433411, 1],
+      "min": [-0.9953799843788147, -0.999858021736145, -0.9996039867401123, -1],
+      "type": "VEC4"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 130184,
+      "componentType": 5126,
+      "count": 752,
+      "max": [0.9930999875068665, 0.8430799841880798],
+      "min": [0.41571998596191406, 0.07078000158071518],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 358680,
+      "componentType": 5125,
+      "count": 3378,
+      "max": [751],
+      "min": [0],
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "jvitorsouzadesign (https://sketchfab.com/jvitorsouzadesign)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/models/eeed09437afb4e1ea8a6ff3b0e9964ad",
+      "title": "Skull Salazar (Downloadable)"
+    },
+    "generator": "Sketchfab-3.19.6",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 372192,
+      "byteOffset": 0,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 136200,
+      "byteOffset": 372192,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 408600,
+      "byteOffset": 508392,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 272400,
+      "byteOffset": 916992,
+      "byteStride": 16,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1189392,
+      "uri": "scene.bin"
+    }
+  ],
+  "images": [
+    {
+      "uri": "textures/Rosa_material_baseColor.jpeg"
+    },
+    {
+      "uri": "textures/Rosa_material_normal.png"
+    },
+    {
+      "uri": "textures/Rosa_material_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/defaultMat_material_metallicRoughness.png"
+    },
+    {
+      "uri": "textures/defaultMat_material_normal.png"
+    },
+    {
+      "uri": "textures/defaultMat_material_baseColor.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "name": "Rosa_material",
+      "normalTexture": {
+        "index": 1,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "occlusionTexture": {
+        "index": 2,
+        "strength": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [1, 1, 1, 1],
+        "baseColorTexture": {
+          "index": 0,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 2,
+          "texCoord": 0
+        },
+        "roughnessFactor": 0.8431783537
+      }
+    },
+    {
+      "doubleSided": true,
+      "emissiveFactor": [0, 0, 0],
+      "name": "defaultMat_material",
+      "normalTexture": {
+        "index": 4,
+        "scale": 1,
+        "texCoord": 0
+      },
+      "occlusionTexture": {
+        "index": 3,
+        "strength": 1,
+        "texCoord": 0
+      },
+      "pbrMetallicRoughness": {
+        "baseColorFactor": [1, 1, 1, 1],
+        "baseColorTexture": {
+          "index": 5,
+          "texCoord": 0
+        },
+        "metallicFactor": 1,
+        "metallicRoughnessTexture": {
+          "index": 3,
+          "texCoord": 0
+        },
+        "roughnessFactor": 1
+      }
+    }
+  ],
+  "meshes": [
+    {
+      "name": "defaultMaterial",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TANGENT": 2,
+            "TEXCOORD_0": 3
+          },
+          "indices": 4,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "defaultMaterial",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 6,
+            "POSITION": 5,
+            "TANGENT": 7,
+            "TEXCOORD_0": 8
+          },
+          "indices": 9,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [1],
+      "name": "RootNode (gltf orientation matrix)",
+      "rotation": [-0.7071067811865475, 0, 0, 0.7071067811865476]
+    },
+    {
+      "children": [2],
+      "matrix": [
+        0.9998108744621277, 0, -0.019447313621640205, 0, 0, 1, 0, 0,
+        0.019447313621640205, 0, 0.9998108744621277, 0, 7.000000135093387e-9, 0,
+        4.999999858590343e-10, 1
+      ],
+      "name": "RootNode (model correction matrix)"
+    },
+    {
+      "children": [3],
+      "matrix": [
+        1, 0, 0, 0, 0, -4.371139006309477e-8, 0.999999999999999, 0, 0,
+        -0.999999999999999, -4.371139006309477e-8, 0, 0, 0, 0, 1
+      ],
+      "name": "Collada visual scene group"
+    },
+    {
+      "children": [4, 5],
+      "name": "Group5732_001"
+    },
+    {
+      "mesh": 0,
+      "name": "defaultMaterial"
+    },
+    {
+      "mesh": 1,
+      "name": "defaultMaterial"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "OSG_Scene",
+      "nodes": [0]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    },
+    {
+      "sampler": 0,
+      "source": 1
+    },
+    {
+      "sampler": 0,
+      "source": 2
+    },
+    {
+      "sampler": 0,
+      "source": 3
+    },
+    {
+      "sampler": 0,
+      "source": 4
+    },
+    {
+      "sampler": 0,
+      "source": 5
+    }
+  ]
+}
