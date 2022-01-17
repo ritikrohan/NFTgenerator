@@ -6,4 +6,4 @@ import "./EditingPage/styles.css";
 import { ThreeData } from "./ThreeDIntro.js/page.js";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<ThreeData />, rootElement);
+ReactDOM.render(<App />, rootElement);

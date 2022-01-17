@@ -28,7 +28,9 @@ export const ThreeData = () => {
           ))}
         </div>
 
-        <button style={{ zIndex: 10 }}>Continue</button>
+        <button className="nice" style={{ zIndex: 10 }}>
+          Continue
+        </button>
       </div>
     </div>
   );

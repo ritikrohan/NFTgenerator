@@ -4,7 +4,7 @@ html,body {
     overflow: hidden;
   }
 
-  button{
+  .nice{
     position: absolute;
     border: 2px solid white;
     background: transparent;
@@ -23,7 +23,7 @@ html,body {
     animation: glow 2s ease-in-out infinite alternate;
   }
   
-  button:hover{
+  .nice:hover{
     border: 2px solid #ffffff;
     background-color: rgba(365,365,365,0.5);
     cursor: pointer;
