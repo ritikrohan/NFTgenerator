@@ -28,7 +28,11 @@ export const ThreeData = () => {
           ))}
         </div>
 
-        <button className="nice" style={{ zIndex: 10 }}>
+        <button
+          className="nice"
+          style={{ zIndex: 10 }}
+          onClick={(event) => (window.location.href = "/editing")}
+        >
           Continue
         </button>
       </div>

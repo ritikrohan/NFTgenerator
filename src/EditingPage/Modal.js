@@ -40,7 +40,12 @@ export const ModalComponent = (props) => {
           <Box sx={style}>
             <DemoCarousel />
             <div style={{ justifyContent: "center", display: "flex" }}>
-              <Button variant="contained" color="secondary" size="large">
+              <Button
+                variant="contained"
+                color="secondary"
+                size="large"
+                onClick={(event) => (window.location.href = "/loading")}
+              >
                 Create
               </Button>
             </div>

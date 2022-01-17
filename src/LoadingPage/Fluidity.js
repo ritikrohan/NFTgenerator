@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import FluidAnimation from "./react-fluid-animation";
 import random from "random";
+import { Button } from "@material-ui/core";
 
 const defaultConfig = {
   textureDownsample: 1,
@@ -59,6 +60,15 @@ export default class Fluidity extends Component {
           >
             React Fluid Animation
           </h1>
+
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={(event) => (window.location.href = "/final")}
+          >
+            Create
+          </Button>
         </div>
         <FluidAnimation config={config} animationRef={this._animationRef} />
       </div>
