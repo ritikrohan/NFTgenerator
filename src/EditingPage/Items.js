@@ -40,7 +40,7 @@ export const Items = (props) => {
           }}
         >
           <img
-            src={require(`.${file.path.slice(12)}`)}
+            src={require(`.${file.path.slice(12).replaceAll("\\", "/")}`)}
             alt="x"
             style={{
               width: file.width,

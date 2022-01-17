@@ -45,7 +45,12 @@ export const DemoCarousel = () => {
             return (
               <div className="carouselElement">
                 <div>
-                  <img src={require(`.${object.path.slice(12)}`)} alt="img" />
+                  <img
+                    src={require(`.${object.path
+                      .slice(12)
+                      .replaceAll("\\", "/")}`)}
+                    alt="img"
+                  />
                 </div>
                 <div style={{ fontWeight: "bold" }}>{`${object.name
                   .slice(0, 1)
