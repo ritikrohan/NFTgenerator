@@ -1,7 +1,7 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ObjectContext } from "./App";
+import { ObjectContext } from "./EditingPage";
 import "./Carousel.css";
 
 export const DemoCarousel = () => {
@@ -45,7 +45,7 @@ export const DemoCarousel = () => {
             return (
               <div className="carouselElement">
                 <div>
-                  <img src={require(`.${object.path}`)} alt="img" />
+                  <img src={require(`.${object.path.slice(12)}`)} alt="img" />
                 </div>
                 <div style={{ fontWeight: "bold" }}>{`${object.name
                   .slice(0, 1)

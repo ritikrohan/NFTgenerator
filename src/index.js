@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { App } from "./EditingPage/App.js";
-
-import "./EditingPage/styles.css";
-import { ThreeData } from "./ThreeDIntro.js/page.js";
+import Webpages from "./Webpages.js";
 
 const rootElement = document.getElementById("root");
-ReactDOM.render(<App />, rootElement);
+ReactDOM.render(<Webpages />, rootElement);

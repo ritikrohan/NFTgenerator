@@ -7,7 +7,7 @@ import { NavComponent } from "./Navbar";
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
 
-export const App = () => {
+export const EditingPage = () => {
   const baseURL = "http://localhost:5000/getFolderTree";
 
   const [fileData, setFileData] = React.useState(null);

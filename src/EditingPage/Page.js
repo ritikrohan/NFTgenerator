@@ -2,7 +2,7 @@ import React from "react";
 
 import { Editor } from "./Editor";
 import { Items } from "./Items";
-import { ObjectContext, ObjectSelection } from "./App";
+import { ObjectContext, ObjectSelection } from "./EditingPage";
 import { EditorInput } from "./EditorInput";
 import Trees from "./FolderStructure";
 import TreesTemp from "./FolderStructureTemp";

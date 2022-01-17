@@ -1,6 +1,6 @@
 import React from "react";
 import { Rnd } from "react-rnd";
-import { ObjectSelection, ObjectContext } from "./App";
+import { ObjectSelection, ObjectContext } from "./EditingPage";
 import "./Items.css";
 
 export const Items = (props) => {
@@ -40,7 +40,7 @@ export const Items = (props) => {
           }}
         >
           <img
-            src={require(`.${file.path}`)}
+            src={require(`.${file.path.slice(12)}`)}
             alt="x"
             style={{
               width: file.width,

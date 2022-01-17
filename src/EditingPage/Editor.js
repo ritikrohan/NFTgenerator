@@ -1,6 +1,6 @@
 import React from "react";
 import { SliderComponent } from "./Slider";
-import { ObjectContext, ObjectSelection } from "./App";
+import { ObjectContext, ObjectSelection } from "./EditingPage";
 
 export const Editor = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);

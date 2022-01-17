@@ -1,7 +1,7 @@
 import React from "react";
 import Slider from "@material-ui/core/Slider";
 import { useState } from "react";
-import { ObjectContext, ObjectSelection } from "./App";
+import { ObjectContext, ObjectSelection } from "./EditingPage";
 import "./Slider.css";
 
 export const SliderComponent = (props) => {

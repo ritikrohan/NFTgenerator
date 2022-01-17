@@ -1,7 +1,7 @@
 import React from "react";
 import { SliderComponent } from "./Slider";
 import { TextField } from "@material-ui/core";
-import { ObjectContext, ObjectSelection } from "./App";
+import { ObjectContext, ObjectSelection } from "./EditingPage";
 import { Button, Input } from "@material-ui/core";
 
 export const EditorInput = (props) => {

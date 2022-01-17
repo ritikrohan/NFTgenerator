@@ -25,6 +25,7 @@
     "react-github-corner": "^2.3.0",
     "react-multi-carousel": "^2.6.5",
     "react-rnd": "^10.3.5",
+    "react-router-dom": "^6.2.1",
     "react-scripts": "5.0.0",
     "react-sizeme": "2.5.2",
     "react-spring": "8.0.19",

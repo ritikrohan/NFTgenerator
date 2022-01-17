@@ -216,7 +216,7 @@ function Scene({ top, mouse }) {
 }
 
 /** Main component */
-export default function Main() {
+export default function FinalPage() {
   // This tiny spring right here controlls all(!) the animations, one for scroll, the other for mouse movement ...
   const [{ top, mouse }, set] = useSpring(() => ({ top: 0, mouse: [0, 0] }));
   const onMouseMove = useCallback(
@@ -241,4 +241,4 @@ export default function Main() {
   );
 }
 
-ReactDOM.render(<Main />, document.getElementById("root"));
+ReactDOM.render(<FinalPage />, document.getElementById("root"));

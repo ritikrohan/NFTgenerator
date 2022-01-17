@@ -4,7 +4,7 @@ import { Box } from "@material-ui/core";
 import { Modal } from "@material-ui/core";
 import { Fade, Button } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
-import { ObjectContext } from "./App";
+import { ObjectContext } from "./EditingPage";
 import { DemoCarousel } from "./Carousel";
 
 const style = {
