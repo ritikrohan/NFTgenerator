@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import FluidAnimation from "./react-fluid-animation";
 import random from "random";
 import { Button } from "@material-ui/core";
+import "./index.css";
 
 const defaultConfig = {
   textureDownsample: 1,
@@ -58,7 +59,7 @@ export default class Fluidity extends Component {
               textShadow: "2px 2px 8px rgba(0, 0, 0, 0.5)",
             }}
           >
-            React Fluid Animation
+            PATIENCE
           </h1>
         </div>
         <FluidAnimation config={config} animationRef={this._animationRef} />

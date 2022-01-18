@@ -33,7 +33,7 @@ export const NavComponent = () => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" color="inherit">
-            NFT Autom-8or
+            NFT Automator
           </Typography>
         </Toolbar>
       </AppBar>
