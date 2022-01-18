@@ -60,15 +60,6 @@ export default class Fluidity extends Component {
           >
             React Fluid Animation
           </h1>
-
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={(event) => (window.location.href = "/final")}
-          >
-            Create
-          </Button>
         </div>
         <FluidAnimation config={config} animationRef={this._animationRef} />
       </div>

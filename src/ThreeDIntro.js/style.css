@@ -4,6 +4,29 @@ html,body {
     overflow: hidden;
   }
 
+  
+
+  .landingButtons {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .landingNavMenu {
+    font-style: normal;
+    z-index: 1;
+    font-weight: 700;
+    font-family: "Montserrat Bold";
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: center;
+  }
+
+  .landingNavMenu:hover {
+    color: #fff;
+    animation: glow 2s ease-in-out infinite alternate;
+    text-decoration: underline;
+    /* background-color: #2b2b2b98; */
+  }
+
   .nice{
     position: absolute;
     border: 2px solid white;

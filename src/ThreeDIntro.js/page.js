@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavHomePage } from "./navigationBar";
 import "./style.css";
 import "./style.scss";
 
@@ -11,18 +12,15 @@ export const ThreeData = () => {
         <div id="stars" />
         <div id="stars2" />
         <div id="stars3" />
-
-        <div className="title" style={{ zIndex: 10 }}>
-          <h1>
-            WELCOME
-            <br />
-            To
-            <br />
-            NFT AUTOMATOR
-          </h1>
+        <div style={{ zIndex: 10 }}>
+          <NavHomePage />
         </div>
 
-        <div className="wrap" style={{ zIndex: 9 }}>
+        <div className="title" style={{ zIndex: 10, marginTop: "40vh" }}>
+          <h1>NFT AUTOMATOR</h1>
+        </div>
+
+        <div className="wrap" style={{ zIndex: 9, marginTop: "-20vh" }}>
           {Array.apply(null, { length: 300 }).map((e, i) => (
             <div className="c" />
           ))}
