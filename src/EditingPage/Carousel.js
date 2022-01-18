@@ -1,14 +1,15 @@
 import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { ObjectContext } from "./EditingPage";
+import { NumberOfCopies, ObjectContext } from "./EditingPage";
 import "./Carousel.css";
 
 export const DemoCarousel = () => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
+
+  const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const responsive = {
     superLargeDesktop: {
-      // the naming can be any, depends on you.
       breakpoint: { max: 4000, min: 3000 },
       items: 5,
     },
@@ -34,11 +35,36 @@ export const DemoCarousel = () => {
           display: "flex",
           fontWeight: "bold",
           fontSize: "20px",
-          fontFamily: "monospace",
+          fontFamily: "Times New Roman, serif",
         }}
       >
-        Review
+        REVIEW
       </div>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          fontSize: "20px",
+          fontWeight: 500,
+          fontFamily: "Times New Roman, serif",
+        }}
+      >
+        Total Copies Generated Will Be :
+      </div>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          fontSize: "25px",
+          fontWeight: 500,
+          fontFamily: "Times New Roman, serif",
+          animation: "glow 2s ease-in-out infinite alternate",
+          color: "rgba(255, 255, 255, 0.904)",
+        }}
+      >
+        <h1>{`${total.value}`}</h1>
+      </div>
+
       <Carousel responsive={responsive} focusOnSelect={true}>
         {objects &&
           objects.map((object) => {
@@ -50,6 +76,7 @@ export const DemoCarousel = () => {
                       .slice(12)
                       .replaceAll("\\", "/")}`)}
                     alt="img"
+                    style={{ maxHeight: "20vh" }}
                   />
                 </div>
                 <div style={{ fontWeight: "bold" }}>{`${object.name

@@ -18,6 +18,38 @@
   padding-left: 31px;
 }
 
+.rarityFolder {
+  margin: 0px;
+  align-items: center;
+  line-height: 1.5;
+  letter-spacing: 0px;
+  font-family: monospace;
+  border-radius: 5px;
+  outline: 0px;
+  width: 100%;
+  padding-top: 5px;
+  display: flex;
+  padding-bottom: 5px;
+  justify-content: flex-start;
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,
+    background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  font-size: 0.875rem;
+  color: #f1f1f1;
+  padding-left: 31px;
+  color: #ffffff;
+  background-color: #d4d4d496;
+}
+
+.rarityText {
+  color: #fff;
+  margin: 10px;
+}
+
+.rarityText:hover {
+background-color: rgb(121, 121, 121);
+border-radius: 10px;
+}
+
 .elementSubfolder {
   margin: 0px;
   align-items: center;

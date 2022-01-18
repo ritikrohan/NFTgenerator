@@ -1,6 +1,0 @@
-Update images based on the click on the left folder structure 
-Build Landing page 
-Build Final Page 
-Build Loading Page 
-Build Error Page 
-

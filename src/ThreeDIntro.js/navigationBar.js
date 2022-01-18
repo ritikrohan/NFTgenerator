@@ -3,8 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
 // Using Inline Styling
 const useStyles = makeStyles((theme) => ({
@@ -17,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Exporting Default Navbar to the App.js File
-export const NavHomePage = () => {
+export const NavHomePage = (props) => {
   const classes = useStyles();
 
   return (
@@ -32,23 +30,53 @@ export const NavHomePage = () => {
         variant="dense"
         style={{
           zIndex: 10,
-          backgroundColor: "#2b2b2b98",
-          marginRight: "10vw",
-          marginTop: "2vh",
+          backgroundColor: "#2b2b2b30",
+
           borderRadius: "10px",
+          height: "25px",
         }}
       >
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
-        <Typography variant="h5" color="inherit" className="landingNavMenu">
-          Home
-        </Typography>
+        <div className="eachOne">
+          <Typography
+            variant="h6"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setInstructionsOpen(true);
+            }}
+          >
+            HOME
+          </Typography>
+        </div>
+
+        <div className="eachOne">
+          <Typography
+            variant="h6"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setContactOpen(true);
+            }}
+          >
+            CONTACT
+          </Typography>
+        </div>
+
+        <div className="eachOne">
+          <Typography
+            variant="h6"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setAboutOpen(true);
+            }}
+          >
+            ABOUT US
+          </Typography>
+        </div>
       </Toolbar>
     </AppBar>
   );

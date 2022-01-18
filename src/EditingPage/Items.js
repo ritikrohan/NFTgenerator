@@ -13,43 +13,41 @@ export const Items = (props) => {
   }
 
   return (
-    elements &&
-    elements.map((file, index) => (
-      <div onClick={() => props.onClick(`${file.name}`)}>
-        <Rnd
-          key={index}
-          bounds="window"
-          style={{ zIndex: file.depth }}
-          onDragStop={(event) => {
-            dispatch2({
-              type: "update",
-              name: `${file.name}`,
-            });
-            dispatch1({
-              type: "update",
-              nameToFind: selection.name,
-              valueToChange: "x",
-              currentSlide: event.x,
-            });
-            dispatch1({
-              type: "update",
-              nameToFind: selection.name,
-              valueToChange: "y",
-              currentSlide: event.y,
-            });
-          }}
-        >
-          <img
-            src={require(`.${file.path.slice(12).replaceAll("\\", "/")}`)}
-            alt="x"
-            style={{
-              width: file.width,
-              height: file.height,
-            }}
-            className="items"
-          />
-        </Rnd>
+    <div>
+      <div
+        style={{
+          height: `${props.imageHeight}px`,
+          width: `${props.imageWidth}px`,
+          position: "relative",
+        }}
+        className="imageDimensions"
+        ref={props.parent}
+      >
+        {elements &&
+          elements.map((file, index) => (
+            <div onClick={() => props.onClick(`${file.name}`)}>
+              <Rnd
+                key={index}
+                style={{
+                  zIndex: file.depth,
+                }}
+                onDragStop={(event) => {
+                  props.setCoord(event, file);
+                }}
+              >
+                <img
+                  src={require(`.${file.path.slice(12).replaceAll("\\", "/")}`)}
+                  alt="x"
+                  style={{
+                    width: file.width,
+                    height: file.height,
+                  }}
+                  className="items"
+                />
+              </Rnd>
+            </div>
+          ))}
       </div>
-    ))
+    </div>
   );
 };

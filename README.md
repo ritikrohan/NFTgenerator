@@ -1,70 +1,158 @@
-# Getting Started with Create React App
+<img width="1404" alt="Untitled" src="https://user-images.githubusercontent.com/34533393/153697623-744d20d8-f6e7-4874-b9d3-44507f3f3800.png">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to SickAlien X NFT Art Generator
 
-## Available Scripts
 
-In the project directory, you can run:
+# Our NFT Art Generator is the best Interactive tool to make NFTs.
 
-### `npm start`
+The Code was developed and designed by Bitrix - https://linktr.ee/nft_paradise
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The generative Art engine takes away all the pain of generating NFTs from you. 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Get a free OctoAliens NFT on joining our joining my socials , dont forget to tag me on twitter for a free giveaway ! We building a fam 😇.
+To find more about us - 
 
-### `npm test`
+👽 [Sick Alien Official Site](https://sickalien.store) - Coming Soon (Work in Progress)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+☕ [Buy me a coffee :)](https://www.buymeacoffee.com/bitrix)
 
-### `npm run build`
+📺 [YouTube](https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+🐙 [Discord](https://discord.gg/qKX2B3JF)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+🐦 [Twitter](https://twitter.com/bitrix_01_09)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+🔥 [Instagram](https://www.instagram.com/sick_alien_club/)
 
-### `npm run eject`
+💸 ETH Address [ERC20] - 0x2b2d491559c47406c3d79e0e805f8bfbba699432
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+🦍 Metamask Wallet Address - 0xB1Ea4256Af8a6B299e80D0168426545B2A4B2696 (Drop me a piece of your collection 😉)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Why choose us
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Pros
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+ - Interactive UI ✅
+ - Drag and Drop Selection ✅
+ - Canvas Resolution in your control ✅
+ - Layers are resizable ✅
+ - Layer Ordering in your control ✅
+ - No-Limit or Cap on the number of NFTs ✅
+ - Totally Free of Charge ✅
 
-## Learn More
+### Cons
+ - I didn't find any , did you ? 
+ 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+# Complete Tutorial 👇
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Youtube Tutorial :- [Tutorial](https://www.youtube.com/watch?v=aN6-oUXcuPo&t=1s)
 
-### Code Splitting
+![final (1)](https://user-images.githubusercontent.com/34533393/153640147-951f2cc3-b11e-4c6a-bcab-1ff23f8ba4b1.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+# Turns this :- 
 
-### Making a Progressive Web App
+<img width="1679" alt="Screenshot 2022-02-07 at 2 15 15 PM" src="https://user-images.githubusercontent.com/34533393/152754666-2b503513-f8c1-4d63-b2ef-49d45f24f42f.png">
+<img width="1299" alt="Screenshot 2022-02-07 at 2 15 45 PM" src="https://user-images.githubusercontent.com/34533393/152754700-c0078987-1d6c-4ad5-91e3-025e0580122b.png">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+# To This :-
+![494](https://user-images.githubusercontent.com/34533393/152755001-c27f450e-d7d5-432c-8da8-a81da4bc2412.png)
+![unnamed_400x400](https://user-images.githubusercontent.com/34533393/153055242-415d7286-da39-42c6-b514-262ed98f5f32.jpg)
 
-### Deployment
+... Many More
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+# Installation 🛠️
 
-### `npm run build` fails to minify
+*************** Do make sure you have the latest version of Node installed *******************
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+If not download from here - https://nodejs.org/en/download/
+
+
+# 🚧 Compatibility 🚧
+ - Mac ✅
+ - Linux ✅
+ - You need to install extra dependencies for Windows ❗
+
+
+For Windows check out extra installation steps involved.
+
+# Before you start, make sure your file structure looks something like this:
+
+```
+YOUR_PROJECT/  
+├─ images/  
+│  ├─ trait1_name/  
+│  │  ├─ file1.png  
+│  │  ├─ file2.png  
+│  │  ├─ file3.png  
+│  │  ├─ ...  
+│  ├─ trait2_name/  
+│  │  ├─ file4.png  
+│  │  ├─ file5.png  
+│  │  ├─ ...  
+│  ├─ trait3_name/  
+│  │  ├─ file6.png  
+│  │  ├─ ...  
+│  ├─ ...  
+
+```
+
+# Step 1
+
+## If you want to clone this project - 
+
+
+```
+git clone https://github.com/ritikrohan/NFTgenerator.git
+```
+Or 
+
+Download the zip from the Code Dropdown.
+
+
+# Step 2 (Mac and Linux)
+
+Go to the main branch and run this command if you have yarn installed.
+
+```
+yarn install
+```
+
+Run this command if you have NodeJS installed.
+
+```
+npm install
+```
+
+# Step 2 ( For Windows Users )
+
+Follow the instruction below for installing node-canvas.
+
+ - https://github.com/Automattic/node-canvas/wiki/Installation:-Windows
+
+ - Once installed then Go to the main branch and run this command if you have yarn installed.
+
+```
+yarn install
+```
+
+ - Run this command if you have node installed.
+
+```
+npm install
+```
+
+# Step 3
+
+# Running the APP  🛠️
+
+```
+npm run devall
+```
+# Step 4 
+
+ - Enjoy the Result 🥇🏆

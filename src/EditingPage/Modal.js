@@ -3,9 +3,9 @@ import { Backdrop } from "@material-ui/core";
 import { Box } from "@material-ui/core";
 import { Modal } from "@material-ui/core";
 import { Fade, Button } from "@material-ui/core";
-import { Typography } from "@material-ui/core";
-import { ObjectContext } from "./EditingPage";
+import { NumberOfCopies, ObjectContext, TreeContext } from "./EditingPage";
 import { DemoCarousel } from "./Carousel";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -13,7 +13,7 @@ const style = {
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 1000,
-  height: 600,
+  height: 650,
   bgcolor: "background.paper",
   border: "2px solid #000",
   boxShadow: 24,
@@ -23,6 +23,31 @@ const style = {
 };
 
 export const ModalComponent = (props) => {
+  const { objects } = React.useContext(ObjectContext);
+  const { total } = React.useContext(NumberOfCopies);
+  const { fileData } = React.useContext(TreeContext);
+
+  const handleClick = async () => {
+    const data = {
+      objects: objects,
+      total: total,
+      uuid: JSON.parse(sessionStorage.uuid),
+      canvasHeight: props.canvasHeight,
+      canvasWidth: props.canvasWidth,
+      folderTree: fileData,
+    };
+    props.openLoadingModal();
+    axios
+      .post("http://localhost:8443/submitDetails", data)
+      .then(function (response) {
+        window.location.href = "/loading";
+        console.log(response);
+      })
+      .catch(function (error) {
+        window.location.href = "/error";
+        console.log(error);
+      });
+  };
   return (
     <div>
       <Modal
@@ -39,12 +64,18 @@ export const ModalComponent = (props) => {
         <Fade in={props.isOpen}>
           <Box sx={style}>
             <DemoCarousel />
-            <div style={{ justifyContent: "center", display: "flex" }}>
+            <div
+              style={{
+                justifyContent: "center",
+                display: "flex",
+                marginTop: "-10px",
+              }}
+            >
               <Button
                 variant="contained"
                 color="secondary"
                 size="large"
-                onClick={(event) => (window.location.href = "/loading")}
+                onClick={handleClick}
               >
                 Create
               </Button>
