@@ -23,6 +23,25 @@ const style = {
 };
 
 export const ModalComponent = (props) => {
+  const { objects, dispatch1 } = React.useContext(ObjectContext);
+
+  const handleClick = async () => {
+    const data = objects;
+    const requestOptions = {
+      method: "POST",
+      mode: "cors",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      referrerPolicy: "no-referrer",
+      body: JSON.stringify(data),
+    };
+    fetch("http://localhost:5000/submitDetails", requestOptions)
+      .then((response) => response.json())
+      .then((res) => console.log(res));
+
+    window.location.href = "/loading";
+  };
   return (
     <div>
       <Modal
@@ -44,7 +63,7 @@ export const ModalComponent = (props) => {
                 variant="contained"
                 color="secondary"
                 size="large"
-                onClick={(event) => (window.location.href = "/loading")}
+                onClick={handleClick}
               >
                 Create
               </Button>

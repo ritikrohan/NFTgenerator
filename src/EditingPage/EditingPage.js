@@ -64,7 +64,6 @@ export const EditingPage = () => {
           height: 100,
           width: 100,
           depth: 0,
-          rarity: "Common",
           x: 0,
           y: 0,
         });
