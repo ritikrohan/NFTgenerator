@@ -39,28 +39,35 @@ export const NavHomePage = () => {
           height: "25px",
         }}
       >
-        <IconButton
-          edge="start"
-          className={classes.menuButton}
-          color="inherit"
-          aria-label="menu"
-        >
-          <MenuIcon />
-        </IconButton>
         <div className="eachOne">
-          <Typography variant="h5" color="inherit" className="landingNavMenu">
+          <Typography
+            variant="h5"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
             HOME
           </Typography>
         </div>
 
         <div className="eachOne">
-          <Typography variant="h5" color="inherit" className="landingNavMenu">
+          <Typography
+            variant="h5"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
             CONTACT
           </Typography>
         </div>
 
         <div className="eachOne">
-          <Typography variant="h5" color="inherit" className="landingNavMenu">
+          <Typography
+            variant="h5"
+            color="inherit"
+            className="landingNavMenu"
+            style={{ fontFamily: "Times New Roman, serif" }}
+          >
             ABOUT US
           </Typography>
         </div>

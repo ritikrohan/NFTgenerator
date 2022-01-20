@@ -5,7 +5,7 @@ html,body {
   }
 
   .eachOne {
-    margin-left: 20px;
+    margin-left: 25px;
   }
   
 
@@ -17,8 +17,7 @@ html,body {
   .landingNavMenu {
     font-style: normal;
     z-index: 1;
-    font-weight: 700;
-    font-family: "Montserrat Bold";
+    font-weight: "bold";
     animation: glow 2s ease-in-out infinite alternate;
     text-align: center;
   }
@@ -58,7 +57,7 @@ html,body {
     cursor: pointer;
     color: #ffffff;
     transition: .3s;
-    box-shadow: 0 8px 16px 0 rgb(255, 255, 255);
+    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.692);
   }
   
   #stars {

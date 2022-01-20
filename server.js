@@ -35,22 +35,33 @@ app.post("/submitDetails", (request, response) => {
     layerData.push(obj);
   });
 
-  tree.children.map((item, index) => {
-    item.children.map((obj) => {
-      loadImage(`./${obj.path}`).then((image) => {
-        context.drawImage(
-          image,
-          JSON.parse(layerData[index].x),
-          JSON.parse(layerData[index].y),
-          JSON.parse(layerData[index].height),
-          JSON.parse(layerData[index].width)
-        );
+  var values = 10;
 
-        const buffer = canvas.toBuffer("image/png");
-        fs.writeFileSync(__dirname + `/generated/${obj.name}`, buffer);
-      });
+  while (values) {
+    var hash = 0;
+    // eslint-disable-next-line no-loop-func
+    tree.children.forEach(async (item, index) => {
+      const idx = Math.floor(Math.random() * item.children.length);
+      const obj = item.children[idx];
+
+      const image = await loadImage(`./${obj.path}`);
+      context.drawImage(
+        image,
+        JSON.parse(layerData[index].x),
+        JSON.parse(layerData[index].y),
+        JSON.parse(layerData[index].height),
+        JSON.parse(layerData[index].width)
+      );
+      const buffer = canvas.toBuffer("image/png");
+      fs.writeFileSync(__dirname + `/generated/${hash}.png`, buffer);
+
+      if (tree.children.length === index + 1) {
+        hash += 1;
+      }
     });
-  });
+    hash += 1;
+    values -= 1;
+  }
 });
 
 app.listen(port, () => {
