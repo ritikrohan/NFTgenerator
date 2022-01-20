@@ -36,6 +36,7 @@ export const NavHomePage = () => {
           marginRight: "10vw",
           marginTop: "2vh",
           borderRadius: "10px",
+          height: "25px",
         }}
       >
         <IconButton
@@ -46,9 +47,23 @@ export const NavHomePage = () => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h5" color="inherit" className="landingNavMenu">
-          Home
-        </Typography>
+        <div className="eachOne">
+          <Typography variant="h5" color="inherit" className="landingNavMenu">
+            HOME
+          </Typography>
+        </div>
+
+        <div className="eachOne">
+          <Typography variant="h5" color="inherit" className="landingNavMenu">
+            CONTACT
+          </Typography>
+        </div>
+
+        <div className="eachOne">
+          <Typography variant="h5" color="inherit" className="landingNavMenu">
+            ABOUT US
+          </Typography>
+        </div>
       </Toolbar>
     </AppBar>
   );

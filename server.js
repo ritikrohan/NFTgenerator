@@ -5,7 +5,7 @@ const { createCanvas, loadImage } = require("canvas");
 const app = express();
 const fs = require("fs");
 
-const width = 1200;
+const width = 600;
 const height = 600;
 
 const canvas = createCanvas(width, height);
@@ -22,27 +22,35 @@ const dirTree = require("directory-tree");
 const tree = dirTree("src/EditingPage/layers");
 
 app.get("/getFolderTree", (req, res) => {
+  console.log(JSON.stringify(tree));
   res.send(JSON.stringify(tree));
 });
 
 app.post("/submitDetails", (request, response) => {
   const data = request.body;
 
+  const layerData = [];
+
   data.map((obj) => {
-    loadImage(`./src${obj.path}`).then((image) => {
-      context.drawImage(
-        image,
-        JSON.parse(obj.x),
-        JSON.parse(obj.y),
-        JSON.parse(obj.height),
-        JSON.parse(obj.width)
-      );
-    });
-    const buffer = canvas.toBuffer("image/png");
-    fs.writeFileSync("./generated/image.png", buffer);
+    layerData.push(obj);
   });
 
-  console.log(request.body);
+  tree.children.map((item, index) => {
+    item.children.map((obj) => {
+      loadImage(`./${obj.path}`).then((image) => {
+        context.drawImage(
+          image,
+          JSON.parse(layerData[index].x),
+          JSON.parse(layerData[index].y),
+          JSON.parse(layerData[index].height),
+          JSON.parse(layerData[index].width)
+        );
+
+        const buffer = canvas.toBuffer("image/png");
+        fs.writeFileSync(__dirname + `/generated/${obj.name}`, buffer);
+      });
+    });
+  });
 });
 
 app.listen(port, () => {

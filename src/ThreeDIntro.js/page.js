@@ -20,10 +20,14 @@ export const ThreeData = () => {
           <h1>NFT AUTOMATOR</h1>
         </div>
 
-        <div className="wrap" style={{ zIndex: 9, marginTop: "-20vh" }}>
+        <div className="wrap" style={{ zIndex: 9, marginTop: "-15vh" }}>
           {Array.apply(null, { length: 300 }).map((e, i) => (
             <div className="c" />
           ))}
+        </div>
+
+        <div style={{ zIndex: 10 }}>
+          A tool to take the pain of creating NFTs away from you.
         </div>
 
         <button
@@ -31,7 +35,7 @@ export const ThreeData = () => {
           style={{ zIndex: 10 }}
           onClick={(event) => (window.location.href = "/editing")}
         >
-          Continue
+          Enter
         </button>
       </div>
     </div>

@@ -22,3 +22,7 @@
   .navbar .navbar-nav .nav-link:hover::after {
     width: 100%;
   }
+
+  .eachOne {
+    margin: 5px;
+  }
