@@ -31,13 +31,16 @@ app.post("/submitDetails", (request, response) => {
 
   const data = request.body;
 
+  console.log(JSON.stringify(data));
+
   const layerData = [];
 
-  data.map((obj) => {
-    layerData.push(obj);
-  });
+  data &&
+    data.objects.map((obj) => {
+      layerData.push(obj);
+    });
 
-  var values = 1000;
+  var values = data.total.value;
 
   while (values) {
     var hash = 0;

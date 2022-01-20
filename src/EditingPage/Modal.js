@@ -27,7 +27,7 @@ export const ModalComponent = (props) => {
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
 
   const handleClick = async () => {
-    const data = objects;
+    const data = { objects: objects, total: total };
     const requestOptions = {
       method: "POST",
       mode: "cors",
