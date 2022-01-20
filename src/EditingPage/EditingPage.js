@@ -1,11 +1,16 @@
 import React from "react";
-import { objectReducer, selectionReducer } from "./ObjectReducer";
+import {
+  objectReducer,
+  selectionReducer,
+  totalElementsReducer,
+} from "./ObjectReducer";
 import { Page } from "./Page";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { NavComponent } from "./Navbar";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
+export const NumberOfCopies = React.createContext();
 
 export const EditingPage = () => {
   const baseURL = "http://localhost:5000/getFolderTree";
@@ -15,6 +20,7 @@ export const EditingPage = () => {
 
   let selection = null;
   let objects = [];
+  let total = { value: 100 };
 
   const getTree = async () => {
     const response = await fetch(baseURL, {
@@ -82,11 +88,16 @@ export const EditingPage = () => {
   }, [fileData]);
 
   selection = { name: hashCodeElement[0] };
+  total = { value: 100 };
 
   const [ObjectState, dispatch1] = React.useReducer(objectReducer, objects);
   const [SelectionState, dispatch2] = React.useReducer(
     selectionReducer,
     selection
+  );
+  const [NumberOfCopiesState, dispatch3] = React.useReducer(
+    totalElementsReducer,
+    total
   );
 
   return (
@@ -94,18 +105,22 @@ export const EditingPage = () => {
       <ObjectSelection.Provider
         value={{ selection: SelectionState, dispatch2 }}
       >
-        <CssBaseline>
-          <div style={{ maxHeight: "20px", zIndex: 21 }}>
-            <NavComponent />
-          </div>
-          <div style={{ margin: "2px" }}>
-            <Page
-              folderStructure={fileData}
-              selection={selection}
-              hashedElements={objects}
-            />
-          </div>
-        </CssBaseline>
+        <NumberOfCopies.Provider
+          value={{ total: NumberOfCopiesState, dispatch3 }}
+        >
+          <CssBaseline>
+            <div style={{ maxHeight: "20px", zIndex: 21 }}>
+              <NavComponent />
+            </div>
+            <div style={{ margin: "2px" }}>
+              <Page
+                folderStructure={fileData}
+                selection={selection}
+                hashedElements={objects}
+              />
+            </div>
+          </CssBaseline>
+        </NumberOfCopies.Provider>
       </ObjectSelection.Provider>
     </ObjectContext.Provider>
   );

@@ -26,3 +26,15 @@ export const selectionReducer = (state, action) => {
       return state;
   }
 };
+
+export const totalElementsReducer = (state, action) => {
+  switch (action.type) {
+    case "update":
+      const newState = state;
+      const { value } = action;
+      newState.value = value;
+      return newState;
+    default:
+      return state;
+  }
+};

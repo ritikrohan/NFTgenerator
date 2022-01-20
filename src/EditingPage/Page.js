@@ -2,7 +2,7 @@ import React from "react";
 
 import { Editor } from "./Editor";
 import { Items } from "./Items";
-import { ObjectContext, ObjectSelection } from "./EditingPage";
+import { NumberOfCopies, ObjectContext, ObjectSelection } from "./EditingPage";
 import { EditorInput } from "./EditorInput";
 import Trees from "./FolderStructure";
 import TreesTemp from "./FolderStructureTemp";
@@ -13,6 +13,7 @@ import { ModalComponent } from "./Modal";
 export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
+  const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const [open, setOpen] = React.useState(false);
 
   const setCurrentElement = (val) => {
@@ -22,7 +23,7 @@ export const Page = (props) => {
     });
   };
 
-  const editValues = (input1, input2, input3) => {
+  const editValues = (input1, input2, input3, input4) => {
     if (input1.value) {
       dispatch1({
         type: "update",
@@ -49,6 +50,15 @@ export const Page = (props) => {
         currentSlide: input3.value,
       });
     }
+
+    if (input4.value) {
+      dispatch3({
+        type: "update",
+        value: input4.value,
+      });
+    }
+
+    console.log("value: ", total);
   };
 
   const handleOpen = () => {

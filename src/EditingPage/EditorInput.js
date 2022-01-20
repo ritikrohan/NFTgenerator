@@ -1,7 +1,7 @@
 import React from "react";
 import { SliderComponent } from "./Slider";
 import { TextField } from "@material-ui/core";
-import { ObjectContext, ObjectSelection } from "./EditingPage";
+import { NumberOfCopies, ObjectContext, ObjectSelection } from "./EditingPage";
 import { Button, Input } from "@material-ui/core";
 
 export const EditorInput = (props) => {
@@ -20,6 +20,7 @@ export const EditorInput = (props) => {
   const [input1, setInput1] = React.useState({ name: "height", value: null });
   const [input2, setInput2] = React.useState({ name: "width", value: null });
   const [input3, setInput3] = React.useState({ name: "depth", value: null });
+  const [input4, setInput4] = React.useState({ value: null });
 
   return (
     <div
@@ -48,7 +49,10 @@ export const EditorInput = (props) => {
         </div>
         <div>
           <TextField
-            variant="outlined"
+            size="small"
+            variant="standard"
+            inputProps={{ style: { textAlign: "center" } }}
+            placeholder="(in px)"
             onChange={(event) => {
               setInput1({
                 name: "height",
@@ -60,12 +64,14 @@ export const EditorInput = (props) => {
       </div>
       <div style={commonStyle}>
         <div style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-          {" "}
           Width:
         </div>
 
         <TextField
-          variant="outlined"
+          size="small"
+          variant="standard"
+          inputProps={{ style: { textAlign: "center" } }}
+          placeholder="(in px)"
           onChange={(event) => {
             setInput2({ name: "width", value: JSON.parse(event.target.value) });
           }}
@@ -73,14 +79,32 @@ export const EditorInput = (props) => {
       </div>
       <div style={commonStyle}>
         <div style={{ fontWeight: "bold", fontFamily: "monospace" }}>
-          {" "}
           Depth:
         </div>
 
         <TextField
-          variant="outlined"
+          size="small"
+          variant="standard"
+          inputProps={{ style: { textAlign: "center" } }}
+          placeholder="0 - 10"
           onChange={(event) => {
             setInput3({ name: "depth", value: JSON.parse(event.target.value) });
+          }}
+        />
+      </div>
+      <div style={commonStyle}>
+        <div style={{ fontWeight: "bold", fontFamily: "monospace" }}>
+          Total Copies:
+        </div>
+
+        <TextField
+          size="small"
+          defaultValue={100}
+          inputProps={{ min: 0, style: { textAlign: "center" } }}
+          margin="dense"
+          variant="standard"
+          onChange={(event) => {
+            setInput4({ value: JSON.parse(event.target.value) });
           }}
         />
       </div>
@@ -88,7 +112,7 @@ export const EditorInput = (props) => {
         <Button
           variant="contained"
           color="primary"
-          onClick={() => props.setValues(input1, input2, input3)}
+          onClick={() => props.setValues(input1, input2, input3, input4)}
         >
           Submit
         </Button>

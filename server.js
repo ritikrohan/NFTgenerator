@@ -5,8 +5,8 @@ const { createCanvas, loadImage } = require("canvas");
 const app = express();
 const fs = require("fs");
 
-const width = 600;
-const height = 600;
+const width = 100;
+const height = 100;
 
 const canvas = createCanvas(width, height);
 const context = canvas.getContext("2d");
@@ -27,6 +27,8 @@ app.get("/getFolderTree", (req, res) => {
 });
 
 app.post("/submitDetails", (request, response) => {
+  var startDate = new Date();
+
   const data = request.body;
 
   const layerData = [];
@@ -35,7 +37,7 @@ app.post("/submitDetails", (request, response) => {
     layerData.push(obj);
   });
 
-  var values = 10;
+  var values = 1000;
 
   while (values) {
     var hash = 0;
@@ -62,6 +64,9 @@ app.post("/submitDetails", (request, response) => {
     hash += 1;
     values -= 1;
   }
+  var endDate = new Date();
+  var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
+  console.log("The total Time Taken was : ", seconds);
 });
 
 app.listen(port, () => {
