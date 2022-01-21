@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 
 import { EditingPage } from "./EditingPage/EditingPage";
-import FinalPage from "./FinalPage/Glitch";
+import FinalPage from "./FInalPage/Glitch"; //NEED to Correct Later
 import Fluidity from "./LoadingPage/Fluidity";
 import { ThreeData } from "./ThreeDIntro.js/page";
 import "./EditingPage/styles.css";
