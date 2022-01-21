@@ -19,9 +19,7 @@ export const Webpages = () => {
       <Routes>
         <Route exact path="/" element={<ThreeData />} />
         <Route path="/editing" element={<EditingPage />} />
-
         <Route path="/loading" element={<Fluidity />} />
-
         <Route path="/final" element={<FinalPage />} />
       </Routes>
     </Router>
