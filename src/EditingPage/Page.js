@@ -95,6 +95,15 @@ export const Page = (props) => {
           padding: "5px",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "rgba(110, 110, 110, 0.658)",
+            color: "#fff",
+            fontFamily: "monospace",
+          }}
+        >{`Current Selection: ${selection.name}`}</div>
         <div id="content">
           <Items
             onClick={setCurrentElement}
