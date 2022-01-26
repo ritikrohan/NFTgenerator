@@ -33,22 +33,7 @@ export const Items = (props) => {
                 alignItems: "center",
               }}
               onDragStop={(event) => {
-                dispatch2({
-                  type: "update",
-                  name: `${file.name}`,
-                });
-                dispatch1({
-                  type: "update",
-                  nameToFind: selection.name,
-                  valueToChange: "x",
-                  currentSlide: event.x,
-                });
-                dispatch1({
-                  type: "update",
-                  nameToFind: selection.name,
-                  valueToChange: "y",
-                  currentSlide: event.y,
-                });
+                props.setCoord(event, file);
               }}
             >
               <img

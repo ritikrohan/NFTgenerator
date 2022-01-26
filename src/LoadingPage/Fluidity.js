@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import FluidAnimation from "./react-fluid-animation";
 import random from "random";
 import { Button } from "@material-ui/core";
+import { NavComponent } from "../EditingPage/Navbar";
 import "./index.css";
 
 const defaultConfig = {
@@ -35,6 +36,9 @@ export default class Fluidity extends Component {
           height: "100vh",
         }}
       >
+        <div style={{ maxHeight: "20px", zIndex: 21 }}>
+          <NavComponent />
+        </div>
         <div
           style={{
             position: "absolute",

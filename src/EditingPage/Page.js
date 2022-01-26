@@ -17,12 +17,34 @@ export const Page = (props) => {
   const [open, setOpen] = React.useState(false);
   const [imageHeight, setImageHeight] = React.useState(400);
   const [imageWidth, setImageWidth] = React.useState(400);
+  const [coord, setCoor] = React.useState({ x: 0, y: 0 });
 
   const setCurrentElement = (val) => {
     dispatch2({
       type: "update",
       name: val,
     });
+  };
+
+  const setCoord = (event, file) => {
+    dispatch2({
+      type: "update",
+      name: `${file.name}`,
+    });
+    dispatch1({
+      type: "update",
+      nameToFind: selection.name,
+      valueToChange: "x",
+      currentSlide: event.x,
+    });
+    dispatch1({
+      type: "update",
+      nameToFind: selection.name,
+      valueToChange: "y",
+      currentSlide: event.y,
+    });
+
+    setCoor({ x: event.x, y: event.y });
   };
 
   React.useEffect(() => {});
@@ -116,8 +138,20 @@ export const Page = (props) => {
             hashedFolder={props.hashedElements}
             imageHeight={imageHeight}
             imageWidth={imageWidth}
+            setCoord={setCoord}
           />
         </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "right",
+            backgroundColor: "rgba(110, 110, 110, 0.658)",
+            color: "#fff",
+            fontFamily: "monospace",
+            marginTop: "-9vh",
+            paddingRight: "5px",
+          }}
+        >{`X: ${coord.x}     Y: ${coord.y}`}</div>
       </div>
       <div
         style={{
