@@ -24,11 +24,6 @@ export const NavComponent = () => {
     <div className={classes.root} style={{ color: "#212529" }}>
       <AppBar position="sticky" style={{ background: "rgb(16, 16, 32)" }}>
         <Toolbar variant="dense">
-          <img
-            style={{ maxWidth: "50px" }}
-            src={require("./AlienLogo.png")}
-            alt="alien"
-          />
           <Typography
             variant="h6"
             color="inherit"
@@ -37,19 +32,26 @@ export const NavComponent = () => {
               animation: "glow 2s ease-in-out infinite alternate",
             }}
           >
-            <p>Sick Alien&nbsp;</p>
-            <span></span>
+            {"NFT Automator"}
           </Typography>
           <Typography
-            variant="h7"
+            variant="h6"
             color="inherit"
             style={{
               fontFamily: "monospace",
               animation: "glow 2s ease-in-out infinite alternate",
+              marginLeft: "76vw",
             }}
           >
-            {" X NFT Automator"}
+            <p>Sick Alien&nbsp;</p>
+            <span></span>
           </Typography>
+
+          <img
+            style={{ maxWidth: "50px", marginLeft: "0.5vw" }}
+            src={require("./AlienLogo.png")}
+            alt="alien"
+          />
         </Toolbar>
       </AppBar>
     </div>

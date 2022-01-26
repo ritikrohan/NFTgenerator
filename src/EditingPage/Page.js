@@ -27,6 +27,16 @@ export const Page = (props) => {
   };
 
   const setCoord = (event, file) => {
+    const windowHeight = window.innerHeight;
+    const windowWidth = window.innerWidth;
+
+    console.log("Window Dimensions: ", windowHeight, windowWidth);
+
+    const initialX = (windowWidth - imageWidth) / 2;
+    const initialY = (windowHeight - imageHeight) / 2;
+
+    console.log("Initial Dimensions: ", initialX, initialY);
+
     dispatch2({
       type: "update",
       name: `${file.name}`,
@@ -35,16 +45,18 @@ export const Page = (props) => {
       type: "update",
       nameToFind: selection.name,
       valueToChange: "x",
-      currentSlide: event.x,
+      currentSlide: event.x - initialX,
     });
     dispatch1({
       type: "update",
       nameToFind: selection.name,
       valueToChange: "y",
-      currentSlide: event.y,
+      currentSlide: event.y - initialY,
     });
 
-    setCoor({ x: event.x, y: event.y });
+    console.log("Final Dimensions: ", event.x - initialX, event.y - initialY);
+
+    setCoor({ x: event.x - initialX, y: event.y - initialY });
   };
 
   React.useEffect(() => {});

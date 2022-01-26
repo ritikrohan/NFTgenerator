@@ -9,8 +9,8 @@ const FileSync = require("lowdb/adapters/FileSync");
 
 const db = lowDb(new FileSync("./src/traffic.json"));
 
-const width = 100;
-const height = 100;
+const width = 400;
+const height = 400;
 
 const canvas = createCanvas(width, height);
 const context = canvas.getContext("2d");
