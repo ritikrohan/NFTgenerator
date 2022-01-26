@@ -7,7 +7,7 @@ const fs = require("fs");
 const lowDb = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 
-const db = lowDb(new FileSync("traffic.json"));
+const db = lowDb(new FileSync("./src/traffic.json"));
 
 const width = 100;
 const height = 100;

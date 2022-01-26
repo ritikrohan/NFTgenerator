@@ -3,8 +3,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
 
 // Using Inline Styling
 const useStyles = makeStyles((theme) => ({
@@ -32,19 +30,18 @@ export const NavHomePage = () => {
         variant="dense"
         style={{
           zIndex: 10,
-          backgroundColor: "#2b2b2b98",
-          marginRight: "10vw",
-          marginTop: "2vh",
+          backgroundColor: "#2b2b2b30",
+
           borderRadius: "10px",
           height: "25px",
         }}
       >
         <div className="eachOne">
           <Typography
-            variant="h5"
+            variant="h6"
             color="inherit"
             className="landingNavMenu"
-            style={{ fontFamily: "Times New Roman, serif" }}
+            style={{ fontFamily: "monospace" }}
           >
             HOME
           </Typography>
@@ -52,10 +49,10 @@ export const NavHomePage = () => {
 
         <div className="eachOne">
           <Typography
-            variant="h5"
+            variant="h6"
             color="inherit"
             className="landingNavMenu"
-            style={{ fontFamily: "Times New Roman, serif" }}
+            style={{ fontFamily: "monospace" }}
           >
             CONTACT
           </Typography>
@@ -63,10 +60,10 @@ export const NavHomePage = () => {
 
         <div className="eachOne">
           <Typography
-            variant="h5"
+            variant="h6"
             color="inherit"
             className="landingNavMenu"
-            style={{ fontFamily: "Times New Roman, serif" }}
+            style={{ fontFamily: "monospace" }}
           >
             ABOUT US
           </Typography>

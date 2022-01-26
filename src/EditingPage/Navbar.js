@@ -10,9 +10,9 @@ import MenuIcon from "@material-ui/icons/Menu";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
+    primary: {
+      main: "000",
+    },
   },
 }));
 
@@ -22,18 +22,22 @@ export const NavComponent = () => {
 
   return (
     <div className={classes.root} style={{ color: "#212529" }}>
-      <AppBar position="sticky" color="primary">
+      <AppBar position="sticky" style={{ background: "rgb(16, 16, 32)" }}>
         <Toolbar variant="dense">
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
+          <img
+            style={{ maxWidth: "50px", float: "right" }}
+            src={require("./AlienLogo.png")}
+            alt="alien"
+          />
+          <Typography
+            variant="h6"
             color="inherit"
-            aria-label="menu"
+            style={{
+              fontFamily: "monospace",
+              animation: "glow 2s ease-in-out infinite alternate",
+            }}
           >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" color="inherit">
-            NFT Automator
+            Sick Alien
           </Typography>
         </Toolbar>
       </AppBar>

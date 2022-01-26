@@ -14,7 +14,10 @@ export const Items = (props) => {
 
   return (
     <div
-      style={{ height: "400px", width: "400px" }}
+      style={{
+        height: `${props.imageHeight}px`,
+        width: `${props.imageWidth}px`,
+      }}
       className="imageDimensions"
     >
       {elements &&
@@ -23,7 +26,12 @@ export const Items = (props) => {
             <Rnd
               key={index}
               bounds="window"
-              style={{ zIndex: file.depth }}
+              style={{
+                zIndex: file.depth,
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
               onDragStop={(event) => {
                 dispatch2({
                   type: "update",

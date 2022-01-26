@@ -7,7 +7,18 @@ html,body {
   .eachOne {
     margin-left: 25px;
   }
-  
+
+  .imageBackground {
+    position: fixed; 
+  top: 0; 
+  left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%;
+}
+
+
 
   .landingButtons {
     display: flex;
@@ -23,26 +34,20 @@ html,body {
   }
 
   .landingNavMenu:hover {
-    color: #fff;
+    color: rgb(190, 190, 190);
     animation: glow 2s ease-in-out infinite alternate;
-    background-color: rgba(255, 255, 255, 0.438);
-    margin: 5px;
-    padding: 10px;
-    border-radius: 10px;
     /* background-color: #2b2b2b98; */
   }
 
   .nice{
     position: absolute;
-    border: 2px solid white;
     background: transparent;
-    font-family: 'Roboto', sans-serif;
     color: white;
     width: 250px;
     height: 50px;
     font-size: 2em;
     border-radius: 5px;
-    top: 60vh;
+    top: 70vh;
     bottom: 0px;
     left: 0px;
     right: 0px;
@@ -52,12 +57,10 @@ html,body {
   }
   
   .nice:hover{
-    border: 2px solid #ffffff;
     background-color: rgba(365,365,365,0.5);
-    cursor: pointer;
+    cursor: grab/pointer;
     color: #ffffff;
     transition: .3s;
-    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.692);
   }
   
   #stars {
@@ -177,7 +180,6 @@ html,body {
     align-items: center;
     justify-content: center;
     letter-spacing: 1px;
-    z-index: 10;
   }
   
   h1 {
@@ -186,21 +188,19 @@ html,body {
     font-style: normal;
     grid-column: 1;
     grid-row: 1;
-    z-index: 1;
     font-weight: 700;
     font-family: "Montserrat Bold";
     animation: glow 2s ease-in-out infinite alternate;
     text-align: center;
   }
 
-  h2 {
+  h3 {
     margin: 0;
-    font-size: 30px;
+    font-size: 20px;
     font-style: normal;
     grid-column: 1;
     grid-row: 1;
-    z-index: 1;
-    font-weight: 700;
+    font-weight: 400;
     font-family: "Montserrat Bold";
     animation: glow 2s ease-in-out infinite alternate;
     text-align: "center";
@@ -214,3 +214,73 @@ html,body {
       text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
     }
   }
+
+  .glitch {
+    font-size: 5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+      0.025em 0.04em 0 #fffc00;
+    animation: glitch 725ms infinite;
+  }
+
+  .homepageContent {
+    font-family: "Montserrat Medium";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .glitch span {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .glitch span:first-child {
+    animation: glitch 500ms infinite;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+    transform: translate(-0.04em, -0.03em);
+    opacity: 0.75;
+  }
+  
+  .glitch span:last-child {
+    animation: glitch 375ms infinite;
+    clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+    transform: translate(0.04em, 0.03em);
+    opacity: 0.75;
+  }
+  
+  @keyframes glitch {
+    0% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    15% {
+      text-shadow: 0.05em 0 0 #00fffc, -0.03em -0.04em 0 #fc00ff,
+        0.025em 0.04em 0 #fffc00;
+    }
+    16% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    49% {
+      text-shadow: -0.05em -0.025em 0 #00fffc, 0.025em 0.035em 0 #fc00ff,
+        -0.05em -0.05em 0 #fffc00;
+    }
+    50% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    99% {
+      text-shadow: 0.05em 0.035em 0 #00fffc, 0.03em 0 0 #fc00ff,
+        0 -0.04em 0 #fffc00;
+    }
+    100% {
+      text-shadow: -0.05em 0 0 #00fffc, -0.025em -0.04em 0 #fc00ff,
+        -0.04em -0.025em 0 #fffc00;
+    }
+  }  
+  

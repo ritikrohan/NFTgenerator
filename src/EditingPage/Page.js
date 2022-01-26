@@ -15,6 +15,8 @@ export const Page = (props) => {
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const [open, setOpen] = React.useState(false);
+  const [imageHeight, setImageHeight] = React.useState(400);
+  const [imageWidth, setImageWidth] = React.useState(400);
 
   const setCurrentElement = (val) => {
     dispatch2({
@@ -22,6 +24,8 @@ export const Page = (props) => {
       name: val,
     });
   };
+
+  React.useEffect(() => {});
 
   const editValues = (input1, input2, input3, input4) => {
     if (input1.value) {
@@ -75,7 +79,7 @@ export const Page = (props) => {
         style={{
           width: "15%",
           float: "left",
-          backgroundColor: "#0a1929",
+          backgroundColor: "rgb(23, 23, 44)",
           height: "100vh",
           padding: "5px",
           borderRadius: "10px",
@@ -104,11 +108,14 @@ export const Page = (props) => {
             fontFamily: "monospace",
           }}
         >{`Current Selection: ${selection.name}`}</div>
+
         <div id="content">
           <Items
             onClick={setCurrentElement}
             files={props.folderStructure}
             hashedFolder={props.hashedElements}
+            imageHeight={imageHeight}
+            imageWidth={imageWidth}
           />
         </div>
       </div>
