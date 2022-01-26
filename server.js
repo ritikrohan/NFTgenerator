@@ -4,6 +4,10 @@ const bodyParser = require("body-parser");
 const { createCanvas, loadImage } = require("canvas");
 const app = express();
 const fs = require("fs");
+const lowDb = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
+
+const db = lowDb(new FileSync("traffic.json"));
 
 const width = 100;
 const height = 100;
@@ -24,6 +28,16 @@ const tree = dirTree("src/EditingPage/layers");
 app.get("/getFolderTree", (req, res) => {
   console.log(JSON.stringify(tree));
   res.send(JSON.stringify(tree));
+});
+
+app.get("/getTotalUsers", (req, res) => {
+  const data = db.get("TotalUsers").value();
+  return res.json(data);
+});
+
+app.get("/getTotalItems", (req, res) => {
+  const data = db.get("TotalItems").value();
+  return res.json(data);
 });
 
 app.post("/submitDetails", (request, response) => {
@@ -70,6 +84,13 @@ app.post("/submitDetails", (request, response) => {
   var endDate = new Date();
   var seconds = (endDate.getTime() - startDate.getTime()) / 1000;
   console.log("The total Time Taken was : ", seconds);
+  const totalUsers = db.get("TotalUsers").value() + 1;
+  const totalItems = db.get("TotalItems").value();
+
+  db.set("TotalUsers", totalUsers).write();
+  db.set("TotalItems", data.total.value + totalItems).write();
+
+  console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
 });
 
 app.listen(port, () => {

@@ -111,26 +111,6 @@ html,body {
     box-shadow: 1593px 1298px #FFF , 264px 532px #FFF , 1663px 1039px #FFF , 1507px 307px #FFF , 934px 63px #FFF , 1982px 253px #FFF , 1081px 1393px #FFF , 704px 202px #FFF , 125px 435px #FFF , 1584px 1872px #FFF , 1512px 1169px #FFF , 719px 1194px #FFF , 1224px 640px #FFF , 1784px 239px #FFF , 543px 1057px #FFF , 876px 258px #FFF , 1782px 1211px #FFF , 1426px 1017px #FFF , 354px 77px #FFF , 949px 1419px #FFF , 896px 266px #FFF , 1388px 1111px #FFF , 1882px 1368px #FFF , 1726px 885px #FFF , 803px 1474px #FFF , 1946px 1874px #FFF , 522px 1450px #FFF , 1604px 863px #FFF , 1382px 1300px #FFF , 449px 728px #FFF , 197px 1683px #FFF , 162px 1035px #FFF , 1272px 1546px #FFF , 1604px 1524px #FFF , 223px 1379px #FFF , 1786px 1844px #FFF , 524px 91px #FFF , 988px 1012px #FFF , 1693px 1405px #FFF , 1358px 1054px #FFF , 204px 937px #FFF , 1863px 1775px #FFF , 613px 1106px #FFF , 459px 1116px #FFF , 1098px 1188px #FFF , 1084px 1416px #FFF , 1244px 1088px #FFF , 1578px 1980px #FFF , 1692px 1758px #FFF , 1036px 1239px #FFF , 844px 871px #FFF , 1285px 1479px #FFF , 1715px 472px #FFF , 589px 1981px #FFF , 1755px 1680px #FFF , 1045px 472px #FFF , 808px 385px #FFF , 1502px 634px #FFF , 720px 921px #FFF , 478px 1568px #FFF , 579px 1239px #FFF , 720px 1165px #FFF , 1178px 753px #FFF , 1595px 572px #FFF , 1770px 1694px #FFF , 960px 930px #FFF , 490px 83px #FFF , 463px 744px #FFF , 908px 1042px #FFF , 1228px 1911px #FFF , 1361px 50px #FFF , 585px 1751px #FFF , 1769px 1515px #FFF , 521px 338px #FFF , 233px 637px #FFF , 107px 1381px #FFF , 1425px 1812px #FFF , 882px 262px #FFF , 1179px 1578px #FFF , 801px 1535px #FFF , 1034px 1468px #FFF , 793px 1793px #FFF , 851px 162px #FFF , 1932px 1796px #FFF , 1314px 1864px #FFF , 316px 299px #FFF , 1868px 1372px #FFF , 534px 1745px #FFF , 1666px 758px #FFF , 607px 1904px #FFF , 1419px 344px #FFF , 1681px 1446px #FFF , 646px 1683px #FFF , 982px 1118px #FFF , 396px 317px #FFF , 1988px 982px #FFF , 254px 1927px #FFF , 332px 781px #FFF , 970px 1984px #FFF , 893px 517px #FFF;
   }
   
-  #title {
-    position: absolute;
-    top: 50%;
-    left: 0;
-    right: 0;
-    color: #FFF;
-    text-align: center;
-    font-family: "lato", sans-serif;
-    font-weight: 300;
-    font-size: 50px;
-    letter-spacing: 10px;
-    margin-top: -60px;
-    padding-left: 10px;
-  }
-  #title span {
-    background: -webkit-linear-gradient(white, #38495a);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-  
   @keyframes animStar {
     from {
       transform: translateY(0px);
@@ -188,7 +168,6 @@ html,body {
 
   
 .title {
-    
     font-size: 55px;
     font-style: normal;
     text-align: center;
@@ -212,6 +191,19 @@ html,body {
     font-family: "Montserrat Bold";
     animation: glow 2s ease-in-out infinite alternate;
     text-align: center;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 30px;
+    font-style: normal;
+    grid-column: 1;
+    grid-row: 1;
+    z-index: 1;
+    font-weight: 700;
+    font-family: "Montserrat Bold";
+    animation: glow 2s ease-in-out infinite alternate;
+    text-align: "center";
   }
   
   @keyframes glow {

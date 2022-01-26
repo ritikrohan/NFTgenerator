@@ -18,6 +18,7 @@
     "express": "^4.17.2",
     "fs": "^0.0.1-security",
     "latest-version": "^6.0.0",
+    "lowdb": "^1.0.0",
     "node-sass": "^7.0.1",
     "prop-types": "^15.6.2",
     "raf": "latest",
@@ -37,7 +38,7 @@
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "server": "node server.js",
+    "server": "PORT=8080 && node server.js",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

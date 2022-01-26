@@ -16,7 +16,12 @@ export const ThreeData = () => {
           <NavHomePage />
         </div>
 
-        <div className="title" style={{ zIndex: 10, marginTop: "40vh" }}>
+        <div className="title" style={{ zIndex: 10, marginTop: "10vh" }}>
+          <h2>{`Total Users: ${1000}`}</h2>
+          <h2>{`Total Items: ${1000}`}</h2>
+        </div>
+
+        <div className="title" style={{ zIndex: 10, marginTop: "20vh" }}>
           <h1>NFT AUTOMATOR</h1>
         </div>
 
