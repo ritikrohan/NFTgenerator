@@ -84,6 +84,7 @@ app.post("/submitDetails", (request, response) => {
       fs.writeFileSync(__dirname + `/generated/${hash}.png`, buffer);
 
       if (tree.children.length === index + 1) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
         hash += 1;
       }
     });
