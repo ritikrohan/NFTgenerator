@@ -13,7 +13,7 @@ const width = 400;
 const height = 400;
 
 const canvas = createCanvas(width, height);
-const context = canvas.getContext("2d");
+const context = canvas.getContext("2d", { quality: "best" });
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));

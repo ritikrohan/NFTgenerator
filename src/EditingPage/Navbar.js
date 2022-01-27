@@ -30,9 +30,11 @@ export const NavComponent = () => {
             style={{
               fontFamily: "monospace",
               animation: "glow 2s ease-in-out infinite alternate",
+              marginLeft: "0.5vw",
             }}
+            onClick={(event) => (window.location.href = "/")}
           >
-            {"NFT Automator"}
+            NFT Automator
           </Typography>
           <Typography
             variant="h6"
@@ -40,7 +42,7 @@ export const NavComponent = () => {
             style={{
               fontFamily: "monospace",
               animation: "glow 2s ease-in-out infinite alternate",
-              marginLeft: "76vw",
+              marginLeft: "75.5vw",
             }}
           >
             <p>Sick Alien&nbsp;</p>

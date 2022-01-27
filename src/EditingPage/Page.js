@@ -14,6 +14,7 @@ export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
   const { selection, dispatch2 } = React.useContext(ObjectSelection);
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
+  const [totalCopies, setTotalCopies] = React.useState({ value: 0 });
   const [open, setOpen] = React.useState(false);
   const [imageHeight, setImageHeight] = React.useState(400);
   const [imageWidth, setImageWidth] = React.useState(400);
@@ -94,9 +95,9 @@ export const Page = (props) => {
         type: "update",
         value: input4.value,
       });
-    }
 
-    console.log("value: ", total);
+      setTotalCopies({ value: input4.value });
+    }
   };
 
   const handleOpen = () => {
@@ -200,7 +201,9 @@ export const Page = (props) => {
                 variant="contained"
                 color="secondary"
                 size="large"
-                onClick={handleOpen}
+                onClick={
+                  totalCopies && totalCopies.value > 10000 ? null : handleOpen
+                }
               >
                 Generate
               </Button>

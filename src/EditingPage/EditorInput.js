@@ -17,6 +17,12 @@ export const EditorInput = (props) => {
     boxShadow: "1px 3px 1px #afafaf",
   };
 
+  const handleFinalClick = () => {
+    return input4 > 10000
+      ? null
+      : props.setValues(input1, input2, input3, input4);
+  };
+
   const [input1, setInput1] = React.useState({ name: "height", value: null });
   const [input2, setInput2] = React.useState({ name: "width", value: null });
   const [input3, setInput3] = React.useState({ name: "depth", value: null });
@@ -102,18 +108,16 @@ export const EditorInput = (props) => {
           defaultValue={100}
           inputProps={{ min: 0, style: { textAlign: "center" } }}
           margin="dense"
-          variant="standard"
+          variant="outlined"
           onChange={(event) => {
             setInput4({ value: JSON.parse(event.target.value) });
           }}
+          error={input4.value > 10000}
+          helperText={input4 > 10000 ? "Should be less than 10000" : ""}
         />
       </div>
       <div style={{ justifyContent: "center", display: "flex" }}>
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={() => props.setValues(input1, input2, input3, input4)}
-        >
+        <Button variant="contained" color="primary" onClick={handleFinalClick}>
           Submit
         </Button>
       </div>
