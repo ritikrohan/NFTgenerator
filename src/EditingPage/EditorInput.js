@@ -65,6 +65,7 @@ export const EditorInput = (props) => {
                 value: JSON.parse(event.target.value),
               });
             }}
+            onBlur={handleFinalClick}
           />
         </div>
       </div>
@@ -81,6 +82,7 @@ export const EditorInput = (props) => {
           onChange={(event) => {
             setInput2({ name: "width", value: JSON.parse(event.target.value) });
           }}
+          onBlur={handleFinalClick}
         />
       </div>
       <div style={commonStyle}>
@@ -96,6 +98,7 @@ export const EditorInput = (props) => {
           onChange={(event) => {
             setInput3({ name: "depth", value: JSON.parse(event.target.value) });
           }}
+          onBlur={handleFinalClick}
         />
       </div>
       <div style={commonStyle}>
@@ -114,6 +117,7 @@ export const EditorInput = (props) => {
           }}
           error={input4.value > 10000}
           helperText={input4 > 10000 ? "Should be less than 10000" : ""}
+          onBlur={handleFinalClick}
         />
       </div>
       <div style={{ justifyContent: "center", display: "flex" }}>

@@ -42,11 +42,10 @@ export const NavComponent = () => {
             style={{
               fontFamily: "monospace",
               animation: "glow 2s ease-in-out infinite alternate",
-              marginLeft: "75.5vw",
+              marginLeft: "76vw",
             }}
           >
-            <p>Sick Alien&nbsp;</p>
-            <span></span>
+            <p>Sick Alien</p>
           </Typography>
 
           <img

@@ -13,7 +13,7 @@ export const ObjectSelection = React.createContext();
 export const NumberOfCopies = React.createContext();
 
 export const EditingPage = () => {
-  const baseURL = "http://sickalien.store:5000/getFolderTree";
+  const baseURL = "http://localhost:5000/getFolderTree";
 
   const [fileData, setFileData] = React.useState(null);
   const [loading, setLoading] = React.useState(true);

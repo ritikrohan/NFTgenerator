@@ -3,6 +3,10 @@ Set the logic to restrict movement within the area defined for image
 Set the logic to correct the coordinates for the image. x and y coordinates not correct they are in respect of whole image.
 Build Error Page 
 
+Clear the canvas after every image is done and lookout for better picture quality.
+set the manualInput field onBlur rather than Button.
+Modal should be responsive
+
 
 
 Low

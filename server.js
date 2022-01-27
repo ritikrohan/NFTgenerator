@@ -13,6 +13,7 @@ const width = 400;
 const height = 400;
 
 const canvas = createCanvas(width, height);
+//const rect = canvas.getBoundingClientRect();
 const context = canvas.getContext("2d", { quality: "best" });
 
 //Here we are configuring express to use body-parser as middle-ware.
@@ -56,6 +57,10 @@ app.post("/submitDetails", (request, response) => {
 
   var values = data.total.value;
 
+  if (values > 10000) {
+    return;
+  }
+
   while (values) {
     var hash = 0;
     // eslint-disable-next-line no-loop-func
@@ -64,12 +69,16 @@ app.post("/submitDetails", (request, response) => {
       const obj = item.children[idx];
 
       const image = await loadImage(`./${obj.path}`);
+
+      // const exact_x = layerData[index].x - rect.left;
+      // const exact_y = layerData[index].y - rect.top;
+
       context.drawImage(
         image,
         JSON.parse(layerData[index].x),
         JSON.parse(layerData[index].y),
-        JSON.parse(layerData[index].height),
-        JSON.parse(layerData[index].width)
+        JSON.parse(layerData[index].width),
+        JSON.parse(layerData[index].height)
       );
       const buffer = canvas.toBuffer("image/png");
       fs.writeFileSync(__dirname + `/generated/${hash}.png`, buffer);
