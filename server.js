@@ -14,7 +14,7 @@ const height = 400;
 
 const canvas = createCanvas(width, height);
 //const rect = canvas.getBoundingClientRect();
-const context = canvas.getContext("2d", { quality: "best" });
+const context = canvas.getContext("2d");
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -80,7 +80,7 @@ app.post("/submitDetails", (request, response) => {
         JSON.parse(layerData[index].width),
         JSON.parse(layerData[index].height)
       );
-      const buffer = canvas.toBuffer("image/png");
+      const buffer = canvas.toBuffer("image/png", 0);
       fs.writeFileSync(__dirname + `/generated/${hash}.png`, buffer);
 
       if (tree.children.length === index + 1) {

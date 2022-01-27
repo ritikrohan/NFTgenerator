@@ -192,13 +192,13 @@ function Scene({ top, mouse }) {
           ["#27282F", "#247BA0", "#70C1B3", "#f8f3f1"]
         )}
       />
-      <Stars position={top.interpolate((top) => [0, -1 + top / 20, 0])} />
+
       <Images top={top} mouse={mouse} scrollMax={scrollMax} />
       <Text
         opacity={top.interpolate([0, 200], [1, 0])}
         position={top.interpolate((top) => [0, -1 + top / 200, 0])}
       >
-        Loading
+        Thank You
       </Text>
       <Text
         position={top.interpolate((top) => [
