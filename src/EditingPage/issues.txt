@@ -4,7 +4,6 @@ Set the logic to correct the coordinates for the image. x and y coordinates not 
 Build Error Page 
 
 Clear the canvas after every image is done and lookout for better picture quality.
-set the manualInput field onBlur rather than Button.
 Modal should be responsive
 
 
