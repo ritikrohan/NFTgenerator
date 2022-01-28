@@ -1,4 +1,5 @@
 Lookout for better picture quality.
+restrict movement inside the box
 Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
 Set the logic to restrict movement within the area defined for image 
 Set the logic to correct the coordinates for the image. x and y coordinates not correct they are in respect of whole image.

@@ -27,16 +27,24 @@ export const Page = (props) => {
     });
   };
 
+  var parentRef = React.useRef(null);
+
+  const handleMouseOver = (e) => {
+    const parent = parentRef.current.getBoundingClientRect();
+    const rect = e.target.getBoundingClientRect();
+
+    const width = rect.width;
+    const positionX = rect.left - parent.left;
+    const positionY = rect.top - parent.top;
+
+    console.log(`width: ${width}, position: ${positionX} , ${positionY}`);
+    const values = { x: positionX, y: positionY };
+
+    return values;
+  };
+
   const setCoord = (event, file) => {
-    const windowHeight = window.innerHeight;
-    const windowWidth = window.innerWidth;
-
-    console.log("Window Dimensions: ", windowHeight, windowWidth);
-
-    const initialX = (windowWidth - imageWidth) / 2;
-    const initialY = (windowHeight - imageHeight) / 2;
-
-    console.log("Initial Dimensions: ", initialX, initialY);
+    const curr_Coor = handleMouseOver(event);
 
     dispatch2({
       type: "update",
@@ -46,18 +54,16 @@ export const Page = (props) => {
       type: "update",
       nameToFind: selection.name,
       valueToChange: "x",
-      currentSlide: event.x - initialX,
+      currentSlide: curr_Coor.x,
     });
     dispatch1({
       type: "update",
       nameToFind: selection.name,
       valueToChange: "y",
-      currentSlide: event.y - initialY,
+      currentSlide: curr_Coor.y,
     });
 
-    console.log("Final Dimensions: ", event.x - initialX, event.y - initialY);
-
-    setCoor({ x: event.x - initialX, y: event.y - initialY });
+    setCoor({ x: curr_Coor.x, y: curr_Coor.y });
   };
 
   React.useEffect(() => {});
@@ -152,6 +158,7 @@ export const Page = (props) => {
             imageHeight={imageHeight}
             imageWidth={imageWidth}
             setCoord={setCoord}
+            parent={parentRef}
           />
         </div>
         <div

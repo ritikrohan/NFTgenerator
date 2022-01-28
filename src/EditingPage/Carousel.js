@@ -84,8 +84,8 @@ export const DemoCarousel = () => {
                 <div>{`Height - ${object.height} `}</div>
                 <div>{`Width - ${object.width} `}</div>
                 <div>{`Depth - ${object.depth} `}</div>
-                {/* <div>{`X - ${object.x}`}</div>
-                <div>{`Y - ${object.y}`}</div> */}
+                <div>{`X - ${object.x}`}</div>
+                <div>{`Y - ${object.y}`}</div>
               </div>
             );
           })}

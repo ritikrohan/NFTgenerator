@@ -63,6 +63,7 @@ export const ModalComponent = (props) => {
               style={{
                 justifyContent: "center",
                 display: "flex",
+                marginTop: "-10px",
               }}
             >
               <Button

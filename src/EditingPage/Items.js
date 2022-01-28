@@ -19,6 +19,7 @@ export const Items = (props) => {
         width: `${props.imageWidth}px`,
       }}
       className="imageDimensions"
+      ref={props.parent}
     >
       {elements &&
         elements.map((file, index) => (

@@ -13,8 +13,11 @@ const width = 400;
 const height = 400;
 
 const canvas = createCanvas(width, height);
-//const rect = canvas.getBoundingClientRect();
-const context = canvas.getContext("2d");
+const rect = canvas.getBoundin;
+const context = canvas.getContext("2d", {
+  patternQuality: "bilinear",
+  quality: "bilinear",
+});
 
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -69,9 +72,6 @@ app.post("/submitDetails", (request, response) => {
       const obj = item.children[idx];
 
       const image = await loadImage(`./${obj.path}`);
-
-      // const exact_x = layerData[index].x - rect.left;
-      // const exact_y = layerData[index].y - rect.top;
 
       context.drawImage(
         image,
