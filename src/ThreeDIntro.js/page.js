@@ -104,7 +104,7 @@ export const ThreeData = () => {
           <p
             className="homepageContent"
             style={{
-              marginTop: "45vh",
+              marginTop: "49vh",
               bottom: "0",
               zIndex: 3,
               fontFamily: "monospace",
