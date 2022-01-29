@@ -39,11 +39,13 @@
   },
   "scripts": {
     "server": "node server.js",
-    "start": "export PORT=2096 && react-scripts start",
+    "dev": "export PORT=2095 && react-scripts start",
+    "prod": "export PORT=80 && react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "all": "npm run server & npm start"
+    "prodall": "npm run server & npm run prod",
+    "devall": "npm run server & npm run dev"
   },
   "eslintConfig": {
     "extends": [
