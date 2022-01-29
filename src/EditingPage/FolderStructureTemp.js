@@ -23,7 +23,7 @@ export default function TreesTemp(props) {
   const treeData = props.folderData;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ marginTop: "20px" }}>
       <div
         style={{
           justifyContent: "center",

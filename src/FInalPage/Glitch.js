@@ -29,6 +29,7 @@ import "./styles.css";
 import { EffectComposer } from "./postprocessing/EffectComposer";
 import { RenderPass } from "./postprocessing/RenderPass";
 import { GlitchPass } from "./postprocessing/GlitchPass";
+import { NavComponent } from "../EditingPage/Navbar";
 applySpring({ EffectComposer, RenderPass, GlitchPass });
 applyThree({ EffectComposer, RenderPass, GlitchPass });
 
@@ -235,6 +236,7 @@ export default function FinalPage() {
         onScroll={onScroll}
         onMouseMove={onMouseMove}
       >
+        <NavComponent />
         <div style={{ height: "525vh" }} />
       </div>
     </>

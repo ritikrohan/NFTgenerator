@@ -113,7 +113,7 @@ export const Page = (props) => {
   };
 
   return (
-    <div style={{ paddingTop: "20px" }}>
+    <div>
       <div
         style={{
           width: "15%",
@@ -177,6 +177,7 @@ export const Page = (props) => {
           float: "right",
           borderRadius: "10px",
           zIndex: 20,
+          marginTop: "10px",
         }}
       >
         <div

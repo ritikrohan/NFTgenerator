@@ -24,18 +24,24 @@ export const NavComponent = () => {
     <div className={classes.root} style={{ color: "#212529" }}>
       <AppBar position="sticky" style={{ background: "rgb(16, 16, 32)" }}>
         <Toolbar variant="dense">
+          <img
+            style={{ maxWidth: "50px", marginLeft: "0.5vw" }}
+            src={require("./AlienLogo.png")}
+            alt="alien"
+          />
+
           <Typography
             variant="h6"
-            color="inherit"
+            color="#fff"
             style={{
               fontFamily: "monospace",
               animation: "glow 2s ease-in-out infinite alternate",
               marginLeft: "0.5vw",
             }}
-            onClick={(event) => (window.location.href = "/")}
           >
-            NFT Automator
+            <a href="https://linktr.ee/nft_paradise">Sick Alien</a>
           </Typography>
+
           <Typography
             variant="h6"
             color="inherit"
@@ -44,15 +50,10 @@ export const NavComponent = () => {
               animation: "glow 2s ease-in-out infinite alternate",
               marginLeft: "76vw",
             }}
+            onClick={(event) => (window.location.href = "/")}
           >
-            <p>Sick Alien</p>
+            NFT Automator
           </Typography>
-
-          <img
-            style={{ maxWidth: "50px", marginLeft: "0.5vw" }}
-            src={require("./AlienLogo.png")}
-            alt="alien"
-          />
         </Toolbar>
       </AppBar>
     </div>
