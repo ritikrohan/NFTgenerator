@@ -1,0 +1,10 @@
+Lookout for better picture quality.
+Modal should be responsive
+restrict movement inside the box -- optional
+Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
+
+
+Low
+Make the side panels on Editor Page Higher in zIndex
+Build Error Page 
+

@@ -37,9 +37,9 @@ export const ModalComponent = (props) => {
       referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
     };
-    fetch("http://localhost:8080/submitDetails", requestOptions)
-      .then((response) => response.json())
-      .then((res) => console.log(res));
+    fetch("http://localhost:8080/submitDetails", requestOptions).then(
+      (response) => response.json()
+    );
 
     window.location.href = "/loading";
   };

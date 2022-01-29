@@ -17,7 +17,7 @@ export const Folders = (props) => {
   let folderStructure = [];
 
   const handleClick = (folder, subfolder, index) => {
-    console.log(objects, "folder: ", folder, subfolder, "index: ", index);
+    //console.log(objects, "folder: ", folder, subfolder, "index: ", index);
     dispatch1({
       type: "update",
       nameToFind: folder,

@@ -37,7 +37,7 @@ export const Page = (props) => {
     const positionX = rect.left - parent.left;
     const positionY = rect.top - parent.top;
 
-    console.log(`width: ${width}, position: ${positionX} , ${positionY}`);
+    //console.log(`width: ${width}, position: ${positionX} , ${positionY}`);
     const values = { x: positionX, y: positionY };
 
     return values;

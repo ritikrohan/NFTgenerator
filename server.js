@@ -30,7 +30,7 @@ const dirTree = require("directory-tree");
 const tree = dirTree("src/EditingPage/layers");
 
 app.get("/getFolderTree", (req, res) => {
-  console.log(JSON.stringify(tree));
+  //console.log(JSON.stringify(tree));
   res.send(JSON.stringify(tree));
 });
 
@@ -49,7 +49,7 @@ app.post("/submitDetails", (request, response) => {
 
   const data = request.body;
 
-  console.log(JSON.stringify(data));
+  //console.log(JSON.stringify(data));
 
   const layerData = [];
 
@@ -100,7 +100,7 @@ app.post("/submitDetails", (request, response) => {
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 
-  console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
+  //console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
 });
 
 app.listen(port, () => {
