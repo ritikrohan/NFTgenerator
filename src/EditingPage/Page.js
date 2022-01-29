@@ -138,16 +138,6 @@ export const Page = (props) => {
           padding: "5px",
         }}
       >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            backgroundColor: "rgba(110, 110, 110, 0.658)",
-            color: "#fff",
-            fontFamily: "monospace",
-          }}
-        >{`Current Selection: ${selection.name}`}</div>
-
         <div id="content">
           <Items
             onClick={setCurrentElement}
@@ -166,10 +156,15 @@ export const Page = (props) => {
             backgroundColor: "rgba(110, 110, 110, 0.658)",
             color: "#fff",
             fontFamily: "monospace",
-            marginTop: "-9vh",
+            marginTop: "-5vh",
             paddingRight: "5px",
           }}
-        >{`X: ${coord.x}     Y: ${coord.y}`}</div>
+        >
+          {" "}
+          <p>
+            Selection: {selection.name} &nbsp; X: {coord.x} Y: {coord.y}
+          </p>
+        </div>
       </div>
       <div
         style={{
