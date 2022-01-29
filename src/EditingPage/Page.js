@@ -66,8 +66,6 @@ export const Page = (props) => {
     setCoor({ x: curr_Coor.x, y: curr_Coor.y });
   };
 
-  React.useEffect(() => {});
-
   const editValues = (input1, input2, input3, input4) => {
     if (input1.value) {
       dispatch1({

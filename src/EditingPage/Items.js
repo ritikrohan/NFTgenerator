@@ -13,42 +13,41 @@ export const Items = (props) => {
   }
 
   return (
-    <div
-      style={{
-        height: `${props.imageHeight}px`,
-        width: `${props.imageWidth}px`,
-      }}
-      className="imageDimensions"
-      ref={props.parent}
-    >
-      {elements &&
-        elements.map((file, index) => (
-          <div onClick={() => props.onClick(`${file.name}`)}>
-            <Rnd
-              key={index}
-              bounds="window"
-              style={{
-                zIndex: file.depth,
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-              onDragStop={(event) => {
-                props.setCoord(event, file);
-              }}
-            >
-              <img
-                src={require(`.${file.path.slice(12).replaceAll("\\", "/")}`)}
-                alt="x"
+    <div>
+      <div
+        style={{
+          height: `${props.imageHeight}px`,
+          width: `${props.imageWidth}px`,
+          position: "relative",
+        }}
+        className="imageDimensions"
+        ref={props.parent}
+      >
+        {elements &&
+          elements.map((file, index) => (
+            <div onClick={() => props.onClick(`${file.name}`)}>
+              <Rnd
+                key={index}
                 style={{
-                  width: file.width,
-                  height: file.height,
+                  zIndex: file.depth,
                 }}
-                className="items"
-              />
-            </Rnd>
-          </div>
-        ))}
+                onDragStop={(event) => {
+                  props.setCoord(event, file);
+                }}
+              >
+                <img
+                  src={require(`.${file.path.slice(12).replaceAll("\\", "/")}`)}
+                  alt="x"
+                  style={{
+                    width: file.width,
+                    height: file.height,
+                  }}
+                  className="items"
+                />
+              </Rnd>
+            </div>
+          ))}
+      </div>
     </div>
   );
 };

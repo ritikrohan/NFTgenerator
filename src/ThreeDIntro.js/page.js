@@ -2,8 +2,24 @@ import React, { Component } from "react";
 import { NavHomePage } from "./navigationBar";
 import "./style.css";
 import data from "../traffic.json";
+import { AboutModalComponent } from "./AboutModal";
+import { ContactModalComponent } from "./ContactModal";
+import { InstructionsModalComponent } from "./InstructionsModal";
 
 export const ThreeData = () => {
+  const [openAbout, setAboutOpen] = React.useState(false);
+  const [openContact, setContactOpen] = React.useState(false);
+  const [openInstructions, setInstructionsOpen] = React.useState(false);
+
+  const handleCloseAbout = () => {
+    setAboutOpen(false);
+  };
+  const handleCloseContact = () => {
+    setContactOpen(false);
+  };
+  const handleCloseInstructions = () => {
+    setInstructionsOpen(false);
+  };
   return (
     <div>
       <div>
@@ -13,7 +29,11 @@ export const ThreeData = () => {
         <div id="stars2" />
         <div id="stars3" />
         <div style={{ zIndex: 3 }}>
-          <NavHomePage />
+          <NavHomePage
+            setAboutOpen={setAboutOpen}
+            setContactOpen={setContactOpen}
+            setInstructionsOpen={setInstructionsOpen}
+          />
         </div>
 
         <div className="title" style={{ zIndex: 3, marginTop: "3vh" }}>
@@ -101,6 +121,24 @@ export const ThreeData = () => {
           className="imageBackground"
           style={{ zIndex: 2 }}
         />
+        <div>
+          <AboutModalComponent
+            isOpen={openAbout}
+            handleClose={handleCloseAbout}
+          />
+        </div>
+        <div>
+          <ContactModalComponent
+            isOpen={openContact}
+            handleClose={handleCloseContact}
+          />
+        </div>
+        <div>
+          <InstructionsModalComponent
+            isOpen={openInstructions}
+            handleClose={handleCloseInstructions}
+          />
+        </div>
       </div>
     </div>
   );

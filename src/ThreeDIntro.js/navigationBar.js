@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 // Exporting Default Navbar to the App.js File
-export const NavHomePage = () => {
+export const NavHomePage = (props) => {
   const classes = useStyles();
 
   return (
@@ -42,6 +42,9 @@ export const NavHomePage = () => {
             color="inherit"
             className="landingNavMenu"
             style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setInstructionsOpen(true);
+            }}
           >
             HOME
           </Typography>
@@ -53,6 +56,9 @@ export const NavHomePage = () => {
             color="inherit"
             className="landingNavMenu"
             style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setContactOpen(true);
+            }}
           >
             CONTACT
           </Typography>
@@ -64,6 +70,9 @@ export const NavHomePage = () => {
             color="inherit"
             className="landingNavMenu"
             style={{ fontFamily: "monospace" }}
+            onClick={() => {
+              props.setAboutOpen(true);
+            }}
           >
             ABOUT US
           </Typography>
