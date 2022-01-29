@@ -37,7 +37,7 @@ export const ModalComponent = (props) => {
       referrerPolicy: "no-referrer",
       body: JSON.stringify(data),
     };
-    fetch("http://localhost:8080/submitDetails", requestOptions).then(
+    fetch("http://sickalien:8080/submitDetails", requestOptions).then(
       (response) => response.json()
     );
 
