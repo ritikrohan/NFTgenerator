@@ -76,6 +76,7 @@ export const DemoCarousel = () => {
                       .slice(12)
                       .replaceAll("\\", "/")}`)}
                     alt="img"
+                    style={{ maxHeight: "20vh" }}
                   />
                 </div>
                 <div style={{ fontWeight: "bold" }}>{`${object.name

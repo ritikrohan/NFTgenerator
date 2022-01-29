@@ -29,7 +29,7 @@ export default class Fluidity extends Component {
               maxHeight: "8vh",
             }}
           >
-            <h2>Patience ... Awesome things on the way !</h2>
+            <h2>Patience ... Awesome things on the way !&nbsp; </h2>
           </div>
         </div>
       </div>

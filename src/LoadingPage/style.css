@@ -22,7 +22,7 @@
   letter-spacing: .15em; /* Adjust as needed */
   font-size: 40px;
   animation: 
-    typing 3.5s steps(30, end),
+    typing 7s steps(30, end),
     blink-caret .5s step-end infinite,
     glow 2s ease-in-out infinite alternate
 }

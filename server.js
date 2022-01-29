@@ -100,6 +100,7 @@ app.post("/submitDetails", (request, response) => {
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 
+  return response.json("Success");
   //console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
 });
 
