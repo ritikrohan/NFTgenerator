@@ -13,7 +13,7 @@
 }
 
 .typewriter{
-  color: #fff;
+  color: #000;
   font-family: monospace;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: .15em solid orange; /* The typwriter cursor */
@@ -23,8 +23,7 @@
   font-size: 40px;
   animation: 
     typing 7s steps(30, end),
-    blink-caret .5s step-end infinite,
-    glow 2s ease-in-out infinite alternate
+    blink-caret .5s step-end infinite
 }
 
 /* The typing effect */

@@ -8,3 +8,5 @@ Low
 Make the side panels on Editor Page Higher in zIndex
 Build Error Page 
 
+Add personal Store link on loading Page
+
