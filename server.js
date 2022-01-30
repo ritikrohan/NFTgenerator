@@ -34,6 +34,18 @@ app.get("/getFolderTree", (req, res) => {
   res.send(JSON.stringify(tree));
 });
 
+var Total = 0;
+
+app.put("/deleteFiles", (req, res) => {
+  console.log("Hello delte, TOtal value is : ", Total);
+
+  // fs.unlink("sample.txt", function (err) {
+  //   if (err) throw err;
+  //   // if no error, file has been deleted successfully
+  //   console.log("File deleted!");
+  // });
+});
+
 app.get("/getTotalUsers", (req, res) => {
   const data = db.get("TotalUsers").value();
   return res.json(data);
@@ -59,6 +71,7 @@ app.post("/submitDetails", (request, response) => {
     });
 
   var values = data.total.value;
+  Total = data.total.value;
 
   if (values > 10000) {
     return;

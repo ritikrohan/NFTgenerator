@@ -9,7 +9,7 @@ import {
 
 import { EditingPage } from "./EditingPage/EditingPage";
 import FinalPage from "./FInalPage/Glitch"; //NEED to Correct Later
-import Fluidity from "./LoadingPage/Fluidity";
+import { Fluidity } from "./LoadingPage/Fluidity";
 import { ThreeData } from "./ThreeDIntro.js/page";
 import "./EditingPage/styles.css";
 
