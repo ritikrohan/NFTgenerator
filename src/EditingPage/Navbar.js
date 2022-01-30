@@ -50,6 +50,7 @@ export const NavComponent = () => {
               animation: "glow 2s ease-in-out infinite alternate",
               marginLeft: "76vw",
             }}
+            className="landingNavMenu"
             onClick={(event) => (window.location.href = "/")}
           >
             NFT Automator

@@ -6,17 +6,14 @@ import "./style.css";
 export default class Fluidity extends Component {
   render() {
     return (
-      <div
-        style={{
-          background: "#000",
-        }}
-      >
+      <div className="trans">
         <div style={{ maxHeight: "20px", zIndex: 21 }}>
           <NavComponent />
         </div>
+
         <div
           style={{
-            background: "#000",
+            background: "#00000000",
             paddingTop: "50vh",
             display: "flex",
             justifyContent: "center",
