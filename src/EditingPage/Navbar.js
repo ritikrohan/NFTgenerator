@@ -39,7 +39,9 @@ export const NavComponent = () => {
               marginLeft: "0.5vw",
             }}
           >
-            <a href="https://linktr.ee/nft_paradise">Sick Alien</a>
+            <a className="landingNavMenu" href="https://linktr.ee/nft_paradise">
+              Sick Alien
+            </a>
           </Typography>
 
           <Typography
