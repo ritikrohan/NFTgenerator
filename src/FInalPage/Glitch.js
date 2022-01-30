@@ -186,7 +186,7 @@ function Scene({ top, mouse }) {
         color="white"
         position={mouse.interpolate((x, y) => [x / 100, -y / 100, 6.5])}
       />
-      <Effects factor={top.interpolate([0, 150], [1, 0])} />
+      {/* <Effects factor={top.interpolate([0, 150], [1, 0])} /> */}
       <Background
         color={top.interpolate(
           [0, scrollMax * 0.25, scrollMax * 0.8, scrollMax],

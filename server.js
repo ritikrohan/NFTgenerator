@@ -19,6 +19,8 @@ const context = canvas.getContext("2d", {
   quality: "bilinear",
 });
 
+var total = 0;
+
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -32,18 +34,6 @@ const tree = dirTree("src/EditingPage/layers");
 app.get("/getFolderTree", (req, res) => {
   //console.log(JSON.stringify(tree));
   res.send(JSON.stringify(tree));
-});
-
-var Total = 0;
-
-app.put("/deleteFiles", (req, res) => {
-  console.log("Hello delte, TOtal value is : ", Total);
-
-  // fs.unlink("sample.txt", function (err) {
-  //   if (err) throw err;
-  //   // if no error, file has been deleted successfully
-  //   console.log("File deleted!");
-  // });
 });
 
 app.get("/getTotalUsers", (req, res) => {
@@ -71,7 +61,6 @@ app.post("/submitDetails", (request, response) => {
     });
 
   var values = data.total.value;
-  Total = data.total.value;
 
   if (values > 10000) {
     return;
@@ -109,12 +98,27 @@ app.post("/submitDetails", (request, response) => {
   console.log("The total Time Taken was : ", seconds);
   const totalUsers = db.get("TotalUsers").value() + 1;
   const totalItems = db.get("TotalItems").value();
+  total = data.total.value;
 
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 
   return response.json("Success");
   //console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
+});
+
+app.get("/deleteFiles", (req, res) => {
+  let number = total;
+  console.log(total);
+  while (number) {
+    fs.unlink(`./generated/${number}.png`, function (err) {
+      if (err) throw err;
+      console.log("File deleted!");
+    });
+
+    number -= 1;
+  }
+  return res.json("Success");
 });
 
 app.listen(port, () => {

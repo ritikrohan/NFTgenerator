@@ -10,3 +10,11 @@ Build Error Page
 
 Add personal Store link on loading Page
 
+
+Logic of deletion -- whether independent threads run at the same time or its all the same.
+What if someone is able to access my endpoints directly. Image-creation , Image deletion
+Local storage 
+Nginx 
+backend- CORS error
+
+
