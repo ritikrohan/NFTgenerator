@@ -5,7 +5,7 @@ import { Items } from "./Items";
 import { NumberOfCopies, ObjectContext, ObjectSelection } from "./EditingPage";
 import { EditorInput } from "./EditorInput";
 import Trees from "./FolderStructure";
-import TreesTemp from "./FolderStructureTemp";
+import TreesTemp from "./FolderStructure";
 import { Button, Input } from "@material-ui/core";
 import "./Page.css";
 import { ModalComponent } from "./Modal";

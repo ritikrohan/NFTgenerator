@@ -3,11 +3,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 import { useTheme } from "@material-ui/core/styles";
 import { TreeView } from "@material-ui/lab";
 import TreeItem from "@material-ui/lab/TreeItem";
-
-const drawerWidth = 240;
+import { Folders } from "./BuildFolder";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,125 +17,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Trees() {
+export default function TreesTemp(props) {
   const theme = useTheme();
   const classes = useStyles(theme);
+  const treeData = props.folderData;
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ marginTop: "20px" }}>
+      <div
+        style={{
+          justifyContent: "center",
+          display: "flex",
+          fontWeight: "bold",
+          fontSize: "20px",
+          fontFamily: "monospace",
+          color: "#fff",
+        }}
+      >
+        Folder Structure
+      </div>
       <List>
-        <div>
-          {/* Tree Structure */}
-          <TreeView>
-            <TreeItem
-              nodeId="1"
-              label={
-                <ListItem button component="a" href="#">
-                  <ListItemText primary="Home" />
-                </ListItem>
-              }
-            ></TreeItem>
-            <TreeItem
-              nodeId="2"
-              label={
-                <ListItem button component="a" href="#">
-                  <ListItemText primary="Data Structures" />
-                </ListItem>
-              }
-            >
-              <TreeItem
-                nodeId="6"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Arrays" />
-                  </ListItem>
-                }
-              ></TreeItem>
-              <TreeItem
-                nodeId="7"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Linked List" />
-                  </ListItem>
-                }
-              ></TreeItem>
-            </TreeItem>
-            <TreeItem
-              nodeId="3"
-              label={
-                <ListItem button component="a" href="#">
-                  <ListItemText primary="Algortihms" />
-                </ListItem>
-              }
-            >
-              <TreeItem
-                nodeId="8"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Searching" />
-                  </ListItem>
-                }
-              ></TreeItem>
-              <TreeItem
-                nodeId="9"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Sorting" />
-                  </ListItem>
-                }
-              ></TreeItem>
-            </TreeItem>
-            <TreeItem
-              nodeId="4"
-              label={
-                <ListItem button component="a" href="#">
-                  <ListItemText primary="Languages" />
-                </ListItem>
-              }
-            >
-              <TreeItem
-                nodeId="10"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="C++" />
-                  </ListItem>
-                }
-              ></TreeItem>
-              <TreeItem
-                nodeId="11"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Java" />
-                  </ListItem>
-                }
-              ></TreeItem>
-              <TreeItem
-                nodeId="12"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="Python" />
-                  </ListItem>
-                }
-              ></TreeItem>
-              <TreeItem
-                nodeId="13"
-                label={
-                  <ListItem button component="a" href="#">
-                    <ListItemText primary="JavaScript" />
-                  </ListItem>
-                }
-              ></TreeItem>
-            </TreeItem>
-            <TreeItem
-              nodeId="5"
-              label={
-                <ListItem button component="a" href="#">
-                  <ListItemText primary="GBlog" />
-                </ListItem>
-              }
-            ></TreeItem>
-          </TreeView>
-        </div>
+        <TreeView
+          aria-label="file system navigator"
+          defaultCollapseIcon={<IconButton />}
+          defaultExpandIcon={<MenuIcon />}
+          sx={{ height: 240, flexGrow: 1, maxWidth: 400, overflowY: "auto" }}
+        >
+          <Folders children={treeData && treeData.children} />
+        </TreeView>
       </List>
     </div>
   );

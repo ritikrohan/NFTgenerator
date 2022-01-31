@@ -1,4 +1,6 @@
  -- Lookout for better picture quality.
+ -- Add height width under context in the selection Page
+ -- Upload and Delete files to s3 from react app.
  -- Modal should be responsive
  -- restrict movement inside the box -- optional
  -- Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
