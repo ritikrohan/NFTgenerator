@@ -1,20 +1,22 @@
-Lookout for better picture quality.
-Modal should be responsive
-restrict movement inside the box -- optional
-Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
+ -- Lookout for better picture quality.
+ -- Modal should be responsive
+ -- restrict movement inside the box -- optional
+ -- Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
+ -- Restrict files other than png , jpg , gif
+ -- How to get live updates on processing.
 
 
 Low
-Make the side panels on Editor Page Higher in zIndex
-Build Error Page 
+ -- Make the side panels on Editor Page Higher in zIndex
+ -- Build Error Page 
 
-Add personal Store link on loading Page
+ -- Add personal Store link on loading Page
 
 
-Logic of deletion -- whether independent threads run at the same time or its all the same.
-What if someone is able to access my endpoints directly. Image-creation , Image deletion
-Local storage 
-Nginx 
-backend- CORS error
+ -- Logic of deletion -- whether independent threads run at the same time or its all the same.
+ -- What if someone is able to access my endpoints directly. Image-creation , Image deletion
+ -- Local storage or Cloud Storage
+ -- Nginx 
+ -- backend- CORS error
 
 
