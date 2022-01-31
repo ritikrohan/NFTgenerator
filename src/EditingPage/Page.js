@@ -9,6 +9,7 @@ import TreesTemp from "./FolderStructure";
 import { Button, Input } from "@material-ui/core";
 import "./Page.css";
 import { ModalComponent } from "./Modal";
+import { ImageDimension } from "../Webpages";
 
 export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
@@ -16,8 +17,8 @@ export const Page = (props) => {
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const [totalCopies, setTotalCopies] = React.useState({ value: 0 });
   const [open, setOpen] = React.useState(false);
-  const [imageHeight, setImageHeight] = React.useState(400);
-  const [imageWidth, setImageWidth] = React.useState(400);
+  const { imageRatio, dispatchImageDimension } =
+    React.useContext(ImageDimension);
   const [coord, setCoor] = React.useState({ x: 0, y: 0 });
 
   const setCurrentElement = (val) => {
@@ -26,6 +27,11 @@ export const Page = (props) => {
       name: val,
     });
   };
+
+  console.log("Image ratio now : ", imageRatio);
+
+  const imageHeight = imageRatio.height;
+  const imageWidth = imageRatio.width;
 
   var parentRef = React.useRef(null);
 

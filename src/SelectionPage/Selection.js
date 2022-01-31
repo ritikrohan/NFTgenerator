@@ -3,16 +3,35 @@ import { NavComponent } from "../EditingPage/Navbar";
 import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import "./style.css";
+import { ImageDimension } from "../Webpages";
+import { Accept, StyledDropzone } from "./Dropzone";
 
 export const Selection = () => {
-  const [input1, setInput1] = React.useState({ name: "height", value: null });
-  const [input2, setInput2] = React.useState({ name: "width", value: null });
+  const [input1, setInput1] = React.useState({ name: "height", value: 400 });
+  const [input2, setInput2] = React.useState({ name: "width", value: 400 });
+  const { imageRatio, dispatchImageDimension } =
+    React.useContext(ImageDimension);
+
+  const handleClick = () => {
+    dispatchImageDimension({
+      type: "update",
+      value: { height: input1.value, width: input2.value },
+    });
+
+    console.log("ImageRatio now : ", imageRatio);
+    window.location.href = "/editing";
+  };
 
   return (
     <div>
       <NavComponent style={{ zIndex: 2 }} />
       <div className="area">
-        <h1 style={{ fontFamily: "monospace", color: "#fff" }}>
+        <h1
+          style={{
+            fontFamily: "monospace",
+            color: "#fff",
+          }}
+        >
           Image Dimension
         </h1>
         <div
@@ -33,6 +52,7 @@ export const Selection = () => {
               variant="outlined"
               inputProps={{ style: { textAlign: "center" } }}
               placeholder="(Px)"
+              defaultValue={400}
               onChange={(event) => {
                 setInput1({
                   name: "height",
@@ -51,6 +71,7 @@ export const Selection = () => {
                 variant="outlined"
                 inputProps={{ style: { textAlign: "center" } }}
                 placeholder="(Px)"
+                defaultValue={400}
                 onChange={(event) => {
                   setInput2({
                     name: "width",
@@ -65,6 +86,22 @@ export const Selection = () => {
 
         <div
           style={{
+            display: "flex",
+            justifyContent: "center",
+            width: "40vw",
+            marginLeft: "30vw",
+            height: "50vh",
+            backgroundColor: "#1313133b",
+            marginTop: "10px",
+            zIndex: 2,
+          }}
+        >
+          Upload Files
+          <Accept />
+        </div>
+
+        <div
+          style={{
             justifyContent: "center",
             display: "flex",
             marginTop: "50px",
@@ -75,9 +112,7 @@ export const Selection = () => {
             variant="contained"
             color="secondary"
             size="large"
-            onClick={() => {
-              window.location.href = "/editing";
-            }}
+            onClick={handleClick}
             style={{ zIndex: 2 }}
           >
             Continue
