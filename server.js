@@ -43,7 +43,7 @@ app.get("/getFolderTree", (req, res) => {
 
 //s3Actions.uploadFile("src/EditingPage/layers/ball/red eye ball_sr.png");
 //uploadFile("src/EditingPage/layers/ball/white eye ball.png");
-s3Actions.emptyS3Directory(process.env.BUCKET_NAME, "src/");
+//s3Actions.emptyS3Directory(process.env.BUCKET_NAME, "src/");
 // tree &&
 //   tree.children &&
 //   tree.children.forEach((items) => {

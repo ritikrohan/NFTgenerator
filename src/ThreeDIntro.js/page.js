@@ -96,7 +96,7 @@ export const ThreeData = () => {
         <button
           className="nice"
           style={{ zIndex: 3, fontFamily: "monospace" }}
-          onClick={(event) => (window.location.href = "/editing")}
+          onClick={(event) => (window.location.href = "/selection")}
         >
           Enter
         </button>

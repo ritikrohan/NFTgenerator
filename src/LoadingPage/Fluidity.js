@@ -7,7 +7,7 @@ import "./style.css";
 
 export const Fluidity = () => {
   const handleClick = async () => {
-    const baseURL = "http://localhost:8443/deleteFiles";
+    const baseURL = "https://localhost:8443/deleteFiles";
     const response = await fetch(baseURL, {
       method: "GET", // *GET, POST, PUT, DELETE, etc.
       mode: "cors",
