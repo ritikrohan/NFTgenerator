@@ -7,6 +7,7 @@ import {
 import { Page } from "./Page";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { NavComponent } from "./Navbar";
+import axios from "axios";
 
 export const ObjectContext = React.createContext();
 export const ObjectSelection = React.createContext();
@@ -23,16 +24,9 @@ export const EditingPage = () => {
   let total = { value: 100 };
 
   const getTree = async () => {
-    const response = await fetch(baseURL, {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      referrerPolicy: "no-referrer",
-    });
-    const data = await response.json();
-    setFileData(data);
+    const data = await axios.get(baseURL);
+    //const data = await response.json();
+    setFileData(data.data);
   };
 
   React.useEffect(() => {

@@ -1,3 +1,33 @@
+** Server Issues -- ASK *******
+s3 vs mongoDB -- Speed and vulnerabilities
+    mongoDB
+    not executable files / read only
+
+File Upload in the POST call -- axios
+    react file upload via axios 
+    check for file size
+
+100% Completion -- polling
+    use file based DB
+
+Processing -- Multithreading
+
+queue -- status and pushing 
+
+
+Backend not working - CORS
+
+dynamic IP allocation -- route 53
+
+
+what all things to take care of when showing the endpoints -- POST calls 
+
+Add the certs
+setup emails 
+
+
+
+
  -- Lookout for better picture quality.
  -- Add height width under context in the selection Page
  -- Upload and Delete files to s3 from react app.

@@ -6,6 +6,7 @@ import { Fade, Button } from "@material-ui/core";
 import { Typography } from "@material-ui/core";
 import { NumberOfCopies, ObjectContext } from "./EditingPage";
 import { DemoCarousel } from "./Carousel";
+import axios from "axios";
 
 const style = {
   position: "absolute",
@@ -28,18 +29,14 @@ export const ModalComponent = (props) => {
 
   const handleClick = async () => {
     const data = { objects: objects, total: total };
-    const requestOptions = {
-      method: "POST",
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      referrerPolicy: "no-referrer",
-      body: JSON.stringify(data),
-    };
-    fetch("https://localhost:8443/submitDetails", requestOptions).then(
-      (response) => response.json()
-    );
+    axios
+      .post("http://localhost:8443/submitDetails", data)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
     window.location.href = "/loading";
   };

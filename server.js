@@ -41,7 +41,7 @@ app.get("/getFolderTree", (req, res) => {
   res.send(JSON.stringify(tree));
 });
 
-//s3Actions.uploadFile("src/EditingPage/layers/ball/red eye ball_sr.png");
+//s3Actions.uploadFile("uuid/src/EditingPage/layers/ball/red eye ball_sr.png");
 //uploadFile("src/EditingPage/layers/ball/white eye ball.png");
 //s3Actions.emptyS3Directory(process.env.BUCKET_NAME, "src/");
 // tree &&
@@ -81,7 +81,6 @@ app.get("/getTotalItems", (req, res) => {
 });
 
 app.post("/fetchFiles", (request, response) => {
-  console.log("response yaha pe : ", request.body);
   const data = request.body;
 
   data &&

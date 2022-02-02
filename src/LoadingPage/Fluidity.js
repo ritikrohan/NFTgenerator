@@ -1,6 +1,6 @@
 import { Button } from "@material-ui/core";
 import React, { Component } from "react";
-
+import axios from "axios";
 import { NavComponent } from "../EditingPage/Navbar";
 
 import "./style.css";
@@ -8,14 +8,7 @@ import "./style.css";
 export const Fluidity = () => {
   const handleClick = async () => {
     const baseURL = "https://localhost:8443/deleteFiles";
-    const response = await fetch(baseURL, {
-      method: "GET", // *GET, POST, PUT, DELETE, etc.
-      mode: "cors",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      referrerPolicy: "no-referrer",
-    });
+    const response = await axios.get(baseURL);
 
     window.location.href = "/final";
   };
