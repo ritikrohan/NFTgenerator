@@ -4,7 +4,7 @@ import { Button } from "@material-ui/core";
 import { TextField } from "@material-ui/core";
 import "./style.css";
 import { ImageDimension } from "../Webpages";
-import { Accept, StyledDropzone } from "./Dropzone";
+import { MyDropzone } from "./Dropzone";
 
 export const Selection = () => {
   const [input1, setInput1] = React.useState({ name: "height", value: 400 });
@@ -97,7 +97,7 @@ export const Selection = () => {
           }}
         >
           Upload Files
-          <Accept />
+          <MyDropzone />
         </div>
 
         <div

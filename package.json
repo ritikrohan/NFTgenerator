@@ -13,6 +13,7 @@
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
     "aws-sdk": "^2.1066.0",
+    "axios": "^0.25.0",
     "canvas": "^2.9.0",
     "cors": "^2.8.5",
     "directory-tree": "^3.0.1",

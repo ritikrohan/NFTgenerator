@@ -21,4 +21,9 @@ Low
  -- Nginx 
  -- backend- CORS error
 
+ --minifify js 
+
+
+Fixes (FYI):
+if mongoDB is on VPN it wont connect 
 

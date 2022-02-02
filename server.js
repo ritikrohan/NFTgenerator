@@ -80,6 +80,18 @@ app.get("/getTotalItems", (req, res) => {
   return res.json(data);
 });
 
+app.post("/fetchFiles", (request, response) => {
+  console.log("response yaha pe : ", request.body);
+  const data = request.body;
+
+  data &&
+    data.forEach((items) => {
+      s3Actions.uploadFile(items.path);
+    });
+
+  return response.json("success");
+});
+
 app.post("/submitDetails", (request, response) => {
   var startDate = new Date();
 
@@ -92,11 +104,28 @@ app.post("/submitDetails", (request, response) => {
       layerData.push(obj);
     });
 
+  // sorting based on depth
+  layerData &&
+    layerData.sort((a, b) => {
+      return a.depth - b.depth;
+    });
+
   var values = data.total.value;
 
   if (values > 10000) {
     return;
   }
+
+  const folderLayers = tree.children;
+
+  const finalLayers = [];
+
+  // sorting the tree layers based on depth
+  layerData.forEach((item) => {
+    finalLayers.push(folderLayers.filter((obj) => obj.name === item.name)[0]);
+  });
+
+  tree.children = finalLayers;
 
   while (values) {
     var hash = 0;
