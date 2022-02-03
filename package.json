@@ -39,6 +39,8 @@
     "react-sizeme": "2.5.2",
     "react-spring": "8.0.19",
     "react-three-fiber": "4.0.8",
+    "react-toastify": "^8.1.1",
+    "reactstrap": "^9.0.1",
     "three": "0.102.1",
     "uglify-js": "^3.14.5",
     "web-vitals": "^2.1.2"

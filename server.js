@@ -83,10 +83,10 @@ app.get("/getTotalItems", (req, res) => {
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public");
+    cb(null, "public/UserData");
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname);
+    cb(null, file.originalname);
   },
 });
 
@@ -97,10 +97,13 @@ app.post("/fetchFiles", (req, res) => {
 
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
+      console.log(err);
       return res.status(500).json(err);
     } else if (err) {
+      console.log(err);
       return res.status(500).json(err);
     }
+
     return res.status(200).send(req.file);
   });
 
