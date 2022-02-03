@@ -23,6 +23,7 @@
     "latest-version": "^6.0.0",
     "lowdb": "^1.0.0",
     "mongodb": "^4.3.1",
+    "multer": "^1.4.4",
     "node-sass": "^7.0.1",
     "prop-types": "^15.6.2",
     "raf": "latest",

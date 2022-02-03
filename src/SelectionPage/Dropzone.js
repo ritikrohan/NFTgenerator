@@ -4,14 +4,21 @@ import axios from "axios";
 
 export function MyDropzone() {
   const onDrop = useCallback((acceptedFiles) => {
-    const totalFiles = [];
+    const formData = new FormData();
     acceptedFiles &&
       acceptedFiles.forEach((file) => {
-        console.log(file);
-        totalFiles.push(file);
+        formData.append("file", file);
+        console.log(formData);
       });
+
+    const config = {
+      headers: {
+        "content-type": "multipart/form-data",
+      },
+    };
+
     axios
-      .post("http://localhost:8443/fetchFiles", totalFiles)
+      .post("http://localhost:8443/fetchFiles", formData, config)
       .then(function (response) {
         console.log(response);
       })

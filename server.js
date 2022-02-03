@@ -7,6 +7,7 @@ const fs = require("fs");
 const lowDb = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const s3Actions = require("./s3Actions");
+var multer = require("multer");
 
 var path = require("path");
 
@@ -80,15 +81,33 @@ app.get("/getTotalItems", (req, res) => {
   return res.json(data);
 });
 
-app.post("/fetchFiles", (request, response) => {
-  const data = request.body;
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "public");
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
 
-  data &&
-    data.forEach((items) => {
-      s3Actions.uploadFile(items.path);
-    });
+var upload = multer({ storage: storage }).array("file");
 
-  return response.json("success");
+app.post("/fetchFiles", (req, res) => {
+  const data = req.body;
+
+  upload(req, res, function (err) {
+    if (err instanceof multer.MulterError) {
+      return res.status(500).json(err);
+    } else if (err) {
+      return res.status(500).json(err);
+    }
+    return res.status(200).send(req.file);
+  });
+
+  // data &&
+  //   data.forEach((items) => {
+  //     s3Actions.uploadFile(items.path);
+  //   });
 });
 
 app.post("/submitDetails", (request, response) => {
