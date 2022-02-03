@@ -9,10 +9,22 @@ export function MyDropzone() {
   const [loaded, setLoaded] = React.useState(0);
   const onDrop = useCallback((acceptedFiles) => {
     const formData = new FormData();
+    const folderPath = [];
     acceptedFiles &&
       acceptedFiles.forEach((file) => {
-        formData.append("file", file);
-        console.log(formData);
+        let path = file.path.split("/")[1];
+        formData.append(`${path}`, file);
+        folderPath.push(file);
+        console.log(file);
+      });
+
+    axios
+      .post("http://localhost:8443/fetchPath", folderPath)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
 
     axios

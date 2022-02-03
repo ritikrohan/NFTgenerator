@@ -55,3 +55,7 @@ Low
 Fixes (FYI):
 if mongoDB is on VPN it wont connect 
 
+
+
+Dropzone file.path and then use fields in backend
+

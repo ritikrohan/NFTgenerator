@@ -81,20 +81,23 @@ app.get("/getTotalItems", (req, res) => {
   return res.json(data);
 });
 
+const dest = "public/UserData";
+
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/UserData");
+    cb(null, dest);
   },
   filename: function (req, file, cb) {
     cb(null, file.originalname);
   },
 });
 
-var upload = multer({ storage: storage }).array("file");
+const fields = [];
+var filePaths = new Set();
+
+var upload = multer({ storage: storage }).fields(fields);
 
 app.post("/fetchFiles", (req, res) => {
-  const data = req.body;
-
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
       console.log(err);
@@ -111,6 +114,16 @@ app.post("/fetchFiles", (req, res) => {
   //   data.forEach((items) => {
   //     s3Actions.uploadFile(items.path);
   //   });
+});
+
+app.post("/fetchPath", (req, res) => {
+  req.body.forEach((file) => {
+    filePaths.add(file.path.split("/")[1]);
+  });
+
+  filePaths.forEach((file) => {
+    fields.push({ name: file });
+  });
 });
 
 app.post("/submitDetails", (request, response) => {
