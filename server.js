@@ -42,35 +42,6 @@ app.get("/getFolderTree", (req, res) => {
   res.send(JSON.stringify(tree));
 });
 
-//s3Actions.uploadFile("uuid/src/EditingPage/layers/ball/red eye ball_sr.png");
-//uploadFile("src/EditingPage/layers/ball/white eye ball.png");
-//s3Actions.emptyS3Directory(process.env.BUCKET_NAME, "src/");
-// tree &&
-//   tree.children &&
-//   tree.children.forEach((items) => {
-//     items &&
-//       items.children &&
-//       items.children.forEach((item) => s3Actions.uploadFile(item.path));
-//   });
-
-app.get(
-  "/.well-known/pki-validation/46ECBDC8F972F4C8A73EEFF7BE4D4D96.txt",
-  (req, res) => {
-    var options = {
-      root: path.join(__dirname),
-    };
-
-    var fileName = "46ECBDC8F972F4C8A73EEFF7BE4D4D96.txt";
-    res.sendFile(fileName, options, function (err) {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Sent:", fileName);
-      }
-    });
-  }
-);
-
 app.get("/getTotalUsers", (req, res) => {
   const data = db.get("TotalUsers").value();
   return res.json(data);
@@ -247,3 +218,14 @@ app.listen(port, () => {
   console.log(`Server is running on port: ${port}`);
   console.log(`Example app listening at http://sickalien.store:${port}`);
 });
+
+//s3Actions.uploadFile("uuid/src/EditingPage/layers/ball/red eye ball_sr.png");
+//uploadFile("src/EditingPage/layers/ball/white eye ball.png");
+//s3Actions.emptyS3Directory(process.env.BUCKET_NAME, "src/");
+// tree &&
+//   tree.children &&
+//   tree.children.forEach((items) => {
+//     items &&
+//       items.children &&
+//       items.children.forEach((item) => s3Actions.uploadFile(item.path));
+//   });
