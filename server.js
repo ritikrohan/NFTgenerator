@@ -201,8 +201,15 @@ app.post("/submitDetails", (request, response) => {
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 
+  const generateFiles = dirTree(`generated/${uuid}`);
+
+  console.log(generateFiles);
+  generateFiles &&
+    generateFiles.children.forEach((items) => {
+      s3Actions.uploadFile(items.path);
+    });
+
   return response.json("Success");
-  //console.log(db.get("TotalUsers").value(), db.get("TotalItems").value());
 });
 
 app.get("/deleteFiles", (req, res) => {
