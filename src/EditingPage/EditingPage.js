@@ -24,7 +24,9 @@ export const EditingPage = () => {
   let total = { value: 100 };
 
   const getTree = async () => {
-    const data = await axios.get(baseURL);
+    const data = await axios.get(baseURL, {
+      params: { uuid: JSON.parse(sessionStorage.uuid) },
+    });
     //const data = await response.json();
     setFileData(data.data);
   };

@@ -11,11 +11,14 @@ export function MyDropzone() {
   const onDrop = useCallback((acceptedFiles) => {
     const formData = new FormData();
     const folderPath = [];
+    const uuid = JSON.parse(sessionStorage.uuid);
     acceptedFiles &&
       acceptedFiles.forEach((file) => {
         let path = file.path.split("/")[1];
-        formData.append(`${path}`, file);
-        folderPath.push(file);
+        formData.append(`${uuid}/${path}`, file);
+
+        const fileAdd = { path: file.path, uuid: uuid };
+        folderPath.push(fileAdd);
       });
 
     axios

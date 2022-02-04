@@ -44,10 +44,12 @@
     "reactstrap": "^9.0.1",
     "three": "0.102.1",
     "uglify-js": "^3.14.5",
+    "uuid": "^8.3.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
-    "server": "nodemon server.js",
+    "devserver": "nodemon server.js",
+    "server": "node server.js",
     "dev": "export PORT=2095 && react-scripts start",
     "prod": "export PORT=80 && react-scripts start",
     "build": "react-scripts build",

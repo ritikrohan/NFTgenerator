@@ -28,8 +28,6 @@ export const Page = (props) => {
     });
   };
 
-  console.log("Image ratio now : ", imageRatio);
-
   const imageHeight = imageRatio.height;
   const imageWidth = imageRatio.width;
 

@@ -28,7 +28,11 @@ export const ModalComponent = (props) => {
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
 
   const handleClick = async () => {
-    const data = { objects: objects, total: total };
+    const data = {
+      objects: objects,
+      total: total,
+      uuid: JSON.parse(sessionStorage.uuid),
+    };
     axios
       .post("http://localhost:8443/submitDetails", data)
       .then(function (response) {

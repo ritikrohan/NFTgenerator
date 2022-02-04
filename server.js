@@ -35,10 +35,10 @@ app.use(cors());
 const port = 8443;
 
 const dirTree = require("directory-tree");
-const tree = dirTree("src/EditingPage/layers");
 
 app.get("/getFolderTree", (req, res) => {
-  //console.log(JSON.stringify(tree));
+  const uuid = req.query.uuid;
+  const tree = dirTree(`src/EditingPage/layers/${uuid}`);
   res.send(JSON.stringify(tree));
 });
 
@@ -52,7 +52,7 @@ app.get("/getTotalItems", (req, res) => {
   return res.json(data);
 });
 
-const dest = "public/UserData";
+const dest = `src/EditingPage/layers/`;
 
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
@@ -87,6 +87,18 @@ app.post("/uploadFiles", (req, res) => {
   });
 });
 
+app.post("/uploadPath", (req, res) => {
+  req.body.forEach((file) => {
+    const filePath = file.path.split("/")[1];
+    const hashKey = file.uuid;
+    filePaths.add(hashKey + "/" + filePath);
+  });
+
+  filePaths.forEach((file) => {
+    fields.push({ name: file });
+  });
+});
+
 app.post("/deleteLocalFiles", (req, res) => {
   filePaths.forEach((fileName) => {
     fs.rmdir(`./public/UserData/${fileName}`, { recursive: true }, (err) => {
@@ -111,20 +123,11 @@ app.post("/uploadToS3", (req, res) => {
     });
 });
 
-app.post("/uploadPath", (req, res) => {
-  req.body.forEach((file) => {
-    filePaths.add(file.path.split("/")[1]);
-  });
-
-  filePaths.forEach((file) => {
-    fields.push({ name: file });
-  });
-});
-
 app.post("/submitDetails", (request, response) => {
-  var startDate = new Date();
-
   const data = request.body;
+  const uuid = data.uuid;
+  const tree = dirTree(`src/EditingPage/layers/${uuid}`);
+  var startDate = new Date();
 
   const layerData = [];
 
@@ -156,6 +159,11 @@ app.post("/submitDetails", (request, response) => {
 
   tree.children = finalLayers;
 
+  if (fs.existsSync(`generated/${uuid}`) === false) {
+    fs.mkdirSync(`generated/${uuid}`, { recursive: true });
+    console.log("Ho gya");
+  }
+
   while (values) {
     var hash = 0;
     // eslint-disable-next-line no-loop-func
@@ -173,7 +181,7 @@ app.post("/submitDetails", (request, response) => {
         JSON.parse(layerData[index].height)
       );
       const buffer = canvas.toBuffer("image/png", 0);
-      fs.writeFileSync(__dirname + `/generated/${hash}.png`, buffer);
+      fs.writeFileSync(__dirname + `/generated/${uuid}/${hash}.png`, buffer);
 
       if (tree.children.length === index + 1) {
         context.clearRect(0, 0, canvas.width, canvas.height);

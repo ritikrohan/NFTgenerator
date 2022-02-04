@@ -5,6 +5,8 @@ import data from "../traffic.json";
 import { AboutModalComponent } from "./AboutModal";
 import { ContactModalComponent } from "./ContactModal";
 import { InstructionsModalComponent } from "./InstructionsModal";
+import axios from "axios";
+import { v4 as uuidv4 } from "uuid";
 
 export const ThreeData = () => {
   const [openAbout, setAboutOpen] = React.useState(false);
@@ -19,6 +21,15 @@ export const ThreeData = () => {
   };
   const handleCloseInstructions = () => {
     setInstructionsOpen(false);
+  };
+
+  const handleClick = () => {
+    const ID = { uuid: uuidv4() };
+    sessionStorage.setItem("uuid", JSON.stringify(ID.uuid));
+
+    axios.post("http://localhost:8443/saveID", ID);
+
+    window.location.href = "/selection";
   };
   return (
     <div>
@@ -96,7 +107,7 @@ export const ThreeData = () => {
         <button
           className="nice"
           style={{ zIndex: 3, fontFamily: "monospace" }}
-          onClick={(event) => (window.location.href = "/selection")}
+          onClick={handleClick}
         >
           Enter
         </button>
