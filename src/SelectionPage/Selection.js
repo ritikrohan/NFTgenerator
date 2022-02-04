@@ -19,9 +19,6 @@ export const Selection = () => {
       value: { height: input1.value, width: input2.value },
     });
 
-    axios.post("http://localhost:8443/deleteLocalFiles");
-
-    console.log("ImageRatio now : ", imageRatio);
     window.location.href = "/editing";
   };
 
