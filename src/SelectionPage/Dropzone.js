@@ -3,6 +3,7 @@ import { useDropzone } from "react-dropzone";
 import axios from "axios";
 import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
+import { Button } from "@material-ui/core";
 import "react-toastify/dist/ReactToastify.css";
 
 export function MyDropzone() {
@@ -15,11 +16,10 @@ export function MyDropzone() {
         let path = file.path.split("/")[1];
         formData.append(`${path}`, file);
         folderPath.push(file);
-        console.log(file);
       });
 
     axios
-      .post("http://localhost:8443/fetchPath", folderPath)
+      .post("http://localhost:8443/uploadPath", folderPath)
       .then(function (response) {
         console.log(response);
       })
@@ -28,21 +28,31 @@ export function MyDropzone() {
       });
 
     axios
-      .post("http://localhost:8443/fetchFiles", formData, {
+      .post("http://localhost:8443/uploadFiles", formData, {
         onUploadProgress: (ProgressEvent) => {
           setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
         },
       })
       .then(function (response) {
         toast.success("upload success");
-        console.log(response);
       })
       .catch(function (error) {
-        toast.info("Only png and jpg formats are supported");
+        toast.info(error);
         toast.error("upload fail");
-        console.log(error);
       });
   }, []);
+
+  const uploadFile = () => {
+    axios
+      .post("http://localhost:8443/uploadToS3")
+      .then(function (response) {
+        toast.success("success");
+      })
+      .catch(function (error) {
+        toast.info(error);
+        toast.error("failure");
+      });
+  };
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -50,44 +60,59 @@ export function MyDropzone() {
   });
 
   return (
-    <div style={{ zIndex: 2 }} {...getRootProps()}>
-      <input
-        style={{ zIndex: 2 }}
-        {...getInputProps()}
-        directory=""
-        webkitdirectory=""
-        type="file"
-      />
-      {isDragActive ? (
-        <p style={{ zIndex: 2 }}>Drop the files here ...</p>
-      ) : (
-        <p style={{ zIndex: 2 }}>
-          Drag 'n' drop some files here, or click to select files
-        </p>
-      )}
-      <div className="form-group" style={{ marginTop: "20px", zIndex: 2 }}>
+    <div style={{ zIndex: 2 }}>
+      <div style={{ zIndex: 2 }} {...getRootProps()}>
+        <input
+          style={{ zIndex: 2 }}
+          {...getInputProps()}
+          directory=""
+          webkitdirectory=""
+          type="file"
+        />
+        {isDragActive ? (
+          <p style={{ zIndex: 2 }}>Drop the files here ...</p>
+        ) : (
+          <p style={{ zIndex: 2 }}>
+            Drag 'n' drop some files here, or click to select files
+          </p>
+        )}
+
+        <div className="form-group">
+          <ToastContainer
+            position="bottom-right"
+            autoClose={5000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+          />
+        </div>
+      </div>
+      <div
+        className="form-group"
+        style={{ marginTop: "20px", zIndex: 2, width: "30px" }}
+      >
         <Progress
           max="100"
           color="success"
           value={loaded}
           style={{ zIndex: 2 }}
         >
-          {Math.round(loaded, 2)}%
+          <p style={{ margin: "5px" }}> Math.round(loaded, 2)% </p>
         </Progress>
       </div>
-      <div className="form-group">
-        <ToastContainer
-          position="bottom-right"
-          autoClose={5000}
-          hideProgressBar={false}
-          newestOnTop={true}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-        />
-      </div>
+      <Button
+        variant="contained"
+        color="secondary"
+        size="large"
+        onClick={uploadFile}
+        style={{ zIndex: 2, marginTop: "40px" }}
+      >
+        Upload
+      </Button>
     </div>
   );
 }

@@ -5,6 +5,7 @@ import { TextField } from "@material-ui/core";
 import "./style.css";
 import { ImageDimension } from "../Webpages";
 import { MyDropzone } from "./Dropzone";
+import axios from "axios";
 
 export const Selection = () => {
   const [input1, setInput1] = React.useState({ name: "height", value: 400 });
@@ -17,6 +18,8 @@ export const Selection = () => {
       type: "update",
       value: { height: input1.value, width: input2.value },
     });
+
+    axios.post("http://localhost:8443/deleteLocalFiles");
 
     console.log("ImageRatio now : ", imageRatio);
     window.location.href = "/editing";
@@ -94,6 +97,8 @@ export const Selection = () => {
             backgroundColor: "#1313133b",
             marginTop: "10px",
             zIndex: 2,
+            borderRadius: "5px",
+            padding: "10px",
           }}
         >
           Upload Files

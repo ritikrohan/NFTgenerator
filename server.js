@@ -88,7 +88,12 @@ var storage = multer.diskStorage({
     cb(null, dest);
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname);
+    if (fs.existsSync(`${dest}/${file.fieldname}`)) {
+      cb(null, `${file.fieldname}/${file.originalname}`);
+    } else {
+      fs.mkdirSync(`${dest}/${file.fieldname}`, { recursive: true });
+      cb(null, `${file.fieldname}/${file.originalname}`);
+    }
   },
 });
 
@@ -97,7 +102,7 @@ var filePaths = new Set();
 
 var upload = multer({ storage: storage }).fields(fields);
 
-app.post("/fetchFiles", (req, res) => {
+app.post("/uploadFiles", (req, res) => {
   upload(req, res, function (err) {
     if (err instanceof multer.MulterError) {
       console.log(err);
@@ -109,14 +114,33 @@ app.post("/fetchFiles", (req, res) => {
 
     return res.status(200).send(req.file);
   });
-
-  // data &&
-  //   data.forEach((items) => {
-  //     s3Actions.uploadFile(items.path);
-  //   });
 });
 
-app.post("/fetchPath", (req, res) => {
+app.post("/deleteLocalFiles", (req, res) => {
+  filePaths.forEach((fileName) => {
+    fs.rmdir(`./public/UserData/${fileName}`, { recursive: true }, (err) => {
+      if (err) {
+        return console.log("error occurred in deleting directory", err);
+      }
+
+      console.log("Directory deleted successfully");
+    });
+  });
+});
+
+app.post("/uploadToS3", (req, res) => {
+  const folderStructure = dirTree("public/UserData");
+
+  folderStructure &&
+    folderStructure.children &&
+    folderStructure.children.forEach((items) => {
+      items &&
+        items.children &&
+        items.children.forEach((item) => s3Actions.uploadFile(item.path));
+    });
+});
+
+app.post("/uploadPath", (req, res) => {
   req.body.forEach((file) => {
     filePaths.add(file.path.split("/")[1]);
   });
