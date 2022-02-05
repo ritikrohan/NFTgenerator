@@ -13,7 +13,7 @@ module.exports = {
     // setting up s3 upload parameters
     const params = {
       Bucket: process.env.BUCKET_NAME,
-      Key: `${fileName}.png`,
+      Key: fileName,
       Body: fileContent,
     };
 

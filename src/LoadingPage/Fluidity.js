@@ -29,7 +29,34 @@ export const Fluidity = () => {
     axios.post("https://sickalien.store:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
-    window.location.href = "/final";
+    axios
+      .get("https://sickalien.store:8443/download", {
+        params: { uuid: JSON.parse(sessionStorage.uuid) },
+      })
+      .then(function (response) {
+        toast.success("Download Success!! :D");
+      })
+      .catch(function (error) {
+        toast.info(error);
+        toast.error("Download failed!! :(");
+      });
+
+    axios({
+      url: `https://nftcodebucket.s3.us-west-1.amazonaws.com/generated/${JSON.parse(
+        sessionStorage.uuid
+      )}.zip`, //your url
+      method: "GET",
+      responseType: "blob", // important
+    }).then((response) => {
+      const url = window.URL.createObjectURL(new Blob([response.data]));
+      const link = document.createElement("a");
+      link.href = url;
+      link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
+      document.body.appendChild(link);
+      link.click();
+
+      window.location.href = "/final";
+    });
   };
 
   return (

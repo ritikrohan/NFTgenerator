@@ -46,18 +46,6 @@ export function MyDropzone() {
       });
   }, []);
 
-  const uploadFile = () => {
-    axios
-      .post("https://sickalien.store:8443/uploadToS3")
-      .then(function (response) {
-        toast.success("success");
-      })
-      .catch(function (error) {
-        toast.info(error);
-        toast.error("failure");
-      });
-  };
-
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: "image/jpeg, image/png",

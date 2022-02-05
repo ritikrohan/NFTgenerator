@@ -8,11 +8,14 @@ const lowDb = require("lowdb");
 const FileSync = require("lowdb/adapters/FileSync");
 const s3Actions = require("./s3Actions");
 var multer = require("multer");
+const archiver = require("archiver");
+const AWS = require("aws-sdk");
 
 var path = require("path");
 
 require("dotenv").config({ path: "./config.env" });
-const dbo = require("./DB/connection");
+// Uncomment for Database connection
+// const dbo = require("./DB/connection");
 
 const db = lowDb(new FileSync("./src/traffic.json"));
 
@@ -110,18 +113,6 @@ app.post("/deleteLocalFiles", (req, res) => {
   });
 });
 
-app.post("/uploadToS3", (req, res) => {
-  const folderStructure = dirTree("public/UserData");
-
-  folderStructure &&
-    folderStructure.children &&
-    folderStructure.children.forEach((items) => {
-      items &&
-        items.children &&
-        items.children.forEach((item) => s3Actions.uploadFile(item.path));
-    });
-});
-
 app.post("/submitDetails", (request, response) => {
   const data = request.body;
   const uuid = data.uuid;
@@ -213,12 +204,28 @@ app.post("/submitDetails", (request, response) => {
 
 app.get("/uploadCloud", (req, res) => {
   const uuid = req.query.uuid;
-  const generateFiles = dirTree(`generated/${uuid}`);
+  const output = fs.createWriteStream(`generated/${uuid}.zip`);
+  const archive = archiver("zip");
 
-  generateFiles &&
-    generateFiles.children.forEach((items) => {
-      s3Actions.uploadFile(items.path);
-    });
+  archive.on("error", function (err) {
+    res.status(500).send({ error: err.message });
+  });
+
+  //on stream closed we can end the request
+  archive.on("end", function () {
+    console.log("Archive wrote %d bytes", archive.pointer());
+  });
+
+  //set the archive name
+  res.attachment(`${uuid}.zip`);
+
+  //this is the streaming magic
+  archive.pipe(output);
+
+  archive.directory(`generated/${uuid}`, `${uuid}`);
+
+  archive.finalize();
+
   return res.status(200).json("Success");
 });
 
@@ -236,10 +243,23 @@ app.get("/deleteFiles", (req, res) => {
   return res.json("Success");
 });
 
-app.listen(port, () => {
-  dbo.connectToServer(function (err) {
-    if (err) console.error(err);
+app.get("/download", function (req, res, next) {
+  // download the file via aws s3 here
+  const uuid = req.query.uuid;
+
+  s3Actions.uploadFile(`generated/${uuid}.zip`);
+
+  fs.unlink(`./generated/${uuid}.zip`, function (err) {
+    if (err) throw err;
+    console.log("File deleted!");
   });
+});
+
+app.listen(port, () => {
+  // Uncommented for connecting to mongoDB
+  // dbo.connectToServer(function (err) {
+  //   if (err) console.error(err);
+  // });
   console.log(`Server is running on port: ${port}`);
   console.log(`Example app listening at http://sickalien.store:${port}`);
 });
