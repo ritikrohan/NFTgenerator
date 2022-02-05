@@ -26,6 +26,9 @@ export const Fluidity = () => {
   };
 
   const handleClickDownload = () => {
+    axios.post("http://localhost:8443/deleteLocalFiles", {
+      uuid: JSON.parse(sessionStorage.uuid),
+    });
     window.location.href = "/final";
   };
 

@@ -91,14 +91,22 @@ app.post("/uploadPath", (req, res) => {
 });
 
 app.post("/deleteLocalFiles", (req, res) => {
-  filePaths.forEach((fileName) => {
-    fs.rmdir(`./public/UserData/${fileName}`, { recursive: true }, (err) => {
-      if (err) {
-        return console.log("error occurred in deleting directory", err);
-      }
+  const data = req.body;
+  const uuid = data.uuid;
+  fs.rmdir(`./src/EditingPage/layers/${uuid}`, { recursive: true }, (err) => {
+    if (err) {
+      return console.log("error occurred in deleting directory", err);
+    }
 
-      console.log("Directory deleted successfully");
-    });
+    console.log("Directory deleted successfully");
+  });
+
+  fs.rmdir(`./generated/${uuid}`, { recursive: true }, (err) => {
+    if (err) {
+      return console.log("error occurred in deleting directory", err);
+    }
+
+    console.log("Directory deleted successfully");
   });
 });
 
