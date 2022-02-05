@@ -1,11 +1,6 @@
 ** Server Issues -- ASK *******
-s3 vs mongoDB -- Speed and vulnerabilities
-    mongoDB
-    not executable files / read only
 
-File Upload in the POST call -- axios
-    react file upload via axios 
-    check for file size
+Remove Global variables in server.js and pass in req.
 
 100% Completion -- polling
     use file based DB
@@ -29,10 +24,7 @@ setup emails
 
 
  -- Lookout for better picture quality.
- -- Add height width under context in the selection Page
  -- Modal should be responsive
- -- Set the image dimension on basis of input from user - https://www.npmjs.com/package/react-floating-label-input
- -- Restrict files other than png , jpg , gif
  -- How to get live updates on processing.
 
 
