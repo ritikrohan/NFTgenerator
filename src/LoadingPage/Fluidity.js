@@ -10,7 +10,7 @@ export const Fluidity = () => {
   const [isLoading, setLoading] = React.useState(true);
 
   const handleClickGenerate = async () => {
-    const baseURL = "http://localhost:8443/uploadCloud";
+    const baseURL = "https://sickalien.store:8443/uploadCloud";
     const response = await axios
       .get(baseURL, {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
@@ -26,7 +26,7 @@ export const Fluidity = () => {
   };
 
   const handleClickDownload = () => {
-    axios.post("http://localhost:8443/deleteLocalFiles", {
+    axios.post("https://sickalien.store:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
     window.location.href = "/final";

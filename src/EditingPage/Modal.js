@@ -36,7 +36,7 @@ export const ModalComponent = (props) => {
       canvasWidth: props.canvasWidth,
     };
     axios
-      .post("http://localhost:8443/submitDetails", data)
+      .post("https://sickalien.store:8443/submitDetails", data)
       .then(function (response) {
         console.log(response);
       })
