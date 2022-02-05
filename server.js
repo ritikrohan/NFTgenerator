@@ -16,15 +16,6 @@ const dbo = require("./DB/connection");
 
 const db = lowDb(new FileSync("./src/traffic.json"));
 
-const width = 400;
-const height = 400;
-
-const canvas = createCanvas(width, height);
-const context = canvas.getContext("2d", {
-  patternQuality: "bilinear",
-  quality: "bilinear",
-});
-
 var total = 0;
 
 //Here we are configuring express to use body-parser as middle-ware.
@@ -127,6 +118,14 @@ app.post("/submitDetails", (request, response) => {
   const data = request.body;
   const uuid = data.uuid;
   const tree = dirTree(`src/EditingPage/layers/${uuid}`);
+  const width = data.canvasWidth;
+  const height = data.canvasHeight;
+
+  const canvas = createCanvas(width, height);
+  const context = canvas.getContext("2d", {
+    patternQuality: "bilinear",
+    quality: "bilinear",
+  });
   var startDate = new Date();
 
   const layerData = [];
@@ -201,15 +200,18 @@ app.post("/submitDetails", (request, response) => {
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 
+  return response.json("Success");
+});
+
+app.get("/uploadCloud", (req, res) => {
+  const uuid = req.query.uuid;
   const generateFiles = dirTree(`generated/${uuid}`);
 
-  console.log(generateFiles);
   generateFiles &&
     generateFiles.children.forEach((items) => {
       s3Actions.uploadFile(items.path);
     });
-
-  return response.json("Success");
+  return res.status(200).json("Success");
 });
 
 app.get("/deleteFiles", (req, res) => {

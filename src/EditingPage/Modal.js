@@ -32,6 +32,8 @@ export const ModalComponent = (props) => {
       objects: objects,
       total: total,
       uuid: JSON.parse(sessionStorage.uuid),
+      canvasHeight: props.canvasHeight,
+      canvasWidth: props.canvasWidth,
     };
     axios
       .post("http://localhost:8443/submitDetails", data)

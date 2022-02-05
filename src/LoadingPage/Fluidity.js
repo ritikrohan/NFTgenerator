@@ -2,16 +2,33 @@ import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import axios from "axios";
 import { NavComponent } from "../EditingPage/Navbar";
+import { ToastContainer, toast } from "react-toastify";
 
 import "./style.css";
 
 export const Fluidity = () => {
-  const handleClick = async () => {
-    const baseURL = "https://localhost:8443/deleteFiles";
-    const response = await axios.get(baseURL);
+  const [isLoading, setLoading] = React.useState(true);
 
+  const handleClickGenerate = async () => {
+    const baseURL = "http://localhost:8443/uploadCloud";
+    const response = await axios
+      .get(baseURL, {
+        params: { uuid: JSON.parse(sessionStorage.uuid) },
+      })
+      .then(function (response) {
+        setLoading(false);
+        toast.success("upload success");
+      })
+      .catch(function (error) {
+        toast.info(error);
+        toast.error("upload fail");
+      });
+  };
+
+  const handleClickDownload = () => {
     window.location.href = "/final";
   };
+
   return (
     <div className="trans">
       <div style={{ maxHeight: "20px", zIndex: 21 }}>
@@ -43,14 +60,38 @@ export const Fluidity = () => {
           marginTop: "50px",
         }}
       >
-        <Button
-          variant="contained"
-          color="secondary"
-          size="large"
-          onClick={handleClick}
-        >
-          Download
-        </Button>
+        {isLoading ? (
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={handleClickGenerate}
+          >
+            Generate Link
+          </Button>
+        ) : (
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            onClick={handleClickDownload}
+          >
+            Download
+          </Button>
+        )}
+      </div>
+      <div className="form-group">
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </div>
   );

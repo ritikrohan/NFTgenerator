@@ -9,7 +9,6 @@ import TreesTemp from "./FolderStructure";
 import { Button, Input } from "@material-ui/core";
 import "./Page.css";
 import { ModalComponent } from "./Modal";
-import { ImageDimension } from "../Webpages";
 
 export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
@@ -17,9 +16,13 @@ export const Page = (props) => {
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const [totalCopies, setTotalCopies] = React.useState({ value: 0 });
   const [open, setOpen] = React.useState(false);
-  const { imageRatio, dispatchImageDimension } =
-    React.useContext(ImageDimension);
   const [coord, setCoor] = React.useState({ x: 0, y: 0 });
+  const [canvasHeight, setCanvasHeight] = React.useState({
+    value: 400,
+  });
+  const [canvasWidth, setCanvasWidth] = React.useState({
+    value: 400,
+  });
 
   const setCurrentElement = (val) => {
     dispatch2({
@@ -27,9 +30,6 @@ export const Page = (props) => {
       name: val,
     });
   };
-
-  const imageHeight = imageRatio.height;
-  const imageWidth = imageRatio.width;
 
   var parentRef = React.useRef(null);
 
@@ -142,13 +142,44 @@ export const Page = (props) => {
           padding: "5px",
         }}
       >
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            backgroundColor: "rgba(110, 110, 110, 0.658)",
+            color: "#fff",
+            fontFamily: "monospace",
+            marginTop: "3vh",
+            paddingRight: "5px",
+          }}
+        >
+          <p>
+            Canvas Height:{" "}
+            <input
+              onChange={(event) => {
+                setCanvasHeight({
+                  value: JSON.parse(event.target.value),
+                });
+              }}
+            />
+            &nbsp; px &nbsp;Canvas Width:{" "}
+            <input
+              onChange={(event) => {
+                setCanvasWidth({
+                  value: JSON.parse(event.target.value),
+                });
+              }}
+            />
+            &nbsp; px
+          </p>
+        </div>
         <div id="content">
           <Items
             onClick={setCurrentElement}
             files={props.folderStructure}
             hashedFolder={props.hashedElements}
-            imageHeight={imageHeight}
-            imageWidth={imageWidth}
+            imageHeight={canvasHeight.value}
+            imageWidth={canvasWidth.value}
             setCoord={setCoord}
             parent={parentRef}
           />
@@ -160,11 +191,10 @@ export const Page = (props) => {
             backgroundColor: "rgba(110, 110, 110, 0.658)",
             color: "#fff",
             fontFamily: "monospace",
-            marginTop: "-5vh",
+            marginTop: "-11vh",
             paddingRight: "5px",
           }}
         >
-          {" "}
           <p>
             Selection: {selection.name} &nbsp; X: {coord.x} Y: {coord.y}
           </p>
@@ -214,7 +244,12 @@ export const Page = (props) => {
               </Button>
             </div>
             <div>
-              <ModalComponent isOpen={open} handleClose={handleClose} />
+              <ModalComponent
+                isOpen={open}
+                handleClose={handleClose}
+                canvasHeight={canvasHeight.value}
+                canvasWidth={canvasWidth.value}
+              />
             </div>
           </div>
         </div>

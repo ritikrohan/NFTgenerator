@@ -1,9 +1,10 @@
 import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import axios from "axios";
-import { Progress } from "reactstrap";
 import { ToastContainer, toast } from "react-toastify";
-import { Button } from "@material-ui/core";
+import { CircularProgress } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import { PhotoCamera } from "@material-ui/icons";
 import "react-toastify/dist/ReactToastify.css";
 
 export function MyDropzone() {
@@ -75,9 +76,15 @@ export function MyDropzone() {
         {isDragActive ? (
           <p style={{ zIndex: 2 }}>Drop the files here ...</p>
         ) : (
-          <p style={{ zIndex: 2 }}>
-            Drag 'n' drop some files here, or click to select files
-          </p>
+          <IconButton
+            color="primary"
+            aria-label="upload picture"
+            component="span"
+            style={{ zIndex: 2, justifyContent: "center", display: "flex" }}
+            size="medium"
+          >
+            <PhotoCamera />
+          </IconButton>
         )}
 
         <div className="form-group">
@@ -95,27 +102,15 @@ export function MyDropzone() {
         </div>
       </div>
       <div
-        className="form-group"
-        style={{ marginTop: "20px", zIndex: 2, width: "30px" }}
+        style={{
+          marginTop: "270px",
+          zIndex: 2,
+          display: "flex",
+          justifyContent: "center",
+        }}
       >
-        <Progress
-          max="100"
-          color="success"
-          value={loaded}
-          style={{ zIndex: 2 }}
-        >
-          <p style={{ margin: "5px" }}> Math.round(loaded, 2)% </p>
-        </Progress>
+        <CircularProgress variant="determinate" value={loaded} />
       </div>
-      <Button
-        variant="contained"
-        color="secondary"
-        size="large"
-        onClick={uploadFile}
-        style={{ zIndex: 2, marginTop: "40px" }}
-      >
-        Upload
-      </Button>
     </div>
   );
 }

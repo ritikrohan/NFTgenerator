@@ -8,17 +8,7 @@ import { MyDropzone } from "./Dropzone";
 import axios from "axios";
 
 export const Selection = () => {
-  const [input1, setInput1] = React.useState({ name: "height", value: 400 });
-  const [input2, setInput2] = React.useState({ name: "width", value: 400 });
-  const { imageRatio, dispatchImageDimension } =
-    React.useContext(ImageDimension);
-
   const handleClick = () => {
-    dispatchImageDimension({
-      type: "update",
-      value: { height: input1.value, width: input2.value },
-    });
-
     window.location.href = "/editing";
   };
 
@@ -32,62 +22,11 @@ export const Selection = () => {
             color: "#fff",
           }}
         >
-          Image Dimension
+          Upload Files
         </h1>
-        <div
-          style={{
-            justifyContent: "center",
-            display: "flex",
-            backgroundColor: "#1313133b",
-            marginRight: "40vw",
-            marginLeft: "40vw",
-            borderRadius: "10px",
-          }}
-        >
-          <div style={{ margin: "10px" }}>
-            <p style={{ fontFamily: "monospace", color: "#fff" }}>Height: </p>
-
-            <TextField
-              size="small"
-              variant="outlined"
-              inputProps={{ style: { textAlign: "center" } }}
-              placeholder="(Px)"
-              defaultValue={400}
-              onChange={(event) => {
-                setInput1({
-                  name: "height",
-                  value: JSON.parse(event.target.value),
-                });
-              }}
-              style={{ zIndex: 2, fontFamily: "monospace", color: "#fff" }}
-            />
-          </div>
-
-          <div style={{ margin: "10px" }}>
-            <p style={{ fontFamily: "monospace", color: "#fff" }}>Width: </p>
-            <div>
-              <TextField
-                size="small"
-                variant="outlined"
-                inputProps={{ style: { textAlign: "center" } }}
-                placeholder="(Px)"
-                defaultValue={400}
-                onChange={(event) => {
-                  setInput2({
-                    name: "width",
-                    value: JSON.parse(event.target.value),
-                  });
-                }}
-                style={{ zIndex: 2, fontFamily: "monospace", color: "#fff" }}
-              />
-            </div>
-          </div>
-        </div>
 
         <div
           style={{
-            display: "flex",
-            justifyContent: "center",
             width: "40vw",
             marginLeft: "30vw",
             height: "50vh",
@@ -98,7 +37,16 @@ export const Selection = () => {
             padding: "10px",
           }}
         >
-          Upload Files
+          <div
+            style={{
+              fontFamily: "monospace",
+              fontSize: "30px",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
+            Click below to Upload Files
+          </div>
           <MyDropzone />
         </div>
 
