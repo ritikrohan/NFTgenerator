@@ -42,13 +42,15 @@ export function MyDropzone() {
       })
       .catch(function (error) {
         toast.info(error);
+        toast.info("Each File should be within 10Mb limit");
+        toast.info("Supported Files: jpg, jpeg, png");
         toast.error("upload fail");
       });
   }, []);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
-    accept: "image/jpeg, image/png",
+    accept: "image/jpeg, image/png,image/jpg",
   });
 
   return (

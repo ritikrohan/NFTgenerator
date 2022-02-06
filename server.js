@@ -19,8 +19,6 @@ require("dotenv").config({ path: "./config.env" });
 
 const db = lowDb(new FileSync("./src/traffic.json"));
 
-var total = 0;
-
 //Here we are configuring express to use body-parser as middle-ware.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -208,7 +206,6 @@ app.post("/submitDetails", (request, response) => {
   console.log("The total Time Taken was : ", seconds);
   const totalUsers = db.get("TotalUsers").value() + 1;
   const totalItems = db.get("TotalItems").value();
-  total = data.total.value;
 
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
@@ -243,22 +240,7 @@ app.get("/uploadCloud", (req, res) => {
   return res.status(200).json("Success");
 });
 
-app.get("/deleteFiles", (req, res) => {
-  let number = total;
-  console.log(total);
-  while (number) {
-    fs.unlink(`./generated/${number}.png`, function (err) {
-      if (err) throw err;
-      console.log("File deleted!");
-    });
-
-    number -= 1;
-  }
-  return res.json("Success");
-});
-
 app.get("/download", function (req, res, next) {
-  // download the file via aws s3 here
   const uuid = req.query.uuid;
 
   s3Actions.uploadFile(`generated/${uuid}.zip`);

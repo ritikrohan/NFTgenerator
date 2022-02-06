@@ -1,22 +1,25 @@
-import { Button } from "@material-ui/core";
 import React, { Component } from "react";
 import axios from "axios";
 import { NavComponent } from "../EditingPage/Navbar";
 import { ToastContainer, toast } from "react-toastify";
+import { Button, CircularProgress } from "@material-ui/core";
 
 import "./style.css";
 
 export const Fluidity = () => {
-  const [isLoading, setLoading] = React.useState(true);
+  const [isLoading, setButtonLoading] = React.useState(true);
+  const [loading, setLoading] = React.useState(false);
 
   const handleClickGenerate = async () => {
     const baseURL = "https://sickalien.store:8443/uploadCloud";
+    setLoading(true);
     const response = await axios
       .get(baseURL, {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
       })
       .then(function (response) {
         setLoading(false);
+        setButtonLoading(false);
         toast.success("upload success");
       })
       .catch(function (error) {
@@ -26,6 +29,7 @@ export const Fluidity = () => {
   };
 
   const handleClickDownload = () => {
+    setLoading(true);
     axios.post("https://sickalien.store:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
@@ -56,6 +60,7 @@ export const Fluidity = () => {
       link.click();
 
       window.location.href = "/final";
+      setLoading(false);
     });
   };
 
@@ -96,6 +101,7 @@ export const Fluidity = () => {
             color="secondary"
             size="large"
             onClick={handleClickGenerate}
+            disabled={loading}
           >
             Generate Link
           </Button>
@@ -105,10 +111,16 @@ export const Fluidity = () => {
             color="secondary"
             size="large"
             onClick={handleClickDownload}
+            disabled={loading}
           >
             Download
           </Button>
         )}
+      </div>
+      <div
+        style={{ display: "flex", justifyContent: "center", marginTop: "10vh" }}
+      >
+        {loading && <CircularProgress />}
       </div>
       <div className="form-group">
         <ToastContainer
