@@ -65,7 +65,10 @@ var storage = multer.diskStorage({
 const fields = [];
 var filePaths = new Set();
 
-var upload = multer({ storage: storage }).fields(fields);
+var upload = multer({
+  limits: { fileSize: 10485760 },
+  storage: storage,
+}).fields(fields);
 
 app.post("/uploadFiles", (req, res) => {
   upload(req, res, function (err) {
@@ -73,6 +76,17 @@ app.post("/uploadFiles", (req, res) => {
       console.log(err);
       return res.status(500).json(err);
     } else if (err) {
+      // fs.rmdir(
+      //   `./src/EditingPage/layers/${uuid}`,
+      //   { recursive: true },
+      //   (err) => {
+      //     if (err) {
+      //       return console.log("error occurred in deleting directory", err);
+      //     }
+
+      //     console.log("Directory deleted successfully");
+      //   }
+      // );
       console.log(err);
       return res.status(500).json(err);
     }

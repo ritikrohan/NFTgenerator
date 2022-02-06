@@ -1,5 +1,7 @@
 ** Server Issues -- ASK *******
 
+If file size exceeds the script fails but folder is created
+
 Remove Global variables in server.js and pass in req.
 
 100% Completion -- polling
@@ -44,10 +46,6 @@ Low
  --minifify js 
 
 
-Fixes (FYI):
+Fixes:
 if mongoDB is on VPN it wont connect 
-
-
-
-Dropzone file.path and then use fields in backend
 
