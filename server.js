@@ -242,9 +242,7 @@ app.get("/compress", (req, res) => {
 app.get("/upload", (req, res, next) => {
   const uuid = req.query.uuid;
 
-  if (s3Actions.uploadFile(`generated/${uuid}.zip`)) {
-    return res.status(200).json("Success");
-  }
+  s3Actions.uploadFile(`generated/${uuid}.zip`, res);
 });
 
 app.get("/resolveFiles", function (req, res, next) {
@@ -254,6 +252,8 @@ app.get("/resolveFiles", function (req, res, next) {
     if (err) throw err;
     console.log("File deleted!");
   });
+
+  return res.status(200).json("Success");
 });
 
 app.listen(port, () => {

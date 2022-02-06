@@ -5,11 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 import { Button, CircularProgress } from "@material-ui/core";
 
 import "./style.css";
+import { FinalModalComponent } from "./finalModal";
 
 export const Fluidity = () => {
   const [isLoading, setButtonLoading] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
   const [isUploaded, setIsUploaded] = React.useState(false);
+  const [finalModal, setFinalModal] = React.useState(false);
 
   const handleClickGenerate = async () => {
     const baseURL = "https://sickalien.store:8443/compress";
@@ -29,12 +31,12 @@ export const Fluidity = () => {
       });
   };
 
-  const handleClickDownload = async () => {
+  const handleClickDownload = () => {
     setLoading(true);
     axios.post("https://sickalien.store:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
-    await axios
+    axios
       .get("https://sickalien.store:8443/upload", {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
       })
@@ -63,14 +65,13 @@ export const Fluidity = () => {
         link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
         document.body.appendChild(link);
         link.click();
-        setLoading(false);
       });
       axios
         .get("https://sickalien.store:8443/resolveFiles", {
           params: { uuid: JSON.parse(sessionStorage.uuid) },
         })
         .then(function (response) {
-          window.location.href = "/final";
+          setFinalModal(true);
         })
         .catch(function (error) {
           window.location.href = "/final";
@@ -159,6 +160,9 @@ export const Fluidity = () => {
           draggable
           pauseOnHover
         />
+      </div>
+      <div>
+        <FinalModalComponent isOpen={finalModal} />
       </div>
     </div>
   );
