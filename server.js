@@ -9,7 +9,6 @@ const FileSync = require("lowdb/adapters/FileSync");
 const s3Actions = require("./s3Actions");
 var multer = require("multer");
 const archiver = require("archiver");
-const AWS = require("aws-sdk");
 
 var path = require("path");
 
@@ -131,7 +130,6 @@ app.post("/submitDetails", (request, response) => {
   const tree = dirTree(`src/EditingPage/layers/${uuid}`);
   const width = data.canvasWidth;
   const height = data.canvasHeight;
-
   const canvas = createCanvas(width, height);
   const context = canvas.getContext("2d", {
     patternQuality: "bilinear",
@@ -171,7 +169,6 @@ app.post("/submitDetails", (request, response) => {
 
   if (fs.existsSync(`generated/${uuid}`) === false) {
     fs.mkdirSync(`generated/${uuid}`, { recursive: true });
-    console.log("Ho gya");
   }
 
   while (values) {
@@ -195,9 +192,13 @@ app.post("/submitDetails", (request, response) => {
 
       if (tree.children.length === index + 1) {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        if (hash === data.total.value) {
+          return response.json("Success").status(200);
+        }
         hash += 1;
       }
     });
+
     hash += 1;
     values -= 1;
   }
@@ -209,11 +210,9 @@ app.post("/submitDetails", (request, response) => {
 
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
-
-  return response.json("Success");
 });
 
-app.get("/uploadCloud", (req, res) => {
+app.get("/compress", (req, res) => {
   const uuid = req.query.uuid;
   const output = fs.createWriteStream(`generated/${uuid}.zip`);
   const archive = archiver("zip");
@@ -240,10 +239,16 @@ app.get("/uploadCloud", (req, res) => {
   return res.status(200).json("Success");
 });
 
-app.get("/download", function (req, res, next) {
+app.get("/upload", (req, res, next) => {
   const uuid = req.query.uuid;
 
-  s3Actions.uploadFile(`generated/${uuid}.zip`);
+  if (s3Actions.uploadFile(`generated/${uuid}.zip`)) {
+    return res.status(200).json("Success");
+  }
+});
+
+app.get("/resolveFiles", function (req, res, next) {
+  const uuid = req.query.uuid;
 
   fs.unlink(`./generated/${uuid}.zip`, function (err) {
     if (err) throw err;

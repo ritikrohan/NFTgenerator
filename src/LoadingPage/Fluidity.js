@@ -12,7 +12,7 @@ export const Fluidity = () => {
   const [isUploaded, setIsUploaded] = React.useState(false);
 
   const handleClickGenerate = async () => {
-    const baseURL = "https://sickalien.store:8443/uploadCloud";
+    const baseURL = "https://sickalien.store:8443/compress";
     setLoading(true);
     const response = await axios
       .get(baseURL, {
@@ -35,7 +35,7 @@ export const Fluidity = () => {
       uuid: JSON.parse(sessionStorage.uuid),
     });
     await axios
-      .get("https://sickalien.store:8443/download", {
+      .get("https://sickalien.store:8443/upload", {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
       })
       .then(function (response) {
@@ -63,10 +63,20 @@ export const Fluidity = () => {
         link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
         document.body.appendChild(link);
         link.click();
-
-        window.location.href = "/final";
         setLoading(false);
       });
+      axios
+        .get("https://sickalien.store:8443/resolveFiles", {
+          params: { uuid: JSON.parse(sessionStorage.uuid) },
+        })
+        .then(function (response) {
+          window.location.href = "/final";
+        })
+        .catch(function (error) {
+          window.location.href = "/final";
+          toast.info(error);
+          toast.error("Something went wrong!");
+        });
     }
   }, [isUploaded]);
 
