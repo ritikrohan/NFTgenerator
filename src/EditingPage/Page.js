@@ -9,6 +9,7 @@ import TreesTemp from "./FolderStructure";
 import { Button, Input } from "@material-ui/core";
 import "./Page.css";
 import { ModalComponent } from "./Modal";
+import { LoadingModalComponent } from "./loadingModal";
 
 export const Page = (props) => {
   const { objects, dispatch1 } = React.useContext(ObjectContext);
@@ -16,6 +17,7 @@ export const Page = (props) => {
   const { total, dispatch3 } = React.useContext(NumberOfCopies);
   const [totalCopies, setTotalCopies] = React.useState({ value: 0 });
   const [open, setOpen] = React.useState(false);
+  const [loadingModal, setLoadingModal] = React.useState(false);
   const [coord, setCoor] = React.useState({ x: 0, y: 0 });
   const [canvasHeight, setCanvasHeight] = React.useState({
     value: 400,
@@ -114,6 +116,10 @@ export const Page = (props) => {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const openLoadingModal = () => {
+    setLoadingModal(true);
   };
 
   return (
@@ -249,7 +255,11 @@ export const Page = (props) => {
                 handleClose={handleClose}
                 canvasHeight={canvasHeight.value}
                 canvasWidth={canvasWidth.value}
+                openLoadingModal={openLoadingModal}
               />
+            </div>
+            <div>
+              <LoadingModalComponent isOpen={loadingModal} />
             </div>
           </div>
         </div>

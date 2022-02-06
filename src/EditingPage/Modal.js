@@ -35,16 +35,16 @@ export const ModalComponent = (props) => {
       canvasHeight: props.canvasHeight,
       canvasWidth: props.canvasWidth,
     };
+    props.openLoadingModal();
     axios
       .post("https://sickalien.store:8443/submitDetails", data)
       .then(function (response) {
+        window.location.href = "/loading";
         console.log(response);
       })
       .catch(function (error) {
         console.log(error);
       });
-
-    window.location.href = "/loading";
   };
   return (
     <div>

@@ -9,6 +9,7 @@ import "./style.css";
 export const Fluidity = () => {
   const [isLoading, setButtonLoading] = React.useState(true);
   const [loading, setLoading] = React.useState(false);
+  const [isUploaded, setIsUploaded] = React.useState(false);
 
   const handleClickGenerate = async () => {
     const baseURL = "https://sickalien.store:8443/uploadCloud";
@@ -28,41 +29,46 @@ export const Fluidity = () => {
       });
   };
 
-  const handleClickDownload = () => {
+  const handleClickDownload = async () => {
     setLoading(true);
     axios.post("https://sickalien.store:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
-    axios
+    await axios
       .get("https://sickalien.store:8443/download", {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
       })
       .then(function (response) {
-        toast.success("Download Success!! :D");
+        setIsUploaded(true);
       })
       .catch(function (error) {
         toast.info(error);
         toast.error("Download failed!! :(");
       });
-
-    axios({
-      url: `https://nftcodebucket.s3.us-west-1.amazonaws.com/generated/${JSON.parse(
-        sessionStorage.uuid
-      )}.zip`, //your url
-      method: "GET",
-      responseType: "blob", // important
-    }).then((response) => {
-      const url = window.URL.createObjectURL(new Blob([response.data]));
-      const link = document.createElement("a");
-      link.href = url;
-      link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
-      document.body.appendChild(link);
-      link.click();
-
-      window.location.href = "/final";
-      setLoading(false);
-    });
   };
+
+  React.useEffect(() => {
+    if (isUploaded) {
+      axios({
+        url: `https://nftcodebucket.s3.us-west-1.amazonaws.com/generated/${JSON.parse(
+          sessionStorage.uuid
+        )}.zip`, //your url
+        method: "GET",
+        responseType: "blob", // important
+      }).then((response) => {
+        toast.success("Download Success!! :D");
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement("a");
+        link.href = url;
+        link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
+        document.body.appendChild(link);
+        link.click();
+
+        window.location.href = "/final";
+        setLoading(false);
+      });
+    }
+  }, [isUploaded]);
 
   return (
     <div className="trans">
@@ -118,9 +124,18 @@ export const Fluidity = () => {
         )}
       </div>
       <div
-        style={{ display: "flex", justifyContent: "center", marginTop: "10vh" }}
+        style={{ display: "flex", justifyContent: "center", marginTop: "2vh" }}
       >
-        {loading && <CircularProgress />}
+        {loading && (
+          <div className="spinner-box">
+            <div className="configure-border-1">
+              <div className="configure-core"></div>
+            </div>
+            <div className="configure-border-2">
+              <div className="configure-core"></div>
+            </div>
+          </div>
+        )}
       </div>
       <div className="form-group">
         <ToastContainer
