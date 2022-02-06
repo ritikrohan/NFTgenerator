@@ -32,13 +32,8 @@ export const ThreeData = () => {
     window.location.href = "/selection";
   };
   return (
-    <div>
+    <div style={{ backgroundColor: "#000" }}>
       <div>
-        <div className="stars" />
-        <div className="twinkling" />
-        <div id="stars" />
-        <div id="stars2" />
-        <div id="stars3" />
         <div style={{ zIndex: 3 }}>
           <NavHomePage
             setAboutOpen={setAboutOpen}

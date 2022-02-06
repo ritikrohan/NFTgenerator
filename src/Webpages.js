@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 
 import { EditingPage } from "./EditingPage/EditingPage";
+import { Error } from "./ErrorPage/Error.js";
 import { Fluidity } from "./LoadingPage/Fluidity";
 import { ThreeData } from "./ThreeDIntro.js/page";
 import "./EditingPage/styles.css";
@@ -21,6 +22,7 @@ export const Webpages = () => {
         <Route path="/selection" element={<Selection />} />
         <Route path="/editing" element={<EditingPage />} />
         <Route path="/loading" element={<Fluidity />} />
+        <Route path="/error" element={<Error />} />
       </Routes>
     </Router>
   );
