@@ -28,6 +28,7 @@ export function MyDropzone() {
         console.log(response);
       })
       .catch(function (error) {
+        window.location.href = "/error";
         console.log(error);
       });
 

@@ -43,6 +43,7 @@ export const ModalComponent = (props) => {
         console.log(response);
       })
       .catch(function (error) {
+        window.location.href = "/error";
         console.log(error);
       });
   };
