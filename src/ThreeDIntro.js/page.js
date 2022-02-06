@@ -27,7 +27,7 @@ export const ThreeData = () => {
     const ID = { uuid: uuidv4() };
     sessionStorage.setItem("uuid", JSON.stringify(ID.uuid));
 
-    axios.post("https://sickalien.store:8443/saveID", ID);
+    axios.post("http://localhost:8443/saveID", ID);
 
     window.location.href = "/selection";
   };

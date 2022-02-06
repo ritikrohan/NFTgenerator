@@ -14,7 +14,7 @@ export const Fluidity = () => {
   const [finalModal, setFinalModal] = React.useState(false);
 
   const handleClickGenerate = async () => {
-    const baseURL = "https://sickalien.store:8443/compress";
+    const baseURL = "http://localhost:8443/compress";
     setLoading(true);
     const response = await axios
       .get(baseURL, {
@@ -23,26 +23,25 @@ export const Fluidity = () => {
       .then(function (response) {
         setLoading(false);
         setButtonLoading(false);
-        toast.success("upload success");
+        setIsUploaded(true);
+        toast.success("Compresssion success");
       })
       .catch(function (error) {
         toast.info(error);
-        toast.error("upload fail");
+        toast.error("Compression fail");
       });
   };
 
   const handleClickDownload = () => {
     setLoading(true);
-    axios.post("https://sickalien.store:8443/deleteLocalFiles", {
+    axios.post("http://localhost:8443/deleteLocalFiles", {
       uuid: JSON.parse(sessionStorage.uuid),
     });
     axios
-      .get("https://sickalien.store:8443/upload", {
+      .get("http://localhost:8443/upload", {
         params: { uuid: JSON.parse(sessionStorage.uuid) },
       })
-      .then(function (response) {
-        setIsUploaded(true);
-      })
+      .then(function (response) {})
       .catch(function (error) {
         toast.info(error);
         toast.error("Download failed!! :(");
@@ -51,23 +50,23 @@ export const Fluidity = () => {
 
   React.useEffect(() => {
     if (isUploaded) {
-      axios({
-        url: `https://nftcodebucket.s3.us-west-1.amazonaws.com/generated/${JSON.parse(
-          sessionStorage.uuid
-        )}.zip`, //your url
-        method: "GET",
-        responseType: "blob", // important
-      }).then((response) => {
-        toast.success("Download Success!! :D");
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement("a");
-        link.href = url;
-        link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
-        document.body.appendChild(link);
-        link.click();
-      });
+      // axios({
+      //   url: `randomS3URL${JSON.parse(
+      //     sessionStorage.uuid
+      //   )}.zip`, //your url
+      //   method: "GET",
+      //   responseType: "blob", // important
+      // }).then((response) => {
+      //   toast.success("Download Success!! :D");
+      //   const url = window.URL.createObjectURL(new Blob([response.data]));
+      //   const link = document.createElement("a");
+      //   link.href = url;
+      //   link.setAttribute("download", "YourAwesomeFile.zip"); //or any other extension
+      //   document.body.appendChild(link);
+      //   link.click();
+      // });
       axios
-        .get("https://sickalien.store:8443/resolveFiles", {
+        .get("http://localhost:8443/resolveFiles", {
           params: { uuid: JSON.parse(sessionStorage.uuid) },
         })
         .then(function (response) {
@@ -80,6 +79,10 @@ export const Fluidity = () => {
         });
     }
   }, [isUploaded]);
+
+  const handleClose = () => {
+    setFinalModal(false);
+  };
 
   return (
     <div className="trans">
@@ -112,27 +115,15 @@ export const Fluidity = () => {
           marginTop: "50px",
         }}
       >
-        {isLoading ? (
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={handleClickGenerate}
-            disabled={loading}
-          >
-            Generate Link
-          </Button>
-        ) : (
-          <Button
-            variant="contained"
-            color="secondary"
-            size="large"
-            onClick={handleClickDownload}
-            disabled={loading}
-          >
-            Download
-          </Button>
-        )}
+        <Button
+          variant="contained"
+          color="secondary"
+          size="large"
+          onClick={handleClickGenerate}
+          disabled={loading}
+        >
+          Generate Link
+        </Button>
       </div>
       <div
         style={{ display: "flex", justifyContent: "center", marginTop: "2vh" }}
@@ -162,7 +153,7 @@ export const Fluidity = () => {
         />
       </div>
       <div>
-        <FinalModalComponent isOpen={finalModal} />
+        <FinalModalComponent isOpen={finalModal} handleClose={handleClose} />
       </div>
     </div>
   );

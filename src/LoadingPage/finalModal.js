@@ -42,7 +42,7 @@ export const FinalModalComponent = (props) => {
                 color: "#fff",
               }}
             >
-              <h2>Download will begin shortly...</h2>
+              <h2>Check Generated Folder...</h2>
             </div>
             <div style={{ display: "flex", justifyContent: "center" }}>
               <div class="spinner-box">

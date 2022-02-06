@@ -23,7 +23,7 @@ export function MyDropzone() {
       });
 
     axios
-      .post("https://sickalien.store:8443/uploadPath", folderPath)
+      .post("http://localhost:8443/uploadPath", folderPath)
       .then(function (response) {
         console.log(response);
       })
@@ -33,7 +33,7 @@ export function MyDropzone() {
       });
 
     axios
-      .post("https://sickalien.store:8443/uploadFiles", formData, {
+      .post("http://localhost:8443/uploadFiles", formData, {
         onUploadProgress: (ProgressEvent) => {
           setLoaded((ProgressEvent.loaded / ProgressEvent.total) * 100);
         },

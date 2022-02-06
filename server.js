@@ -248,10 +248,10 @@ app.get("/upload", (req, res, next) => {
 app.get("/resolveFiles", function (req, res, next) {
   const uuid = req.query.uuid;
 
-  fs.unlink(`./generated/${uuid}.zip`, function (err) {
-    if (err) throw err;
-    console.log("File deleted!");
-  });
+  // fs.unlink(`./generated/${uuid}.zip`, function (err) {
+  //   if (err) throw err;
+  //   console.log("File deleted!");
+  // });
 
   return res.status(200).json("Success");
 });

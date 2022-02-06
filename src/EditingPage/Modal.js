@@ -37,7 +37,7 @@ export const ModalComponent = (props) => {
     };
     props.openLoadingModal();
     axios
-      .post("https://sickalien.store:8443/submitDetails", data)
+      .post("http://localhost:8443/submitDetails", data)
       .then(function (response) {
         window.location.href = "/loading";
         console.log(response);
