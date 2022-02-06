@@ -8,7 +8,6 @@ import {
 } from "react-router-dom";
 
 import { EditingPage } from "./EditingPage/EditingPage";
-import FinalPage from "./FInalPage/Glitch"; //NEED to Correct Later
 import { Fluidity } from "./LoadingPage/Fluidity";
 import { ThreeData } from "./ThreeDIntro.js/page";
 import "./EditingPage/styles.css";
@@ -22,7 +21,6 @@ export const Webpages = () => {
         <Route path="/selection" element={<Selection />} />
         <Route path="/editing" element={<EditingPage />} />
         <Route path="/loading" element={<Fluidity />} />
-        <Route path="/final" element={<FinalPage />} />
       </Routes>
     </Router>
   );

@@ -43,6 +43,7 @@ export const Selection = () => {
               fontSize: "30px",
               display: "flex",
               justifyContent: "center",
+              color: "#000",
             }}
           >
             Click below to Upload Files

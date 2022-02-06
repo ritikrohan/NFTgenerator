@@ -84,6 +84,7 @@ export const ThreeData = () => {
             style={{
               zIndex: 3,
               marginTop: "5vh",
+              color: "#000",
             }}
           >
             <span aria-hidden="true">Sick Alien</span>
