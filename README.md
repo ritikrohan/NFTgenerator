@@ -36,6 +36,7 @@ To find more about us -
 
 ... Many More
 
+# Instructions
 
 # Installation 🛠️
 
@@ -57,4 +58,18 @@ Run this command if you have node installed.
 ```
 npm install
 ```
+
+***************Do make sure you have the latest version of Node installed:*******************
+
+If not download from here - https://nodejs.org/en/download/
+
+
+
+# Running the APP  🛠️
+
+```
+npm run devall
+```
+
+Follow the instructions on the Page
 
