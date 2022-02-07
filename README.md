@@ -17,6 +17,8 @@ To find more about us -
 
 🐦 Twitter
 
+🔥 [Instagram](https://www.instagram.com/nft_art_paradise/)
+
 
 # Tutorial
 
