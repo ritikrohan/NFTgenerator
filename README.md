@@ -15,7 +15,7 @@ To find more about us -
 
 👄 Discord
 
-🐦 Twitter
+🐦 [Twitter](https://twitter.com/bitrix_01_09)
 
 🔥 [Instagram](https://www.instagram.com/nft_art_paradise/)
 
