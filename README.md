@@ -9,9 +9,9 @@ Get a free OctoAliens NFT on joining our discord. We building a fam 😇.
 To find more about us - 
 
 
-👽 (Sick Alien Official Site)[https://sickalien.store]
+👽 [https://sickalien.store](Sick Alien Official Site)
 
-📺 (YouTube)[https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ]
+📺 [https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ](YouTube)
 
 👄 Discord
 
