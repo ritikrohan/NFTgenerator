@@ -30,8 +30,7 @@ To find more about us -
 
 # To This :-
 ![494](https://user-images.githubusercontent.com/34533393/152755001-c27f450e-d7d5-432c-8da8-a81da4bc2412.png)
-
-![17](https://user-images.githubusercontent.com/34533393/152755724-d0361dda-1c3b-4e74-a4cc-94cb04cd432b.png)
+![174](https://user-images.githubusercontent.com/34533393/152755871-07ecad78-8d8b-48a3-b52c-cf3c24dd853a.png)
 
 # Installation 🛠️
 
