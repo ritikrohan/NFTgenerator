@@ -43,7 +43,7 @@ To find more about us -
 If you want to clone this project - 
 
 ```
-git clone https://github.com/HashLips/hashlips_art_engine.git
+https://github.com/ritikrohan/NFTgenerator.git
 ```
 
 Go to the main branch and run this command if you have yarn installed.
