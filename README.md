@@ -22,5 +22,23 @@ To find more about us -
 
 # Tutorial
 
+# Installation 🛠️
 
+If you want to clone this project - 
+
+```
+git clone https://github.com/HashLips/hashlips_art_engine.git
+```
+
+Go to the main branch and run this command if you have yarn installed.
+
+```
+yarn install
+```
+
+Run this command if you have node installed.
+
+```
+npm install
+```
 
