@@ -11,6 +11,8 @@ To find more about us -
 
 👽 [Sick Alien Official Site](https://sickalien.store)
 
+☕ [Buy me a coffee :)](https://www.buymeacoffee.com/bitrix)
+
 📺 [YouTube](https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ)
 
 👄 Discord
