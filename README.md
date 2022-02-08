@@ -26,13 +26,13 @@ To find more about us -
 # Turns this :- 
 
 <img width="1679" alt="Screenshot 2022-02-07 at 2 15 15 PM" src="https://user-images.githubusercontent.com/34533393/152754666-2b503513-f8c1-4d63-b2ef-49d45f24f42f.png">
+<img width="1299" alt="Screenshot 2022-02-07 at 2 15 45 PM" src="https://user-images.githubusercontent.com/34533393/152754700-c0078987-1d6c-4ad5-91e3-025e0580122b.png">
 
-![unnamed_400x400](https://user-images.githubusercontent.com/34533393/153055242-415d7286-da39-42c6-b514-262ed98f5f32.jpg)
 
 
 # To This :-
 ![494](https://user-images.githubusercontent.com/34533393/152755001-c27f450e-d7d5-432c-8da8-a81da4bc2412.png)
-![unnamed](https://user-images.githubusercontent.com/34533393/152760904-958cd4a0-ca0a-475f-9936-bc3c7a935ae0.jpg)
+![unnamed_400x400](https://user-images.githubusercontent.com/34533393/153055242-415d7286-da39-42c6-b514-262ed98f5f32.jpg)
 
 ... Many More
 
