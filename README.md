@@ -15,7 +15,7 @@ To find more about us -
 
 📺 [YouTube](https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ)
 
-🐙 Discord
+🐙 [Discord](https://discord.gg/qKX2B3JF)
 
 🐦 [Twitter](https://twitter.com/bitrix_01_09)
 
