@@ -1,4 +1,4 @@
-# Welcome to SickAlien X NFT Generator
+# Welcome to SickAlien X NFT Art Generator
 
 
 # Our NFT Generator is the best Interactive tool to make NFTs.
