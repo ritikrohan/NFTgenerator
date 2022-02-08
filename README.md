@@ -63,6 +63,28 @@ npm install
 
 If not download from here - https://nodejs.org/en/download/
 
+Documentation
+
+# Before you start, make sure your file structure looks something like this:
+
+```
+YOUR_PROJECT/  
+├─ images/  
+│  ├─ trait1_name/  
+│  │  ├─ file1.png  
+│  │  ├─ file2.png  
+│  │  ├─ file3.png  
+│  │  ├─ ...  
+│  ├─ trait2_name/  
+│  │  ├─ file4.png  
+│  │  ├─ file5.png  
+│  │  ├─ ...  
+│  ├─ trait3_name/  
+│  │  ├─ file6.png  
+│  │  ├─ ...  
+│  ├─ ...  
+
+```
 
 
 # Running the APP  🛠️
