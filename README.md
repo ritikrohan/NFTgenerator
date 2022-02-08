@@ -64,7 +64,8 @@ npm install
 
 If not download from here - https://nodejs.org/en/download/
 
-Documentation
+### Documentation for installation on Windows: 
+https://github.com/Automattic/node-canvas/wiki/Installation:-Windows
 
 # Before you start, make sure your file structure looks something like this:
 
