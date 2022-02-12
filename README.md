@@ -64,11 +64,11 @@ Youtube Tutorial :- [Tutorial](https://www.youtube.com/watch?v=aN6-oUXcuPo&t=1s)
 ![494](https://user-images.githubusercontent.com/34533393/152755001-c27f450e-d7d5-432c-8da8-a81da4bc2412.png)
 ![unnamed_400x400](https://user-images.githubusercontent.com/34533393/153055242-415d7286-da39-42c6-b514-262ed98f5f32.jpg)
 
-... Many More
+### ...
 
 # Installation 🛠️
 
-*************** Do make sure you have the latest version of Node installed *******************
+### *************** Do make sure you have the latest version of Node installed *******************
 
 If not download from here - https://nodejs.org/en/download/
 
