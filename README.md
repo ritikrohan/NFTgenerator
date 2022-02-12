@@ -76,7 +76,7 @@ If not download from here - https://nodejs.org/en/download/
 # 🚧 Compatibility 🚧
  - Mac ✅
  - Linux ✅
- - You need to install extra dependencies for Windows ❗
+ - You need to install extra dependencies for Windows ⚠️
 
 
 For Windows check out extra installation steps involved.
