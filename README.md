@@ -34,6 +34,7 @@ To find more about us -
 
  - Interactive UI ✅
  - Drag and Drop Selection ✅
+ - Rarity Description under your control ✅
  - Canvas Resolution in your control ✅
  - Layers are resizable ✅
  - Layer Ordering in your control ✅
