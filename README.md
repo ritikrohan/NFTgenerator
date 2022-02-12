@@ -157,3 +157,8 @@ npm run devall
 # Step 4 
 
  - Enjoy the Result 🥇🏆
+
+# ****************** Known Issues *********************
+
+-  Sometimes while uploading very large files it might crash on next page just close the tab and try again it will work , cheers ! 
+
