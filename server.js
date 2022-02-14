@@ -140,6 +140,10 @@ app.post("/submitDetails", (request, response) => {
   const width = data.canvasWidth;
   const height = data.canvasHeight;
   const canvas = createCanvas(width, height);
+  const metadata = [];
+  const name = data.name;
+  const description = data.description;
+  const URL = data.URL;
   const context = canvas.getContext("2d", {
     patternQuality: "bilinear",
     quality: "bilinear",
@@ -182,6 +186,9 @@ app.post("/submitDetails", (request, response) => {
 
   while (values) {
     var hash = 0;
+    let objRarity = 0;
+    let totalRarity = 0;
+
     // eslint-disable-next-line no-loop-func
     tree.children.forEach(async (item, index) => {
       const weights = [];
@@ -191,6 +198,9 @@ app.post("/submitDetails", (request, response) => {
 
       const idx = wr(weights);
       const obj = item.children[idx];
+
+      objRarity += item.children[idx].rarity ? item.children[idx].rarity : 50;
+      totalRarity += 100;
 
       const image = await loadImage(`./${obj.path}`);
 
@@ -207,8 +217,38 @@ app.post("/submitDetails", (request, response) => {
       if (tree.children.length === index + 1) {
         context.clearRect(0, 0, canvas.width, canvas.height);
         if (hash === data.total.value) {
+          const jsonContent = JSON.stringify(metadata);
+          fs.writeFile(
+            `generated/${uuid}/metadata.json`,
+            jsonContent,
+            "utf8",
+            function (err) {
+              if (err) {
+                console.log(
+                  "An error occured while writing JSON Object to File."
+                );
+                return console.log(err);
+              }
+
+              console.log("JSON file has been saved.");
+            }
+          );
           return response.json("Success").status(200);
         }
+
+        const rarityPercentage = (objRarity / totalRarity) * 100;
+
+        // Metadata Generation
+        const dataImage = {
+          name: `${name} #${hash}`,
+          description: description,
+          external_link: URL,
+          traits: {
+            rarity: rarityPercentage,
+          },
+        };
+
+        metadata.push(dataImage);
         hash += 1;
       }
     });
@@ -221,7 +261,6 @@ app.post("/submitDetails", (request, response) => {
   console.log("The total Time Taken was : ", seconds);
   const totalUsers = db.get("TotalUsers").value() + 1;
   const totalItems = db.get("TotalItems").value();
-
   db.set("TotalUsers", totalUsers).write();
   db.set("TotalItems", data.total.value + totalItems).write();
 });
