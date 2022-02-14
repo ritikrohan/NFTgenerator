@@ -31,7 +31,7 @@ export default function TreesTempRarity(props) {
           color: "#fff",
         }}
       >
-        Folder Structure
+        Rarity Control
       </div>
       <List>
         <TreeView

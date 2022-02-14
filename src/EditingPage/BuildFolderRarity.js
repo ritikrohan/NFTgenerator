@@ -18,8 +18,6 @@ export const FoldersRarity = (props) => {
     });
   };
 
-  // console.log(folderStructure);
-
   return (
     <div>
       {children &&

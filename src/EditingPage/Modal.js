@@ -76,14 +76,20 @@ export const ModalComponent = (props) => {
         <Fade in={props.isOpen}>
           <Box sx={style}>
             {!next && (
-              <div>
+              <div
+                style={{
+                  backgroundColor: "rgba(255, 255, 255, 0.336)",
+                  padding: "10px",
+                  borderRadius: "20px",
+                }}
+              >
                 <div
                   style={{
                     justifyContent: "center",
                     display: "flex",
                     fontWeight: "bold",
                     fontSize: "20px",
-                    fontFamily: "Times New Roman, serif",
+                    fontFamily: "monospace",
                   }}
                 >
                   REVIEW
@@ -94,9 +100,10 @@ export const ModalComponent = (props) => {
                     display: "flex",
                     fontSize: "20px",
                     fontWeight: 500,
-                    fontFamily: "Times New Roman, serif",
+                    fontFamily: "monospace",
                     marginTop: "30px",
-                    color: "#fff",
+                    color: "#000",
+                    marginLeft: "1%",
                   }}
                 >
                   NFT Copies base name :
@@ -110,6 +117,8 @@ export const ModalComponent = (props) => {
                     setName(event.target.value);
                   }}
                   style={{
+                    justifyContent: "flex-start",
+                    display: "flex",
                     width: "500px",
                     marginLeft: "10px",
                     borderRadius: "10px",
@@ -121,9 +130,40 @@ export const ModalComponent = (props) => {
                     display: "flex",
                     fontSize: "20px",
                     fontWeight: 500,
-                    fontFamily: "Times New Roman, serif",
+                    fontFamily: "monospace",
                     marginTop: "30px",
-                    color: "#fff",
+                    color: "#000",
+                    marginLeft: "1%",
+                  }}
+                >
+                  External Link :
+                </div>
+                <TextField
+                  size="medium"
+                  variant="standard"
+                  inputProps={{ style: { textAlign: "center" } }}
+                  placeholder="URL"
+                  onBlur={(event) => {
+                    setURL(event.target.value);
+                  }}
+                  style={{
+                    justifyContent: "center",
+                    display: "flex",
+                    width: "500px",
+                    marginLeft: "10px",
+                    borderRadius: "10px",
+                  }}
+                />
+                <div
+                  style={{
+                    justifyContent: "flex-start",
+                    display: "flex",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    fontFamily: "monospace",
+                    marginTop: "30px",
+                    color: "#000",
+                    marginLeft: "1%",
                   }}
                 >
                   Description :
@@ -138,34 +178,9 @@ export const ModalComponent = (props) => {
                   }}
                   multiline={true}
                   style={{
-                    width: "600px",
-                    marginLeft: "10px",
-                    borderRadius: "10px",
-                  }}
-                />
-                <div
-                  style={{
                     justifyContent: "flex-start",
                     display: "flex",
-                    fontSize: "20px",
-                    fontWeight: 500,
-                    fontFamily: "Times New Roman, serif",
-                    marginTop: "30px",
-                    color: "#fff",
-                  }}
-                >
-                  External Link :
-                </div>
-                <TextField
-                  size="medium"
-                  variant="standard"
-                  inputProps={{ style: { textAlign: "center" } }}
-                  placeholder="URL"
-                  onBlur={(event) => {
-                    setURL(event.target.value);
-                  }}
-                  style={{
-                    width: "500px",
+                    width: "600px",
                     marginLeft: "10px",
                     borderRadius: "10px",
                   }}
