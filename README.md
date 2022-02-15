@@ -44,6 +44,11 @@ To find more about us -
 ### Cons
  - I didn't find any , did you ? 
  
+# Feedback
+
+Have something awesome in mind.Spit it out directly to me I will definitely make sure your request is reflected ASAP in this project :
+
+[Add your thoughts here](https://forms.gle/QvDFjPjbSNrjYwFp8)
 
 # Complete Tutorial 👇
 
