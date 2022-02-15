@@ -12,7 +12,7 @@ The generative Art engine takes away all the pain of generating NFTs from you.
 Get a free OctoAliens NFT on joining our joining my socials , dont forget to tag me on twitter for a free giveaway ! We building a fam 😇.
 To find more about us - 
 
-👽 [Sick Alien Official Site](https://sickalien.store) - Coming Soon (Work in Progress)
+👽 [Sick Alien Official Site](https://sickalien.store) - Live Now 
 
 ☕ [Buy me a coffee :)](https://www.buymeacoffee.com/bitrix)
 
