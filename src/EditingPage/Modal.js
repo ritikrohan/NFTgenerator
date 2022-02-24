@@ -5,6 +5,7 @@ import { Modal } from "@material-ui/core";
 import { Fade, Button, TextField } from "@material-ui/core";
 import { NumberOfCopies, ObjectContext, TreeContext } from "./EditingPage";
 import { DemoCarousel } from "./Carousel";
+import { ToastContainer, toast } from "react-toastify";
 import axios from "axios";
 
 const style = {
@@ -30,6 +31,7 @@ export const ModalComponent = (props) => {
   const [description, setDescription] = React.useState("");
   const [URL, setURL] = React.useState("");
   const [next, setNext] = React.useState(false);
+  const [code, setCode] = React.useState("");
 
   const handleClick = async () => {
     const data = {
@@ -56,10 +58,28 @@ export const ModalComponent = (props) => {
       });
   };
 
+  const handleFormSubmit = async () => {
+    const data = {
+      hash: code,
+      totalCopies: total,
+    };
+    const response = await axios
+      .post("https://sickalien.store/validate", data)
+      .then(function (res) {
+        setNext(true);
+        toast.success("Secret Code Validated");
+      })
+      .catch(function (error) {
+        toast.info(error);
+        toast.error("Try Again");
+      });
+  };
+
   const handleModalClose = () => {
     setNext(false);
     props.handleClose();
   };
+
   return (
     <div>
       <Modal
@@ -106,7 +126,7 @@ export const ModalComponent = (props) => {
                     marginLeft: "1%",
                   }}
                 >
-                  NFT Copies base name :
+                  NFT Project name :
                 </div>
                 <TextField
                   size="medium"
@@ -136,7 +156,7 @@ export const ModalComponent = (props) => {
                     marginLeft: "1%",
                   }}
                 >
-                  External Link :
+                  External Link (Website):
                 </div>
                 <TextField
                   size="medium"
@@ -187,6 +207,49 @@ export const ModalComponent = (props) => {
                 />
                 <div
                   style={{
+                    justifyContent: "flex-start",
+                    display: "flex",
+                    fontSize: "20px",
+                    fontWeight: 500,
+                    fontFamily: "monospace",
+                    marginTop: "30px",
+                    color: "#000",
+                    marginLeft: "1%",
+                  }}
+                >
+                  <p>Get your Secret Key ={">"}&nbsp;</p>
+                  <a href="https://sickalien.store"> Click Here</a>
+                </div>
+                <div
+                  style={{
+                    maxHeight: "50px",
+                    color: "#fff",
+                    display: "flex",
+                    justifyContent: "flex-start",
+                    marginTop: "20px",
+                  }}
+                >
+                  <TextField
+                    size="small"
+                    variant="outlined"
+                    inputProps={{ style: { textAlign: "center" } }}
+                    placeholder="Secret Code"
+                    multiline={true}
+                    onBlur={(event) => {
+                      setCode(event.target.value);
+                    }}
+                    style={{
+                      justifyContent: "flex-start",
+                      display: "flex",
+                      width: "600px",
+                      marginLeft: "10px",
+                      borderRadius: "10px",
+                      backgroundColor: "#fff",
+                    }}
+                  />
+                </div>
+                <div
+                  style={{
                     justifyContent: "center",
                     display: "flex",
                     marginTop: "30px",
@@ -196,9 +259,7 @@ export const ModalComponent = (props) => {
                     variant="contained"
                     color="secondary"
                     size="large"
-                    onClick={() => {
-                      setNext(true);
-                    }}
+                    onClick={handleFormSubmit}
                   >
                     Next
                   </Button>
@@ -230,6 +291,19 @@ export const ModalComponent = (props) => {
           </Box>
         </Fade>
       </Modal>
+      <div className="form-group">
+        <ToastContainer
+          position="bottom-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
     </div>
   );
 };
