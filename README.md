@@ -12,7 +12,7 @@ The generative Art engine takes away all the pain of generating NFTs from you.
 Get a free OctoAliens NFT on joining our joining my socials , dont forget to tag me on twitter for a free giveaway ! We building a fam 😇.
 To find more about us - 
 
-👽 [Sick Alien Official Site](https://sickalien.store) - Coming Soon (Work in Progress)
+👽 [Sick Alien Official Site](https://sickalien.store) - Live Now 
 
 ☕ [Buy me a coffee :)](https://www.buymeacoffee.com/bitrix)
 
@@ -34,6 +34,7 @@ To find more about us -
 
  - Interactive UI ✅
  - Drag and Drop Selection ✅
+ - Rarity Description under your control ✅
  - Canvas Resolution in your control ✅
  - Layers are resizable ✅
  - Layer Ordering in your control ✅
@@ -43,6 +44,11 @@ To find more about us -
 ### Cons
  - I didn't find any , did you ? 
  
+# Feedback
+
+Have something awesome in mind.Spit it out directly to me I will definitely make sure your request is reflected ASAP in this project :
+
+[Add your thoughts here](https://forms.gle/QvDFjPjbSNrjYwFp8)
 
 # Complete Tutorial 👇
 
@@ -63,11 +69,11 @@ Youtube Tutorial :- [Tutorial](https://www.youtube.com/watch?v=aN6-oUXcuPo&t=1s)
 ![494](https://user-images.githubusercontent.com/34533393/152755001-c27f450e-d7d5-432c-8da8-a81da4bc2412.png)
 ![unnamed_400x400](https://user-images.githubusercontent.com/34533393/153055242-415d7286-da39-42c6-b514-262ed98f5f32.jpg)
 
-... Many More
+### ...
 
 # Installation 🛠️
 
-*************** Do make sure you have the latest version of Node installed *******************
+### *************** Do make sure you have the latest version of Node installed *******************
 
 If not download from here - https://nodejs.org/en/download/
 
@@ -75,7 +81,7 @@ If not download from here - https://nodejs.org/en/download/
 # 🚧 Compatibility 🚧
  - Mac ✅
  - Linux ✅
- - You need to install extra dependencies for Windows ❗
+ - You need to install extra dependencies for Windows ⚠️
 
 
 For Windows check out extra installation steps involved.
@@ -156,3 +162,8 @@ npm run devall
 # Step 4 
 
  - Enjoy the Result 🥇🏆
+
+# ****************** Known Issues *********************
+
+-  Sometimes while uploading very large files it might crash on next page just close the tab and try again it will work , cheers ! 
+
