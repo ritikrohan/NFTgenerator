@@ -218,7 +218,14 @@ export const ModalComponent = (props) => {
                   }}
                 >
                   <p>Get your Secret Key ={">"}&nbsp;</p>
-                  <a href="https://sickalien.store"> Click Here</a>
+                  <a
+                    href="https://sickalien.store"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {" "}
+                    Click Here
+                  </a>
                 </div>
                 <div
                   style={{
