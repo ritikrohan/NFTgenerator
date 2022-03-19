@@ -36,6 +36,7 @@ html,body {
   .landingNavMenu:hover {
     color: rgb(190, 190, 190);
     animation: glow 2s ease-in-out infinite alternate;
+    cursor: pointer;
     /* background-color: #2b2b2b98; */
   }
 

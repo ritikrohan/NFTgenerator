@@ -1,11 +1,13 @@
 import * as React from "react";
+
+import { Button, Fade, TextField } from "@material-ui/core";
+import { NumberOfCopies, ObjectContext, TreeContext } from "./EditingPage";
+import { ToastContainer, toast } from "react-toastify";
+
 import { Backdrop } from "@material-ui/core";
 import { Box } from "@material-ui/core";
-import { Modal } from "@material-ui/core";
-import { Fade, Button, TextField } from "@material-ui/core";
-import { NumberOfCopies, ObjectContext, TreeContext } from "./EditingPage";
 import { DemoCarousel } from "./Carousel";
-import { ToastContainer, toast } from "react-toastify";
+import { Modal } from "@material-ui/core";
 import axios from "axios";
 
 const style = {
@@ -62,6 +64,7 @@ export const ModalComponent = (props) => {
     const data = {
       hash: code,
       totalCopies: total,
+      name: name,
     };
     const response = await axios
       .post("https://sickalien.store/validate", data)
