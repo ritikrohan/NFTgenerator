@@ -202,28 +202,6 @@ export const ModalComponent = (props) => {
                 />
                 <div
                   style={{
-                    justifyContent: "flex-start",
-                    display: "flex",
-                    fontSize: "20px",
-                    fontWeight: 500,
-                    fontFamily: "monospace",
-                    marginTop: "30px",
-                    color: "#000",
-                    marginLeft: "1%",
-                  }}
-                >
-                  <p>Get your Secret Key ={">"}&nbsp;</p>
-                  <a
-                    href="https://sickalien.store"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {" "}
-                    Click Here
-                  </a>
-                </div>
-                <div
-                  style={{
                     maxHeight: "50px",
                     color: "#fff",
                     display: "flex",
