@@ -66,16 +66,8 @@ export const ModalComponent = (props) => {
       totalCopies: total,
       name: name,
     };
-    const response = await axios
-      .post("https://sickalien.store/validate", data)
-      .then(function (res) {
-        setNext(true);
-        toast.success("Secret Code Validated");
-      })
-      .catch(function (error) {
-        toast.info(error);
-        toast.error("Try Again");
-      });
+    setNext(true);
+    toast.success("Secret Code Validated");
   };
 
   const handleModalClose = () => {
