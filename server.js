@@ -165,10 +165,6 @@ app.post("/submitDetails", (request, response) => {
 
   var values = data.total.value;
 
-  if (values > 10000) {
-    return;
-  }
-
   const folderLayers = tree.children;
 
   const finalLayers = [];
