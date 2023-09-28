@@ -16,17 +16,14 @@ To find more about us -
 
 ☕ [Buy me a coffee :)](https://www.buymeacoffee.com/bitrix)
 
-📺 [YouTube](https://www.youtube.com/channel/UCrmnrPLcq6vppDUbA3UhdvQ)
+📺 [YouTube](https://www.youtube.com/@bitrix_ai/videos)
 
 🐙 [Discord](https://discord.gg/HXTzndjq)
 
 🐦 [Twitter](https://twitter.com/bitrix_01_09)
 
-🔥 [Instagram](https://www.instagram.com/sick_alien_club/)
+🔥 [Instagram](https://www.instagram.com/sticks_n_brushes/)
 
-💸 ETH Address [ERC20] - 0x2b2d491559c47406c3d79e0e805f8bfbba699432
-
-🦍 Metamask Wallet Address - 0xB1Ea4256Af8a6B299e80D0168426545B2A4B2696 (Drop me a piece of your collection 😉)
 
 # Why choose us
 
